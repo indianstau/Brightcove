@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <title>Quick Start Plugin Dev</title>
+
+    <head>
+        <link href="plugin_dev.css" rel="stylesheet">
+                <script src="//players.brightcove.net/4005328949001/B1gHFzgYe_default/index.min.js"></script>
+        <script type="text/javascript" src="plugin-dev.js">
+            var options = {
+                "overlayText":"This data supplied at initializtion"
+            }
+            videojs('player').pluginDev(options);
+            
+        </script>
+        <!--JS set var options pam:overlaytext and text-->
+        <!--'player' from JS var call function 'pluginDev'-->
+    </head>
+
+    <body>
+        <video data-video-id="5313241622001" 
+               data-account="4005328949001" 
+               data-player="B1gHFzgYe" 
+               data-embed="default" 
+               data-application-id class="video-js" 
+               controls
+               playsinline
+                width="1350" 
+               height="630"
+               loop="ture"
+               ></video>
+
+
+    </body>
+</html>
