@@ -1,10 +1,10 @@
 /*pluginDev is function name, options is var from html, about 'this' is point to this function*/
-var options = {"overlayText":"This data supplied at initializtion"}
-videojs.plugin('pluginDev', function (options) {
-    var player = this,
+
+videojs.plugin('pluginDev', function () {
+    var player = this,var overlayText = "",
         overlay = document.createElement('p')
     overlay.className = 'vjs-overlay'
-    overlay.innerHTML = options.overlayText
+    overlay.innerHTML = overlayText
     /*options.oeverlayText*/
     /*overlay.innerHTML = "Becoming a plugin developer";*/
     /*from html var options and text*/
