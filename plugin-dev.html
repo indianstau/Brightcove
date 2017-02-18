@@ -5,16 +5,7 @@
 
     <head>
         <link href="plugin_dev.css" rel="stylesheet">
-                <script src="//players.brightcove.net/4005328949001/B1gHFzgYe_default/index.min.js"></script>
-        <script type="text/javascript" src="plugin-dev.js">
-            var options = {
-                "overlayText":"This data supplied at initializtion"
-            }
-            videojs('player').pluginDev(options);
-            
-        </script>
-        <!--JS set var options pam:overlaytext and text-->
-        <!--'player' from JS var call function 'pluginDev'-->
+
     </head>
 
     <body>
@@ -29,7 +20,16 @@
                height="630"
                loop="ture"
                ></video>
-
+                <script src="//players.brightcove.net/4005328949001/B1gHFzgYe_default/index.min.js"></script>
+        <script type="text/javascript" src="plugin-dev.js">
+            /*var options = {
+                "overlayText":"This data supplied at initializtion"
+            }*/
+            videojs('player').pluginDev();
+            
+        </script>
+        <!--JS set var options pam:overlaytext and text-->
+        <!--'player' from JS var call function 'pluginDev'-->
 
     </body>
 </html>
