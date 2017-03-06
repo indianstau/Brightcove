@@ -3,10 +3,11 @@
     position: absolute;
     text-align: center
 }
+/*
 .video-js{
     width:1350px;
     height:645px;    
-}    
+}*/    
 .video-js .vjs-overlay-background {
     background-color: transparent;
     background-color: rgba(225,255,255, 0);
