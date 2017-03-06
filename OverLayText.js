@@ -1,3 +1,6 @@
+videojs.plugin('plugintry',function (options) {
+
+
 videojs('myPlayerID').ready(function() {
     myplayer = this;
    /* console.log('ready event trigger');   debug用*/
@@ -105,4 +108,6 @@ videojs('myPlayerID').ready(function() {
     });//on
 
 });//ready
+    
+});//plugin
 
