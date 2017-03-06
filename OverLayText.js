@@ -1,8 +1,13 @@
+/*plugin 方式*/
+
 videojs.plugin('plugintry',function (options) {
+    var myplayer = this;
 
-
+/*用於加在html上
 videojs('myPlayerID').ready(function() {
     myplayer = this;
+                                                   */
+    
    /* console.log('ready event trigger');   debug用*/
             
    /*https://docs.brightcove.com/en/perform/brightcove-player/guides/adding-captions-to-videos.html   字幕設定*/
@@ -107,7 +112,7 @@ videojs('myPlayerID').ready(function() {
         
     });//on
 
-});//ready
+/* });//ready */
     
 });//plugin
 
