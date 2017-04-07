@@ -1,0 +1,41 @@
+language for E C F sec
+
+sec
+{
+"movieTime":0,
+"movieTime":126,
+"movieTime":284,
+"movieTime":401,
+"movieTime":515,
+"movieTime":650
+}
+
+English
+{
+"moviename1":"Vampire Diaries",
+"moviename2":"Lost Girl",
+"moviename3":"Orange Is the New Black",
+"moviename4":"Orphan Black",
+"moviename5":"Rizzoli & Isles",
+"moviename6":"Teen Wolf"
+}
+
+Chinese
+{
+"moviename1":"吸血鬼日記",
+"moviename2":"妖女迷行",
+"moviename3":"勁爆女子監獄",
+"moviename4":"黑色孤兒",
+"moviename5":"妙女神探",
+"moviename6":"少年狼人"
+}
+
+France
+{
+"moviename1":"Journal d'un vampire",
+"moviename2":"Baiser fatal",
+"moviename3":"L'orange lui va si bien",
+"moviename4":"Sans origine",
+"moviename5":"Rizzoli and Isles",
+"moviename6":"Teen Wolf"
+}
