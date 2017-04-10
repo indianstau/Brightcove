@@ -18,36 +18,36 @@ videojs.plugin('videolist', function () {
         NewDiv2.setAttribute('class','mydropdown');
     
 
-//    var movieN = ["Vampire Diaries","Lost Girl","Orange Is the New Black",
-//                  "Orphan Black","Rizzoli & Isles","Teen Wolf"];
-//    var movieSec = [0,126,284,401,515,650];
-//    var movieName = NewDiv2.childNodes;
-//    
-//    for (var i=0; i<6; i++) {   
-//    var NewBS1 = document.createElement('div');
-//        NewBS1.appendChild(document.createTextNode(movieN[i]));
-//        NewDiv2.appendChild(NewBS1);          
-//        spacer.appendChild(NewDiv2);
-//        addMovieClickEvent(movieName[i], movieSec[i]);
-//
-//    
-//    function addMovieClickEvent (node, secs) {
-//        node.onclick = function() { myplayer.currentTime(secs); }
-//    }   
-//    
-//    //show dropdown        
-//    NewImg.onclick = function () {
-//        NewDiv2.classList.toggle("show");
-//    };
-//    
-//    //旁邊關閉dropdown    
-//    window.onclick = function(event) {    
-//        if (!event.target.matches('#dropImg')) { 
-//            if(NewDiv2.classList.contains('show')){
-//                NewDiv2.classList.remove('show');
-//            }
-//        }
-//    };
+    var movieN = ["Vampire Diaries","Lost Girl","Orange Is the New Black",
+                  "Orphan Black","Rizzoli & Isles","Teen Wolf"];
+    var movieSec = [0,126,284,401,515,650];
+    var movieName = NewDiv2.childNodes;
+    
+    for (var i=0; i<6; i++) {   
+    var NewBS1 = document.createElement('div');
+        NewBS1.appendChild(document.createTextNode(movieN[i]));
+        NewDiv2.appendChild(NewBS1);          
+        spacer.appendChild(NewDiv2);
+        addMovieClickEvent(movieName[i], movieSec[i]);
+    }
+    
+    function addMovieClickEvent (node, secs) {
+        node.onclick = function() { player.currentTime(secs); }
+    }   
+    
+    //show dropdown        
+    NewImg.onclick = function () {
+        NewDiv2.classList.toggle("show");
+    };
+    
+    //旁邊關閉dropdown    
+    window.onclick = function(event) {    
+        if (!event.target.matches('#dropImg')) { 
+            if(NewDiv2.classList.contains('show')){
+                NewDiv2.classList.remove('show');
+            }
+        }
+    };
 
 
 });
