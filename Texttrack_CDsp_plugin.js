@@ -1,6 +1,6 @@
-videojs.plugin('videolist',function (options) {
+videojs.plugin('videolist', function () {
     console.log('hello');
-        var myplayer = videojs('myPlayerID');
+//        var myplayer = videojs('myPlayerID');
         var player = this;
     
         var NewDiv1 = document.createElement('div');
