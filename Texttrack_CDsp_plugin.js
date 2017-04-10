@@ -50,4 +50,4 @@ videojs.plugin('videolist',function (options) {
 //    };
 
 
-})
+});
