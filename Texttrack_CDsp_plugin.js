@@ -1,6 +1,8 @@
 videojs.plugin('videolist', function () {
 //    var player = videojs('myPlayerID');   
+    console.log('hello');
     var player = this;
+    console.log(player);
     player.muted(true); 
     
     var NewDiv1 = document.createElement('div');
