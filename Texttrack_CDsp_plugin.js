@@ -1,8 +1,8 @@
 videojs.plugin('videolist', function () {
-    var player = videojs('myPlayerID');
-//    player.muted(true); 
+//    var player = videojs('myPlayerID');   
     var player = this;
-   
+    player.muted(true); 
+    
     var NewDiv1 = document.createElement('div');
         NewDiv1.setAttribute('id','dropdown');
     
