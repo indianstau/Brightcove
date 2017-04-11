@@ -37,33 +37,15 @@ videojs.plugin('videolist', function () {
     
     for (var i=0; i<6; i++) {   
     var NewBS1 = document.createElement('div');
-        NewBS1.appendChild(document.createTextNode(en[i]));
+        NewBS1.appendChild(document.createTextNode(fr[i]));
         NewDiv2.appendChild(NewBS1);          
         spacer.appendChild(NewDiv2);
-        addMovieClickEvent(en[i], sec[i]);
+        addMovieClickEvent(fr[i], sec[i]);
     }
     
     function addMovieClickEvent (node, secs) {
         node.onclick = function() { player.currentTime(secs); }
     } 
-    
-    
-//    var movieN = ["Vampire Diaries","Lost Girl","Orange Is the New Black",
-//                  "Orphan Black","Rizzoli & Isles","Teen Wolf"];
-//    var movieSec = [0,126,284,401,515,650];
-//    var movieName = NewDiv2.childNodes;
-//    
-//    for (var i=0; i<6; i++) {   
-//    var NewBS1 = document.createElement('div');
-//        NewBS1.appendChild(document.createTextNode(movieN[i]));
-//        NewDiv2.appendChild(NewBS1);          
-//        spacer.appendChild(NewDiv2);
-//        addMovieClickEvent(movieName[i], movieSec[i]);
-//    }
-//    
-//    function addMovieClickEvent (node, secs) {
-//        node.onclick = function() { player.currentTime(secs); }
-//    }   
     
     //show dropdown        
     NewImg.onclick = function () {
