@@ -1,10 +1,9 @@
 videojs.plugin('videolist', function () {
-//    console.log('hello');
-//        var myplayer = videojs('myPlayerID');
-
-        var player = this;
-    
-        var NewDiv1 = document.createElement('div');
+    var player = videojs('myPlayerID');
+//    player.muted(true); 
+    var player = this;
+   
+    var NewDiv1 = document.createElement('div');
         NewDiv1.setAttribute('id','dropdown');
     
     var NewImg = document.createElement('img');
@@ -17,11 +16,13 @@ videojs.plugin('videolist', function () {
 
     var NewDiv2 = document.createElement('div');
         NewDiv2.setAttribute('class','mydropdown');
+//        movieName = NewDiv2.childNodes; 
     
-    //將data存在textTracks裡,從Json轉成JS物件存取出來
-    var jsonData, sec, cn, fr, en;
-    player.one("loadedmetadata", function () {
-        var tt = player.textTracks()[1];
+    var tt, jsonData, sec, cn, fr, en;
+
+//將data存在textTracks裡,從Json轉成JS物件存取出來
+    player.one("loadedmetadata", function (sec, en, fr, cn) {
+        tt = player.textTracks()[1];
         tt.oncuechange = function (){
             if (tt.activeCues[0] !== undefined){
                 jsonData = JSON.parse(tt.activeCues[0].text);
@@ -29,17 +30,17 @@ videojs.plugin('videolist', function () {
                 en = jsonData.language.English;
                 fr = jsonData.language.France;
                 cn = jsonData.language.Chinese;
+                console.log(fr + 'in1');
             }
         }
     });    
-    
-    var movieName = NewDiv2.childNodes;    
+                console.log(fr+ 'out2');
     for (var i=0; i<6; i++) {   
     var NewBS1 = document.createElement('div');
         NewBS1.appendChild(document.createTextNode(fr[i]));
         NewDiv2.appendChild(NewBS1);          
         spacer.appendChild(NewDiv2);
-        addMovieClickEvent(movieName[i], sec[i]);
+        addMovieClickEvent(fr[i], movieSec[i]);
     }
     
     function addMovieClickEvent (node, secs) {
@@ -58,7 +59,7 @@ videojs.plugin('videolist', function () {
                 NewDiv2.classList.remove('show');
             }
         }
-    };
+    }
 
 
 });
