@@ -19,10 +19,10 @@ videojs.plugin('videolist', function () {
         movieName = NewDiv2.childNodes; 
     
     
-
+        var tt, jsonData, sec, cn, fr, en;
 //將data存在textTracks裡,從Json轉成JS物件存取出來
     player.one("loadedmetadata", function () {
-        var tt, jsonData, sec, cn, fr, en;
+
         tt = player.textTracks()[1];
         tt.oncuechange = function (){
             if (tt.activeCues[0] !== undefined){
@@ -31,18 +31,18 @@ videojs.plugin('videolist', function () {
                 en = jsonData.language.English;
                 fr = jsonData.language.France;
                 cn = jsonData.language.Chinese;
-//                console.log(fr + 'in1');
+                console.log(fr + 'in1');
             }
         }
     });  
 //    var abc = 'abc';
-//    console.log(fr + 'out2');
+    console.log(fr + 'out2');
     for (var i=0; i<6; i++) {   
     var NewBS1 = document.createElement('div');
-        NewBS1.appendChild(document.createTextNode(movieName[i]));
+        NewBS1.appendChild(document.createTextNode(en[i]));
         NewDiv2.appendChild(NewBS1);          
         spacer.appendChild(NewDiv2);
-        addMovieClickEvent(movieName[i], movieSec[i]);
+        addMovieClickEvent(en[i], Sec[i]);
     }
     
     function addMovieClickEvent (node, secs) {
