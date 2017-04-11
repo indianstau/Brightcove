@@ -1,6 +1,7 @@
 videojs.plugin('videolist', function () {
-    console.log('hello');
+//    console.log('hello');
 //        var myplayer = videojs('myPlayerID');
+
         var player = this;
     
         var NewDiv1 = document.createElement('div');
@@ -17,23 +18,52 @@ videojs.plugin('videolist', function () {
     var NewDiv2 = document.createElement('div');
         NewDiv2.setAttribute('class','mydropdown');
     
-
-    var movieN = ["Vampire Diaries","Lost Girl","Orange Is the New Black",
-                  "Orphan Black","Rizzoli & Isles","Teen Wolf"];
-    var movieSec = [0,126,284,401,515,650];
+    //將data存在textTracks裡,從Json轉成JS物件存取出來
+    var jsonData, sec, cn, fr, en;
+    player.one("loadedmetadata", function () {
+        var tt = player.textTracks()[1];
+        tt.oncuechange = function (){
+            if (tt.activeCues[0] !== undefined){
+                jsonData = JSON.parse(tt.activeCues[0].text);
+                sec = jsonData.sec;
+                en = jsonData.language.English;
+                fr = jsonData.language.France;
+                cn = jsonData.language.Chinese;
+            }
+        }
+    });
+    
     var movieName = NewDiv2.childNodes;
     
     for (var i=0; i<6; i++) {   
     var NewBS1 = document.createElement('div');
-        NewBS1.appendChild(document.createTextNode(movieN[i]));
+        NewBS1.appendChild(document.createTextNode(en[i]));
         NewDiv2.appendChild(NewBS1);          
         spacer.appendChild(NewDiv2);
-        addMovieClickEvent(movieName[i], movieSec[i]);
+        addMovieClickEvent(en[i], sec[i]);
     }
     
     function addMovieClickEvent (node, secs) {
         node.onclick = function() { player.currentTime(secs); }
-    }   
+    } 
+    
+    
+//    var movieN = ["Vampire Diaries","Lost Girl","Orange Is the New Black",
+//                  "Orphan Black","Rizzoli & Isles","Teen Wolf"];
+//    var movieSec = [0,126,284,401,515,650];
+//    var movieName = NewDiv2.childNodes;
+//    
+//    for (var i=0; i<6; i++) {   
+//    var NewBS1 = document.createElement('div');
+//        NewBS1.appendChild(document.createTextNode(movieN[i]));
+//        NewDiv2.appendChild(NewBS1);          
+//        spacer.appendChild(NewDiv2);
+//        addMovieClickEvent(movieName[i], movieSec[i]);
+//    }
+//    
+//    function addMovieClickEvent (node, secs) {
+//        node.onclick = function() { player.currentTime(secs); }
+//    }   
     
     //show dropdown        
     NewImg.onclick = function () {
