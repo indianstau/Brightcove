@@ -31,12 +31,12 @@ videojs.plugin('videolist', function () {
                 en = jsonData.language.English;
                 fr = jsonData.language.France;
                 cn = jsonData.language.Chinese;
-                console.log(fr + 'in1');
+//                console.log(fr + 'in1');
             }
         }
     });  
 //    var abc = 'abc';
-    console.log(fr + 'out2');
+//    console.log(fr + 'out2');
     for (var i=0; i<6; i++) {   
     var NewBS1 = document.createElement('div');
         NewBS1.appendChild(document.createTextNode(movieName[i]));
