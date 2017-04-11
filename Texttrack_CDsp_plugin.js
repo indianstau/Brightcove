@@ -1,7 +1,8 @@
 videojs.plugin('videolist', function () {
 //    var player = videojs('myPlayerID');   
+   var player = videojs('vjs_video_3');  
     console.log('hello');
-    var player = this;
+//    var player = this;
     console.log(player);
     player.muted(true); 
     
@@ -24,25 +25,26 @@ videojs.plugin('videolist', function () {
         var tt, jsonData, sec, cn, fr, en;
 //將data存在textTracks裡,從Json轉成JS物件存取出來
     player.one("loadedmetadata", function () {
-        console.log("one here");
+                      console.log("one here");
         tt = player.textTracks()[1];
-        console.log(tt);
+                        console.log(tt +'1');
         tt.oncuechange = function (){
             if (tt.activeCues[0] !== undefined){
                 jsonData = JSON.parse(tt.activeCues[0].text);
-                console.log(jsonData);
+                      console.log(tt.activeCues[0]+'2');
+                      console.log(jsonData+'3');
                 sec = jsonData.sec;
-                console.log(sec);
+                      console.log(sec+'4');
                 en = jsonData.language.English;
                 fr = jsonData.language.France;
                 cn = jsonData.language.Chinese;
-                console.log(fr + 'in1');
-                console.log(en);
+                      console.log(fr + " " + 'in');
+                      console.log(en+'5');
             }
         }
     });  
 //    var abc = 'abc';
-//    console.log(fr + 'out2');
+//                      console.log(fr + 'out');
 //    for (var i=0; i<6; i++) {   
 //    var NewBS1 = document.createElement('div');
 //        NewBS1.appendChild(document.createTextNode(en[i]));
