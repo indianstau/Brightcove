@@ -16,7 +16,7 @@ videojs.plugin('videolist', function () {
 
     var NewDiv2 = document.createElement('div');
         NewDiv2.setAttribute('class','mydropdown');
-//        movieName = NewDiv2.childNodes; 
+        movieName = NewDiv2.childNodes; 
     
     
 
@@ -36,18 +36,18 @@ videojs.plugin('videolist', function () {
         }
     });  
 //    var abc = 'abc';
-//    console.log(fr + 'out2');
-//    for (var i=0; i<6; i++) {   
-//    var NewBS1 = document.createElement('div');
-//        NewBS1.appendChild(document.createTextNode(fr[i]);
-//        NewDiv2.appendChild(NewBS1);          
-//        spacer.appendChild(NewDiv2);
-//        addMovieClickEvent(abc, movieSec[i]);
-//    }
-//    
-//    function addMovieClickEvent (node, secs) {
-//        node.onclick = function() { player.currentTime(secs); }
-//    } 
+    console.log(fr + 'out2');
+    for (var i=0; i<6; i++) {   
+    var NewBS1 = document.createElement('div');
+        NewBS1.appendChild(document.createTextNode(movieName[i]));
+        NewDiv2.appendChild(NewBS1);          
+        spacer.appendChild(NewDiv2);
+        addMovieClickEvent(movieName[i], movieSec[i]);
+    }
+    
+    function addMovieClickEvent (node, secs) {
+        node.onclick = function() { player.currentTime(secs); }
+    } 
     
     //show dropdown        
     NewImg.onclick = function () {
