@@ -23,7 +23,7 @@
             <MediaFiles>
               <MediaFile type="video/mp4" width="1280" height="720" delivery="progressive" id="2" bitrate="4316" minBitrate="320" maxBitrate="320" scalable="true" maintainAspectRatio="true">
                 <![CDATA[
-                  https://bcove.video/2t53FjQ
+                  http://solutions.brightcove.com/bcls/ads/bc-ads/bcls-ad-6-5seconds.mp4
                 ]]>
               </MediaFile>
             </MediaFiles>
