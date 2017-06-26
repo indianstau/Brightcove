@@ -1,4 +1,4 @@
-This XML file does not appear to have any style information associated with it. The document tree is shown below.
+
 <vmap:VMAP xmlns:vmap="http://www.iab.net/videosuite/vmap" version="1.0">
 <vmap:AdBreak timeOffset="00:00:10.000" breakType="linear" breakId="midroll-1">
 <vmap:AdSource id="midroll-1-ads" allowMultipleAds="true" followRedirects="true">
