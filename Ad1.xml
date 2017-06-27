@@ -39,7 +39,8 @@ This XML file does not appear to have any style information associated with it. 
       </Extensions>
     </InLine>
   </Ad>
-</VAST>
-<cross-domain-policy>
+  <cross-domain-policy>
  <allow-access-from domain="*" secure="false"/>
 </cross-domain-policy>
+</VAST>
+
