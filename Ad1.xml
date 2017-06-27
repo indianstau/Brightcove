@@ -25,7 +25,7 @@ This XML file does not appear to have any style information associated with it. 
             <MediaFiles>
               <MediaFile type="video/mp4" width="1280" height="720" delivery="progressive" id="2" bitrate="4316" minBitrate="320" maxBitrate="320" scalable="true" maintainAspectRatio="true">
                 <![CDATA[
-                  https://www.dropbox.com/home/Armin%20van%20Buuren-Heineken%20ad.mp4
+                  http://seniorparty.byethost6.com/HeinekenAd.mp4
                 ]]>
               </MediaFile>
             </MediaFiles>
