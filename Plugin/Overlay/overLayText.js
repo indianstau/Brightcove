@@ -1,5 +1,6 @@
 videojs.plugin('plugintry',function (options) {
-    var myplayer = this;         
+    var myplayer = this;   
+    myplayer.one('loadedmetadata',function() {
         myplayer.overlay({
             overlays:
             [
@@ -59,6 +60,6 @@ videojs.plugin('plugintry',function (options) {
             linkTo.target = "_blank";
             linkTo.style = "padding-left:10px;";
             linkTo.innerHTML = "我以為海尼根不會再更過火，但是我錯了";      
-    })   
+    });   
 });
 
