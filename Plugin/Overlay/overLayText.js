@@ -64,6 +64,6 @@ videojs.plugin('plugintry',function (options) {
     var linkTo = document.getElementById('linkToweb');
         linkTo.href = "https://www.heineken.com/tw/agegateway?returnurl=%2ftw";
         linkTo.target = "_blank";
-        linkTo.style = "padding-left:10px;";
+        linkTo.style = "padding-left:10px;color:#F9F900;";
         linkTo.innerHTML = "我以為海尼根不會再更過火，但是我錯了";    
 });
