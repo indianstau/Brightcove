@@ -9,7 +9,7 @@ videojs.plugin('plugintry',function (options) {
                         '<input id="ad" title="海尼根">'+
                         '</div>',
                 start:1,
-                end:10
+                end:30
             },{ 
                 align:'bottom-left',
                 content:'<div id="two">'+
@@ -18,7 +18,7 @@ videojs.plugin('plugintry',function (options) {
                         '<a id="linkToweb"></a>'+
                         '</div>',
                 start:2,
-                end:15
+                end:60
             }
         ]//lays
     });//myplayer.overlay
