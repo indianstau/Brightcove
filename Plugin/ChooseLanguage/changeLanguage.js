@@ -69,9 +69,9 @@ var myplayer = videojs('vjs_video_3');
         tt = myplayer.textTracks()[3]; 
         datain();
 
-        liEn = document.getElementsByTagName('li')[5];
-        liFr = document.getElementsByTagName('li')[6];
-        liCh = document.getElementsByTagName('li')[7];
+        liEn = document.getElementsByTagName('li')[4];
+        liFr = document.getElementsByTagName('li')[5];
+        liCh = document.getElementsByTagName('li')[6];
 
     liFr.onclick = function changeFr() {for (i=0; i<6; i++) {node[i].innerHTML = fr[i];}}       
     liEn.onclick = function changeEn() {for (i=0; i<6; i++) {node[i].innerHTML = en[i];}} 
