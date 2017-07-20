@@ -41,12 +41,13 @@ a{
 }
 #two{
     margin-bottom: 5px;
+    width:470px;
 }
 .a{
     color:darkgoldenrod;
     margin-left: 150px;
 }
-.b{
+/* .b{
     color:#F01;
     margin-left: 150px;
 }
@@ -61,3 +62,4 @@ a{
 .time{
     cursor: default;
 }
+ */
