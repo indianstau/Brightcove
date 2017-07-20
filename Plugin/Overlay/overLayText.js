@@ -6,7 +6,7 @@ videojs.plugin('plugintry',function (options) {
             {   align:'top-right',
                 content:'<div id="one">'+
                         '<img id="close1">'+
-                        '<input id="ad" title="海尼根">'+
+                        '<input id="ad1" title="海尼根">'+
                         '</div>',
                 start:1,
                 end:30
@@ -46,7 +46,7 @@ videojs.plugin('plugintry',function (options) {
        });
     };
 
-    var ad1 = document.getElementById('ad');
+    var ad1 = document.getElementById('ad1');
         ad1.setAttribute('type','image');
         ad1.src = 'http://www.ezpr.com.tw/wp-content/uploads/2015/04/heineken-logo.png';
         ad1.style = "height:75px;width:100px;";             
