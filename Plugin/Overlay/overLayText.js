@@ -19,11 +19,6 @@ videojs.plugin('plugintry',function (options) {
                         '</div>',
                 start:2,
                 end:15
-            },{
-                align:'top-right',
-                content:'<div id="time" title="我是時間"></div>',
-                start:16,
-                end:256
             }
         ]//lays
     });//myplayer.overlay
