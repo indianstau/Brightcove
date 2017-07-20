@@ -26,7 +26,7 @@ videojs.plugin('plugintry',function (options) {
     var divOne = document.getElementById('one'); 
     var nodeID = document.getElementById('close1');        
        nodeID.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/High-contrast-dialog-close.svg/768px-High-contrast-dialog-close.svg.png";
-       nodeID.style = "height:20px;width:20px;position:absolute;left:17px;cursor:pointer;"  
+       nodeID.style = "height:20px;width:20px;position:absolute;left:7px;cursor:pointer;"  
 
     var node2 = document.getElementById('close2');                    
         node2.src= nodeID.src;
