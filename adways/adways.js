@@ -3,4 +3,4 @@ videojs.plugin('mAdways',function(){
         "publication": "pg9sZ43",
         "container": "adways-interactive"
     }).load();
-})
+});
