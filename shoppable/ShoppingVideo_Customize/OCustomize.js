@@ -118,7 +118,7 @@ function createNewButton(){
     //newElement.className = 'newButton';
     newElement.innerHTML = "<div class='vjs-control-content'><i class='material-icons md-light'>view_quilt</i></div>";
     controlBar = document.getElementsByClassName('vjs-control-bar');
-    controlBar[2].appendChild(newElement);
+    controlBar[0].appendChild(newElement);
 }
 function createModalEl(){
 	// ParentNode:{ChildNode}
