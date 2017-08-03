@@ -1,0 +1,128 @@
+WEBVTT
+
+ProductData
+00:00:00.000 --> 00:00:00.000
+{ 
+  "product": [
+    {
+      "code": "01",
+      "name": "WONE SLEEVE JERSEY DRESS",
+      "price": "US 9000",
+      "image": "http://i.imgur.com/2iVj84J.jpg",
+      "description": "A single long sleeve adds to the asymmetry of this calf-length jersey dress, while a signature D-ring belt and pleats on one side highlight the waist. Contrasting overstitching at the collar, waist and bottom bring a modern touch to this silhouette."
+    },
+    {
+      "code": "02",
+      "name": "EYE-TRUNK FOR IPHONE 7 PLUS",
+      "price": "US 5349",
+      "image": "http://i.imgur.com/R4aNK8w.jpg",
+      "description": "The Much-Anticipated Louis Vuitton Eye-Trunk iPhone Case is Now Available"
+    },
+    {
+      "code": "03",
+      "name": "TRESSAGE TOTE",
+      "price": "US 7500",
+      "image": "http://i.imgur.com/94vQcLR.jpg",
+      "description": "Creative Director Nicolas Ghesquiere has combined the shapes of the iconic Alma and Lockit to create the edgy yet high-end new Tressage Tote. In luxurious calf leather woven with Monogram Reverse canvas, this distinctive bag instantly brings a fashionable touch to any outfit. The shoulder strap and side zip closures add a sporty vibe."
+    },
+    {
+      "code": "04",
+      "name": "EMBROIDERED EPI GLITTER JERSEY DRESS",
+      "price": "US 9648",
+      "image": "http://i.imgur.com/30D59Zw.jpg",
+      "description": "An attractive alternative to a cocktail dress, this asymmetric piece in shiny metallic jersey features Epi glitter, a motif inspired by the Maison's iconic leather goods. Its wide armhole, prominent shoulder pads and integrated D-ring belt are signature details."
+    },
+    {
+      "code": "05",
+      "name": "CAVIAR WOOL FITTED LONG BLAZER",
+      "price": "US 9500",
+      "image": "http://i.imgur.com/imEmexR.jpg",
+      "description": "This tailored long jacket is this season's feminine take on the masculine suit jacket. Crafted from masculine caviar wool, it has a soft and flowy line with a fitted waist."
+    },
+    {
+      "code": "06",
+      "name": "WOOL SILK BELTED WRAP SKIRT",
+      "price": "US 8240",
+      "image": "http://i.imgur.com/X3kSPBN.jpg",
+      "description": "Embodying the influence of masculine tailoring this season, the collection's statement wrap skirt is tailored from fine wool suiting in Prince of Wales check. The belt and D-ring is a signature motif, while a slit adds a feminine touch."
+    },
+    {
+      "code": "07",
+      "name": "PRINTED COTTON JERSEY T-SHIRT",
+      "price": "US 6350",
+      "image": "http://i.imgur.com/JHfrmqS.jpg",
+      "description": "This T-shirt is adorned with the collection's iconic head print. The print motif evokes the mascarons that adorn Louis Vuitton's new Place Vend“me boutique."
+    },
+    {
+      "code": "08",
+      "name": "BELTED GLOSSY LAMBSKIN SKIRT",
+      "price": "US 980",
+      "image": "http://i.imgur.com/0H5tk2I.jpg",
+      "description": "This extra-soft lambskin glossy leather wrap skirt is part of the key silhouettes of the season. It has a belted waist with a D-ring fastening, adding a subtle signature detail to this edgy chic piece."
+    },
+    {
+      "code": "09",
+      "name": "PARURE SANGLE BRACELET",
+      "price": "US 3580",
+      "image": "http://i.imgur.com/Z3v5wQk.jpg",
+      "description": "Seen at the Spring/Summer 2017 show, the Parure Sangle jewelry collection was inspired by the textile straps used to secure the contents of Louis Vuitton's historic trunks. One of the statement pieces of the show, this finely worked bracelet creates the illusion of movement as it curves gracefully around the arm."
+    },
+    {
+      "code": "10",
+      "name": "SLEEVELESS LACE TOP",
+      "price": "US 675",
+      "image": "http://i.imgur.com/ETrmAYj.jpg",
+      "description": "This sleeveless top offers one of the season's emblematic looks, with its velvet-effect lace design on stretch tulle, large armholes and pronounced shoulder pads. The collar is embellished with ostrich feathers inserted by hand into metal tubes."
+    },
+    {
+      "code": "11",
+      "name": "WOOL SLEEVELESS GILET",
+      "price": "US 9358",
+      "image": "http://i.imgur.com/4tu9gya.jpg",
+      "description": "This sleeveless gilet encapsulates the season's artful take on fine tailoring. Cut from a checked pattern wool jacquard inspire by the iconic Damier motif, it has deep cut armholes while the front is shorter than the back."
+    }
+  ]
+}
+
+
+s1
+00:00:01.000 --> 00:00:05.000
+{
+	"productCode": "01,02"
+}
+
+s2
+00:00:08.000 --> 00:00:10.000
+{
+	"productCode": "03"
+}
+
+s3
+00:00:17.000 --> 00:00:19.000
+{
+	"productCode": "04"
+}
+
+s4
+00:00:21.000 --> 00:00:25.000
+{
+	"productCode": "05,06"
+}
+
+s5
+00:00:26.000 --> 00:00:30.000
+{
+	"productCode": "07,08,09"
+}
+
+s6
+00:00:30.000 --> 00:00:33.000
+{
+	"productCode": "10"
+}
+
+s7
+00:00:34.000 --> 00:00:40.000
+{
+	"productCode": "11"
+}

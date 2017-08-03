@@ -1,0 +1,142 @@
+WEBVTT
+
+ProductData
+00:00:00.000 --> 00:00:00.000
+{ 
+  "product": [
+    {
+      "code": "01",
+      "name": "Waterfall",
+      "price": "$149",
+      "image": "http://solutions.brightcove.com/phoward/player-demos/shoppable/waterfall_01.jpg",
+      "description": "Your own white water experience"
+    },
+    {
+      "code": "02",
+      "name": "Waterfall",
+      "price": "$299",
+      "image": "http://solutions.brightcove.com/phoward/player-demos/shoppable/waterfall_02.jpg",
+      "description": "An even more extreme experience"
+    },
+    {
+      "code": "03",
+      "name": "Still Water",
+      "price": "$99",
+      "image": "http://solutions.brightcove.com/phoward/player-demos/shoppable/water_01.jpg",
+      "description": "Relax with calmer waters"
+    },
+    {
+      "code": "04",
+      "name": "White Water",
+      "price": "$199",
+      "image": "http://solutions.brightcove.com/phoward/player-demos/shoppable/whitewater_01.jpg",
+      "description": "Tour the rapids"
+    },
+    {
+      "code": "05",
+      "name": "White Water",
+      "price": "$299",
+      "image": "http://solutions.brightcove.com/phoward/player-demos/shoppable/whitewater_02.jpg",
+      "description": "Tour the rapids, the extreme version"
+    },
+    {
+      "code": "06",
+      "name": "White Water",
+      "price": "$499",
+      "image": "http://solutions.brightcove.com/phoward/player-demos/shoppable/whitewater_03.jpg",
+      "description": "Group packages also available"
+    },
+    {
+      "code": "07",
+      "name": "Rainforest",
+      "price": "$89",
+      "image": "http://solutions.brightcove.com/phoward/player-demos/shoppable/rainforest_01.jpg",
+      "description": "Relax in the rainforest"
+    },
+    {
+      "code": "08",
+      "name": "Rainforest",
+      "price": "$89",
+      "image": "http://solutions.brightcove.com/phoward/player-demos/shoppable/rainforest_02.jpg",
+      "description": "Relax in the rainforest"
+    },
+    {
+      "code": "09",
+      "name": "The Hat",
+      "price": "$19",
+      "image": "http://solutions.brightcove.com/phoward/player-demos/shoppable/hat_white.jpg",
+      "description": "Stay at home and just buy the hat"
+    },
+    {
+      "code": "10",
+      "name": "The Hat",
+      "price": "$19",
+      "image": "http://solutions.brightcove.com/phoward/player-demos/shoppable/hat_brown.jpg",
+      "description": "Stay at home and just buy the hat"
+    },
+    {
+      "code": "11",
+      "name": "Bike Tours",
+      "price": "$399",
+      "image": "http://solutions.brightcove.com/phoward/player-demos/shoppable/bike_01.jpg",
+      "description": "An experience on two wheels"
+    },
+    {
+      "code": "12",
+      "name": "Bike Tours",
+      "price": "$399",
+      "image": "http://solutions.brightcove.com/phoward/player-demos/shoppable/bike_02.jpg",
+      "description": "An experience on two wheels"
+    },
+    {
+      "code": "13",
+      "name": "Bike Tours",
+      "price": "$299",
+      "image": "http://solutions.brightcove.com/phoward/player-demos/shoppable/bike_03.jpg",
+      "description": "An experience on two wheels"
+    }
+  ]
+}
+
+
+s1
+00:00:01.000 --> 00:00:04.000
+{
+	"productCode": "01"
+}
+
+s2
+00:00:04.000 --> 00:00:10.000
+{
+	"productCode": "07,08"
+}
+
+s3
+00:00:10.000 --> 00:00:17.000
+{
+	"productCode": "09,10"
+}
+
+s4
+00:00:17.000 --> 00:00:21.000
+{
+	"productCode": "11,12,13"
+}
+
+s5
+00:00:21.000 --> 00:00:29.000
+{
+	"productCode": "03,07,08"
+}
+
+s6
+00:00:29.000 --> 00:00:37.000
+{
+	"productCode": "01,02"
+}
+
+s7
+00:00:37.000 --> 00:00:50.000
+{
+	"productCode": "04,05,06"
+}
