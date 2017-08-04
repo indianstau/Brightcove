@@ -1,6 +1,6 @@
 videojs.plugin('mAdways',function(){
     adways.interactive.createExperience({
-        "publication": "pg9sZ43",
+        "publication": "cXlKqQV",
         "container": "adways-interactive"
     }).load();
 });
