@@ -22,6 +22,6 @@ ypp.reSetAd({
     resolution:'440000'      
 });      
 ```  
-
-為shoppable Demo 所改的js  
-[from3Video.js](https://raw.githubusercontent.com/indianstau/Brightcove/master/movieBook/from3Video.js)
+      
+[from3Video.js](https://raw.githubusercontent.com/indianstau/Brightcove/master/movieBook/from3Video.js)  
+為shoppable Demo 所改的js 
