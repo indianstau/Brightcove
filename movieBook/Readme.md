@@ -21,3 +21,7 @@ ypp.reSetAd({
     cpid:'9',      
     resolution:'440000'      
 });      
+```  
+
+為shoppable Demo 所改的js  
+[from3Video.js](https://raw.githubusercontent.com/indianstau/Brightcove/master/movieBook/from3Video.js)
