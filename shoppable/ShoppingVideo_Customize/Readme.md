@@ -34,6 +34,14 @@ Demo是三個Video放一頁所以修正control bar抓的位置把icon掛上去
 controlBar[2].appendChild(newElement);
 ```  
 index改成2  
+  
+單獨一個player時沒有問題  
+但多個player時按不到向下 
+```  
+.product-arrow.down{  
+   z-index:99;     
+}  
+```  
       
 [bootstrapMin.css](https://raw.githubusercontent.com/IXlinfairuser/Shoppable-Sample/master/ShoppingVideo_Customize/bootstrapMin.css)  
 由於modal會使全部變黑   修正bootstrap裡的css  未解決  
@@ -42,4 +50,4 @@ index改成2
 .modal backdrop {
      background-color: none;
 }
-```  
+```  
