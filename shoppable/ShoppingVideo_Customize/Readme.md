@@ -11,7 +11,7 @@ product file into textTrack
   
 ### change ###  
 [Customize.css](https://raw.githubusercontent.com/IXlinfairuser/Shoppable-Sample/master/ShoppingVideo_Customize/Customize.css)    
-主要調整icon位置 
+主要調整icon位置 (for player style Graphite Xluna)
 ```
 .material-icons {
     margin-top: 5px;
@@ -21,11 +21,12 @@ product file into textTrack
 調整product-thumbs的大小  
 ```  
 .product-thumbs{ 
-    height: 350px;
+    height: 81%; //原本331px
 }
 ```  
 
-把@media 拿掉 全螢幕有問題  待解決  
+把@media 拿掉 全螢幕有問題  待解決    
+抓螢幕大小無法要用JS 寫全螢幕判斷蓋height:760px  
 
 [Customize.js](https://raw.githubusercontent.com/IXlinfairuser/Shoppable-Sample/master/ShoppingVideo_Customize/Customize.js)  
 Demo是三個Video放一頁所以修正control bar抓的位置把icon掛上去  
