@@ -19,9 +19,9 @@
 
 [Thumbnails.js](//raw.githubusercontent.com/indianstau/Brightcove/master/Plugin/thumbnails/thumbnails.js)  
   
-Note:  
-loadstart get error not activeCues  
-texttracks().oncuechange get error can't read property '0'  
+Note:    
+loadstart get error  " VIDEOJS: ERROR: TypeError: Cannot read property '0' of null  "  
+texttracks().oncuechange get error  
 
 
 
