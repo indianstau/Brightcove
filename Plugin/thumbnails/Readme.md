@@ -1,8 +1,8 @@
 # Thumbnails  
-#### Document  
+### Official Document & Plugin  
 [Doc](//docs.brightcove.com/en/player/brightcove-player/guides/thumbnails-plugin.html)  
-[javascript](//players.brightcove.net/videojs-thumbnails/videojs.thumbnails.js)  
-[css](//players.brightcove.net/videojs-thumbnails/videojs.thumbnails.css)  
+[Thumbnail.js](//players.brightcove.net/videojs-thumbnails/videojs.thumbnails.js)  
+[Thumbnail.css](//players.brightcove.net/videojs-thumbnails/videojs.thumbnails.css)  
 
 #### JSON
 [ThumData.vtt](//raw.githubusercontent.com/indianstau/Brightcove/master/Plugin/thumbnails/ThumData.vtt)  
@@ -17,6 +17,11 @@
 ```  
 
 [Thumbnails.js](//raw.githubusercontent.com/indianstau/Brightcove/master/Plugin/thumbnails/thumbnails.js)  
+  
+Note:  
+loadstart get error not activeCues  
+texttracks().oncuechange get error can't read property '0'  
+
 
 
 
