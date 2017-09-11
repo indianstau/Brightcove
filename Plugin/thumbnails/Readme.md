@@ -20,7 +20,7 @@
 [Thumbnails.js](//raw.githubusercontent.com/indianstau/Brightcove/master/Plugin/thumbnails/thumbnails.js)  
   
 Note:    
-loadstart get error  " VIDEOJS: ERROR: TypeError: Cannot read property '0' of null  "  
+loadstart get error  " VIDEOJS: ERROR: TypeError: Cannot read property '0' of null  "  ------>loadedmetadata  
 texttracks().oncuechange get error  
 
 
