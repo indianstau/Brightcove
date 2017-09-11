@@ -14,7 +14,8 @@
             "sec": 10,
             "length": 194
         }      
-```  
+```   
+#### Javascript  
 
 [Thumbnails.js](//raw.githubusercontent.com/indianstau/Brightcove/master/Plugin/thumbnails/thumbnails.js)  
   
