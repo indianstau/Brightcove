@@ -1,4 +1,4 @@
-## From Kyle ##  
+## From Kyle  
 尚未把產品分離出來(Json)  
 [shoppableVideo_Original](https://raw.githubusercontent.com/Kyle30/shoppableVideo_Original/master/plugin.js "shoppableVideo_Original")  
 
