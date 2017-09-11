@@ -31,7 +31,7 @@ videojs.plugin('thumbs', function(){
             count += 1;             
             secAry += data.sec;                               
         }
-            console.log(secGroup);
+//             console.log(secGroup);
             player.thumbnails(secGroup);
         }
     });   
