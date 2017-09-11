@@ -1,0 +1,15 @@
+WEBVTT
+
+Data
+00:00:00.000 --> 00:00:00.100 
+{
+    "Thumbnails":[
+        {
+            "url": "http://ipsystems.byethost14.com/pic/Thumbnails/WRC",
+            "jpg": ".jpg",
+            "count": 1,
+            "sec": 10,
+            "length": 194
+        }
+    ]
+}
