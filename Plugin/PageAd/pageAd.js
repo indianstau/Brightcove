@@ -36,7 +36,7 @@ videojs.plugin('pageAd',function(){
                         'data-embed="default"'+
                         'data-application-id'+
                         'class="video-js"'+   
-                        'muted autoplay>'+    
+                        'autoplay>'+    
                 '</video>'+     
                 '<a href="'+ data.adurl +'">'+
               '<img src="'+ data.imgsrc +'" class="adPic"></a>'+
