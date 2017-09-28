@@ -16,7 +16,7 @@ videojs.plugin('pageAd',function(){
             ttt = tt.activeCues[0].text;
             jToO = JSON.parse(ttt);
             data = jToO.id[0];
-            console.log(data);
+//             console.log(data);
         }
     }
    
