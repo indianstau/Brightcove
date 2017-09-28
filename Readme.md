@@ -5,6 +5,8 @@
 ChooseLanguage  
 Dropdown  
 Overlay  
+PageAd
+Thumbnails
 
 ##### Shopping Video  ##### 
 Adways  
