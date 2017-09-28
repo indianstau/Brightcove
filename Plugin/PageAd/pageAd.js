@@ -16,7 +16,7 @@ videojs.plugin('pageAd',function(){
             ttt = tt.activeCues[0].text;
             jToO = JSON.parse(ttt);
             data = jToO.id[0];
-            console.log(data);
+//             console.log(data);
         }
     }
    
@@ -36,7 +36,7 @@ videojs.plugin('pageAd',function(){
                         'data-embed="default"'+
                         'data-application-id'+
                         'class="video-js"'+   
-                        'muted autoplay>'+    
+                        'autoplay>'+    
                 '</video>'+     
                 '<a href="'+ data.adurl +'">'+
               '<img src="'+ data.imgsrc +'" class="adPic"></a>'+

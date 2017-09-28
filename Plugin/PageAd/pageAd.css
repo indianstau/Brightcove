@@ -12,14 +12,14 @@
     }
     #mdiv {
         width:75%;
-        height:65%;
+        height:68%;
         position:absolute;
         left:12%;
         top:12%;
         background-color:rgba(10,20,30,0.5);
         border-radius: 8px;
     }/*display: none;*/
-    .adPic {width:285px;border-radius:8px;}
+    .adPic {width:280px;border-radius:8px;}
     .mfooter {clear: left;}
     .brLogo {
         position: relative;
