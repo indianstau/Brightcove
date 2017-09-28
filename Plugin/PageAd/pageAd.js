@@ -6,6 +6,7 @@ videojs.plugin('pageAd',function(){
         datain();
         createEl(); 
         createJs();
+        jqueryAni()
         adSkip();
     });     
   
@@ -62,19 +63,20 @@ videojs.plugin('pageAd',function(){
             createScript.setAttribute('type', "text/javascript"); 
             insSct.appendChild(createScript);        
     }
-      
-    //JQuery ani backgroundColor slideDown remove 
-    $(document).ready(function(){
-        $('#outside').css("backgroundColor", "rgba(0,0,0,0.3)");
-        $('#mdiv').slideDown();
-        $('.skipAdBtn').click(function(){
-            $('#mdiv').slideToggle();
-            $('#mdiv').remove();
-            $('body').removeAttr("style");
-            $('#outside').css("backgroundColor", "transparent");
+     
+    function jqueryAni() {
+        //JQuery ani backgroundColor slideDown remove 
+        $(document).ready(function(){
+            $('#outside').css("backgroundColor", "rgba(0,0,0,0.3)");
+            $('#mdiv').slideDown();
+            $('.skipAdBtn').click(function(){
+                $('#mdiv').slideToggle();
+                $('#mdiv').remove();
+                $('body').removeAttr("style");
+                $('#outside').css("backgroundColor", "transparent");
+            });
         });
-    });
-
+    }
     
     function adSkip() {
         // ad video
