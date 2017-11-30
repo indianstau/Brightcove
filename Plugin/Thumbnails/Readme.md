@@ -19,6 +19,9 @@
 
 [Thumbnails.js](//raw.githubusercontent.com/indianstau/Brightcove/master/Plugin/thumbnails/thumbnails.js)  
   
+![](https://i.imgur.com/alqrNpY.png)  
+
+  
 Note:    
 loadstart get error  " VIDEOJS: ERROR: TypeError: Cannot read property '0' of null  "  ------>loadedmetadata  
 texttracks().oncuechange get error  
