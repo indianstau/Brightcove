@@ -1,1 +1,21 @@
-#eMark:hover{text-shadow:0 0 1em #f00,0 0 1em #f00,0 0 1em #f00;}   
+#eMarki:hover{text-shadow:0 0 2em #fff,0 0 2em #fff,0 0 2em #fff;}
+i:before {
+    content: "\f12a";
+    font-family: FontAwesome;
+    font-style: normal;
+    padding-right: 6px;
+}
+.errorReporta {
+    font-size: 14px;
+    width: 85px;
+    height:30px;
+    position: absolute;
+    bottom: 100%;
+    right: 1.8%;
+    padding: 8px 8px;
+    background-color: rgba(0,0,0,0.2);
+    text-decoration: none;
+    display: none;
+}
+.errorReporta:hover {background-color: rgba(70, 70, 70, 0.6);}
+.show {display: block;}
