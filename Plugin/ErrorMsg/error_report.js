@@ -1,5 +1,8 @@
 videojs.registerPlugin("ErrorReport",function(){
+    var btn = document.getElementById('eMarkBtn');
     var error_ip;
+    var error_report;
+
     $(function(){
         var myPlayer = videojs('vjs_video_3');
 
@@ -9,7 +12,6 @@ videojs.registerPlugin("ErrorReport",function(){
             var error_time_GMT8 = error_time.toLocaleString();
             // 錯誤發生時間
 
-
             var error_report = 
                 'Uh-oh...Something went wrong!' +
                 device_type() +
@@ -17,35 +19,29 @@ videojs.registerPlugin("ErrorReport",function(){
                 '; \nError Code: ' + error.code +
                 '; \nError Msg: ' + error.message;
             // 錯誤資訊字串定義
+        });
 
-
-
-            $.ajax({
+        $("#itema").click(function(){
+			$.ajax({
                 type:"GET",
                 url:"http://13.115.10.15/error_listener/",
                 data:{"error_report": error_report},
                 success: function(ret){
-                    alert('success!!')
+                    console.log("send report success");
                 }
             });
-
-            // console.log('Uh-oh...', error.code, error.message);
-            console.log(error_report)
-            createDownloadFile(error_report)
         });
-
-        console.log(device_type());
     });
 
-
+    // 下載 log 檔案 ( 目前無需要 )
     function createDownloadFile(error_report) {
         var blob = new Blob([error_report]);
         var link = $("#error_Report")[0];
         link.download = "log.txt";
         link.href = URL.createObjectURL(blob);
-        // link.click();
     }
 
+    // 判斷使用裝置
     function device_type(){
         var userAgent = navigator.userAgent;
         // 取得 userAgent 字串
@@ -73,6 +69,8 @@ videojs.registerPlugin("ErrorReport",function(){
 
         return ('\nBrowser: ' + Browser + '; \nDevice: ' + Device);
     }
+
+    // 判斷瀏覽器類型
     function Browser_type(userAgent){  
         if (userAgent.indexOf("Trident") > -1) {return 'IE';};
         // IE 瀏覽器
@@ -88,3 +86,4 @@ videojs.registerPlugin("ErrorReport",function(){
         // Safari 瀏覽器
     }
 });
+
