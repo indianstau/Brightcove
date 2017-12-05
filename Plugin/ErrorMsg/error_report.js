@@ -1,7 +1,7 @@
 videojs.registerPlugin("ErrorReport",function(){
     var error_ip;
     $(function(){
-        var myPlayer = videojs('listen_Player');
+        var myPlayer = videojs('vjs_video_3');
 
         myPlayer.on('error', function() {
             var error = myPlayer.error();
