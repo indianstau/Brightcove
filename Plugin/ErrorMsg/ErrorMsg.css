@@ -17,5 +17,5 @@ i:before {
     text-decoration: none;
     display: none;
 }
-.errorReporta:hover {background-color: rgba(70, 70, 70, 0.6);}
+.errorReporta:hover {background-color: rgba(30, 30, 30, 0.9);}
 .show {display: block;}
