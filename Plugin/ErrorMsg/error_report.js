@@ -1,4 +1,4 @@
-videojs.plugin("ErrorReport",function(){
+videojs.registerPlugin("ErrorReport",function(){
     var error_ip;
     $(function(){
         var myPlayer = videojs('listen_Player');
