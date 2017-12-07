@@ -23,7 +23,7 @@ var player = this;
         newEla.id = "itema";
         newEla.textContent = "問題回報";
         newEla.className = "errorReporta";
-        newEla.setAttribute("https://goo.gl/forms/JWKCjquYoyGilD4A3");
+        newEla.setAttribute("href","https://docs.google.com/forms/d/1L4dnmWEyZ0F9Ji_KETUaewwCEFw3-uHBnoOHydb-sOU/viewform?edit_requested=true");
         newEla.setAttribute("target","_blank");
 
         spacer.setAttribute("style","justify-content:flex-end;");
