@@ -13,7 +13,7 @@ For Font_Awesome icon
 [ErrorMsg.css](https://raw.githubusercontent.com/indianstau/Brightcove/master/Plugin/ErrorMsg/ErrorMsg.css)  
 [ErrorOverlay.css](https://raw.githubusercontent.com/indianstau/Brightcove/master/Plugin/ErrorMsg/ErrorOverlay.css)  
   
-![](https://imgur.com/a/oToeF)  
+![](https://i.imgur.com/okGbNAx.png)  
   
 note   
 X_error_report.js from Herny send E-mail about error Code   
