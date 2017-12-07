@@ -1,0 +1,12 @@
+#eMarki {
+    color: yellow;
+    background: none;
+    width: 79px;
+    height: 36px;
+    position: absolute;
+    margin-left: 10px;
+    font-size: initial;
+    cursor: pointer;
+    outline: none;
+}
+#eMarki:hover{border: 1px solid #fff;border-radius: 5px;}
