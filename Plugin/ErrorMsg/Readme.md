@@ -13,8 +13,11 @@ For Font_Awesome icon
 [ErrorMsg.css](https://raw.githubusercontent.com/indianstau/Brightcove/master/Plugin/ErrorMsg/ErrorMsg.css)  
 [ErrorOverlay.css](https://raw.githubusercontent.com/indianstau/Brightcove/master/Plugin/ErrorMsg/ErrorOverlay.css)  
   
+![](https://imgur.com/a/oToeF)  
   
-note  
+note   
 X_error_report.js from Herny send E-mail about error Code   
 1.  after click btn
-2.  no click get ErrorCode info
+2.  no click get ErrorCode info  
+
+少了兩個js & Jquery  
