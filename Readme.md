@@ -6,7 +6,7 @@ ChooseLanguage
 Dropdown  
 Overlay  
 PageAd  
-Thumbnails
+Thumbnails  
 ErrorMsg   (ErrorMsg & ErrorOverlay)  
 
 ##### Shopping Video  ##### 
