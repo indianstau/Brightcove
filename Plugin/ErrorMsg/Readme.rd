@@ -1,3 +1,5 @@
-### ErrorMsg ###  
-button icon on control bar  
-and write error table on google  
+# ErrorMsg    
+  
+ErrorMsg --->  on Control Bar icon  
+ErrorOverlay --->  on  Error Msg Overlay Btn  
+
