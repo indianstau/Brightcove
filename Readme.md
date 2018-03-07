@@ -1,7 +1,7 @@
 ### IP Systems ###  
 ***
 
-##### Plugin  (From Brightcove ) ##### 
+##### Plugin  (From Brightcove HTML) ##### 
 ChooseLanguage  
 Dropdown  
 Overlay  
