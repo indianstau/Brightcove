@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Analytics API for SET</title>
+<link href="https://code.jquery.com/ui/1.12.1/themes/pepper-grinder/jquery-ui.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<style>
+	body{font-family: "Trebuchet MS", sans-serif;}
+    .comDateArea{position: absolute;left: 75%;top: 0;z-index: 1;}
+    .createDate{display: inline-block;font-size: 12px;}
+    .APIname{display: inline-block;margin-right: 1%;margin-left: 1%;}
+    .comlogo{width: 7%;}
+    .brightcoveLogo{width: 8%;}
+    
+    .des1{font-size: 16px;float: left;margin-right: 55px;}
+    .functionArea{margin-top: 10px;margin-bottom: 10px;}
+    
+    .parameterArea{width: 45%;top: 14%;right: 2%;position: absolute;}
+    .tagArea{margin-top: 10px;margin-bottom: 25px;}
+    .dimensionsArea {margin-top: 7px;}
+    .dimensionsArea p, .tagArea p, .dateArea p{display: inline-block;}
+    legend{font-weight: bold;}
+    
+    .dateArea{margin-bottom: 20px;float: left;}
+    .dateArea p, .infoArea p{margin-top:0;margin-bottom: 0;}
+    #datepicker, #datepicker1 {width: 30%;}
+    
+    #download{display: none;}
+    .saveBtn{background-color: dodgerblue;border: none;padding: 4px 8px;border-radius: 4px;color: white;}
+    
+    .clear{clear: both;}
+    
+    .msgArea{position: relative;left: 550px;top: -10px;width: 50%;}
+    .msgArea p{font-weight: bold;margin-bottom: 10px;margin-top: 0;}
+    .msgInfo {position: absolute;top: 0;right: 13%;}
+    .msgInfo p{display: inline-block;margin-top: 0;color: dodgerblue;}
+    .msgArea textarea{resize: none;border-radius: 4px;}
+    #msg{font-size: 15px;padding: 6px 8px;border: none;}
+
+
+</style>
+</head>
+<body>
+
+<div id="tabs">
+
+	<div class="comDateArea">
+        <i class="createDate">Feb 13, 2018</i>
+	    <h3 class="APIname">Analytics API</h3>
+        <img src="https://i.imgur.com/YxM8axB.png" class="comlogo">
+        <img src="http://streamroot.test.s3.amazonaws.com/logos/brigthcove.png" class="brightcoveLogo">
+	</div>
+
+	<ul>
+	    <li><a href="#tabs-1">Tag</a></li>
+	</ul>
+		
+	<div id="tabs-1">
+        <div class="des1">說明:
+            <p>功能有三種Video、Date、Day</p>
+            <p>*Official.video:A至B日此tag每部影片所累積的video_view</p>
+            <p>*Official.date:A至B日每天的全有影片總video_view</p>
+            <p>*Day:A至B日以天為單位抓取每天每部影片或該tag(單一影片)的video_view</p>
+            <p>欲選用Tag項目記得在該video下專有標籤</p>
+            <p>Tag可以一個以上,需用逗號隔開(ex:foo,bat),不分大小寫</p>
+            <p>抓取3000筆約40s</p>
+            <p>若 video_name, video 都等於 null 時 </p>
+            <p>是指 Other/Third Party: 分享至第三方平台</p>
+        </div>
+      
+        <fieldset class="parameterArea">
+        <legend>參數</legend>
+           <div class="functionArea">
+               功能:&nbsp;
+                <select id="functionmenu">
+                    <option value="Official">Official</option>
+                    <option value="Day">Day</option>
+                </select>
+           </div>
+           
+           <div class="dimensionsArea">
+                <p>Dimensions:</p>
+                <select id="dimensionsmenu">
+                    <option value="video">Video</option>
+                    <option value="date">Data</option>
+                </select>
+            </div>
+              
+            <div class="tagArea">
+                Tag:&nbsp;&nbsp;<input type="text" id="tag"/>
+            </div>
+            
+            <div style="clear: left;"></div>
+    
+            <div class="dateArea">
+                <p style="display: inline;">Date:
+                <input type="text" id="datepicker" readonly/>
+                &nbsp;to&nbsp;
+                <input type="text" id="datepicker1" readonly/></p>
+            </div>
+            
+            <div style="text-align: right;">
+                <a id="download">Download</a>
+                <button onclick="main(offset);" class="saveBtn">Save</button>
+            </div>
+        </fieldset>
+        
+        <div class="clear"></div>
+        
+        <div class="msgArea">
+            <p>Message</p>
+            <div class="msgInfo">
+                Total:<p id="total" style="margin-right: 30px;" title="資料總數">0</p>
+                Count:<p id="count" title="迴圈數">0</p>
+            </div>
+            <textarea id="msg" cols="71" rows="4"></textarea>
+        </div>
+            
+	</div><!--tab-1-->
+</div><!--tabs-->
+
+<script>
+    
+    /*
+     *如不同帳號, 299行的accounts=4338955585001要改
+     *137行換成自己PHP的位置(server)
+     */
+    
+
+    //client_id & client_secret php 位置取得　token
+    var options = {
+        requestBody:'',
+        requestType:'GET',
+        proxyURL:'http://ipsystems.000webhostapp.com/PHP/proxy.php',
+        response:'',
+        url:''
+    };
+    
+    
+    var day = 0;
+    var offset = 0;             //資料超過100時排列累加的位置　
+    var dayRem = 0;             //天=圈數
+    var dataIndex = 0;
+    var parsedData = {};　
+    var remaining, now;         //資料>100時　當前剩餘的筆數
+    
+    
+    func = document.getElementById("functionmenu");
+    datePicker = document.getElementById('datepicker');  
+    datePicker1 = document.getElementById('datepicker1');
+    dimId = document.getElementById("dimensionsmenu");
+    msg = document.getElementById("msg");
+    count = document.getElementById("count");
+    total = document.getElementById("total");
+    
+
+    //程式主體
+    function main(offset){
+        
+        getParameter(offset);
+        
+        makeRequest(options, function(analyticsData){  
+            
+            parsedData[dataIndex] = JSON.parse(analyticsData);
+
+            count.textContent = Math.ceil(parsedData[dataIndex].masonry-item_count/100);
+            total.textContent = parsedData[dataIndex].masonry-item_count;
+
+            offset = offset + 100;
+            remaining = parsedData[dataIndex].masonry-item_count - offset;
+            
+            if(func.options[func.selectedIndex].value == "Official"){
+                if(remaining > 0){
+                    remMoreZero(offset);
+                }else{
+                    final();
+                }
+            }else{
+                parsedData[dataIndex].data = fromD;
+                if(remaining > 0){
+                    remMoreZero(offset);
+                }else{
+                    offset = 0;
+                    firstFromD = new Date(fromD).getTime();
+                    firstToD = new Date(datePicker1.value).getTime();
+                    dayRem = (firstToD - firstFromD) / 86400000;
+                    if(dayRem > 0){
+                        day = 1;
+                        fromD = updateTime(fromD);
+                        remMoreZero(offset);
+                    }else{
+                      final();
+                    } 
+                }                
+            }
+            
+        });//makeRequest()
+    }
+    
+    
+    //發送請求與處理   
+    var xhr = new XMLHttpRequest();
+    function makeRequest(options, callback) {
+
+        var response, requestParams;
+        var proxyURL = options.proxyURL;
+        
+        requestParams = "url=" + encodeURIComponent(options.url) + "&requestType=" + options.requestType;
+        
+        if (options.client_id && options.client_secret) {
+            requestParams += '&client_id=' + options.client_id + '&client_secret=' + options.client_secret;
+        }
+        if (options.requestData) {
+            requestParams += '&requestBody=' + options.requestBody;
+        }
+        
+        xhr.onreadystatechange = function(){
+            try {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        response = xhr.responseText;
+                        //console.log(response);
+                        
+                        if (response === '{null}') {
+                            response = null;
+                        }
+                        callback(response);
+                        
+                    } else {
+                        alert('There was a problem with the request. Request returned ' + xhr.status);
+                    }
+                }
+            }catch (e) {
+                alert('Caught Exception: ' + e);
+            }
+        };
+        xhr.open('POST', proxyURL);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(requestParams);
+    }
+       
+    
+    //由選取的功能決定disable date選項
+    func.onchange = function(){
+        if(func.options[func.selectedIndex].value == "Day"){
+            dimId.disabled = true;
+            dimId.options[0].selected = true;
+        }else{
+            dimId.disabled = false;
+        }
+    };
+
+    
+    //判斷抓參數 組請求字串
+    function getParameter(offset){
+        
+        //Dimensions抓值
+        dimensions = dimId.options[dimId.selectedIndex].value;
+        
+        
+        sort = '-video_view';
+        //Dimensions判斷video/date  連動fields(抓取欄位), sort(排列方式)
+        if(dimensions == 'video'){
+            fields = "video,video_name";//video.name CMS　API權限
+        }else {
+            fields = "";
+            sort = "-date";
+        }
+        
+        
+        //判斷Official or Day 而決定起始與終止日期
+        if(day == 0){
+            fromD = datePicker.value;
+        }
+        toD = fromD;
+            
+        
+        //fuc: Official/dday
+        if(func.options[0].selected == true){
+            fromD = datePicker.value;
+            toD = datePicker1.value;
+        }
+        
+
+        //處理Tag
+        var tag = document.getElementById("tag");
+        if(tag.value == ""){
+            stringtag = "";
+        }else {
+            stringtag = "&where=video.q==tags:" + tag.value;
+        } 
+        
+        
+        //組字串　　offset:排列後從多少開始的位置
+        options.url = "https://analytics.api.brightcove.com/v1/data?accounts=4338955585001&limit=100&dimensions=" +
+        dimensions + "&fields=video_view," + fields + "&sort=" + sort+ "&from=" + fromD + "&to=" +toD + stringtag + "&offset=" + offset;
+        
+        //console.log(options.url);
+        msg.textContent = now + " 請求發送成功,資料抓取需要時間,請稍等片刻";
+    }
+    
+    
+    //day加一天
+    function updateTime(oldDay){
+        torommow  = new Date(new Date(oldDay).getTime() + 86400000);
+        newDay = torommow.toISOString().substring(0,10);
+        return newDay;
+    }
+    
+    
+    //存檔
+    function saveData(){        
+        var aDownload = document.getElementById("download");
+        var blob = new Blob([JSON.stringify(parsedData, null, "\t")], {type:'application/json'});
+        aDownload.href = URL.createObjectURL(blob);
+        aDownload.download = "data.json";
+        aDownload.click();
+    };
+    
+    
+    //顯示當前時間
+    function nowTime(){
+        time = new Date();
+        now = time.getHours() + ':' + time.getMinutes()+ ':' + time.getSeconds();
+        setTimeout("nowTime()", 1000);
+    }
+    nowTime();
+    
+    
+    //定義日期區間
+    datePicker1.value = time.toISOString().substring(0,10);
+    datePicker.value = new Date(time.getTime()-86400000*3).toISOString().substring(0,10);
+    
+    
+    //  >100筆 or >一天　續跑處理與msg
+    function remMoreZero(offset){
+        main(offset);
+        num = dataIndex + 1;
+        msg.textContent = now + " 資料傳遞完會自動下載, 天數: " + dayRem + " 筆數: " + num; 
+        dataIndex = dataIndex + 1;
+    }
+    
+
+    //最後清除與存檔的程序
+    function final(){
+        msg.textContent = now + " 下載完成\n";
+        saveData();
+        offset = 0;
+        remaining  = 0;
+        day = 0;
+        dataIndex = 0;
+        dayRem  = 0;
+        parsedData = {};
+        count.textContent = 0;
+        total.textContent = 0;
+    }
+    
+    
+    //Jquery tab datepicker設定與限制防呆
+    $("#tabs").tabs();
+    
+    $("#datepicker1").datepicker({
+        inline: true,
+        changeMonth: true,
+        changeYear:true,
+        dateFormat:'yy-mm-dd',
+        autoSize: true,
+        maxDate:0,
+        minDate:new Date(2015, 0, 1)
+    });
+    
+    $("#datepicker").datepicker({
+        inline: true,
+        changeMonth: true,
+        changeYear:true,
+        dateFormat:'yy-mm-dd',
+        autoSize: true,
+        maxDate:0,
+        minDate:new Date(2015, 0, 1),
+        onSelect: function(dat, inst){
+            //console.log("1.先 " + dat);
+            $("#datepicker1").datepicker('option', 'minDate', dat);
+        }
+    });
+    
+</script>
+    
+              
+</body>
+</html>
