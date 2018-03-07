@@ -125,7 +125,7 @@
 <script>
     
     /*
-     *如不同帳號, 299行的accounts=4338955585001要改
+     *如不同帳號, 299行的accountsid要改
      *137行換成自己PHP的位置(server)
      */
     
@@ -134,7 +134,7 @@
     var options = {
         requestBody:'',
         requestType:'GET',
-        proxyURL:'http://ipsystems.000webhostapp.com/PHP/proxy.php',
+        proxyURL:'http://...proxy.php',
         response:'',
         url:''
     };
@@ -295,7 +295,7 @@
         
         
         //組字串　　offset:排列後從多少開始的位置
-        options.url = "https://analytics.api.brightcove.com/v1/data?accounts=4338955585001&limit=100&dimensions=" +
+        options.url = "https://analytics.api.brightcove.com/v1/data?accounts=id&limit=100&dimensions=" +
         dimensions + "&fields=video_view," + fields + "&sort=" + sort+ "&from=" + fromD + "&to=" +toD + stringtag + "&offset=" + offset;
         
         //console.log(options.url);
