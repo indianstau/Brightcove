@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>activate/deac</title>
+    <style>
+        body {background-color:gainsboro;margin: 0;}
+        textarea {
+            resize:none;
+            text-align:center;
+            font-family: sans-serif;
+            font-size:18px;
+            background-color:mintcream;
+            padding-top:5px;
+            line-height: 26px;
+        }
+        .btnStyle {
+            font-size: 16px;
+            border: 0;
+            background-color: black;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: aliceblue;
+            cursor: pointer;
+            display: inline;
+        }
+        .btnStyleD {
+            font-size: 16px;
+            border: 0;
+            background-color: darkred;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: aliceblue;
+            cursor: pointer;
+            display: inline;
+        }
+        .btnAcC { background-color:#aaa; }
+        .btnDeC { background-color:#FFB5B5;}
+        .btnAcC, .btnDeC { cursor: default;}
+        
+    </style>
+</head>
+<body>
+<!--******************   For TVBS testPage to Live entryPoint Active/Deactive     *************-->
+    <div>
+     
+      <div style="float:left;width:150px;padding-top: 130px;padding-left:40px;">
+          <select style="font-size: 16px;">
+              <option value="d91f5a92b3024aa7ada8c34114a70686">備用</option>
+<!--              <option value="c3f920d0a52946c287327174357a4fb1">正式</option>-->
+          </select>
+      </div>
+
+     
+      <div align=center style="padding-top:60px;float:left;">
+           <h2>EntryPoint Switch</h2>
+            <textarea rows="10" cols="60" id="msg">Here is test!中文顯示</textarea><br/>
+            <div style="margin-top:10px;">
+                <button id="active" class="btnStyle" onclick="activeSwitch('activate')">activate</button>
+                <button id="deactive" class="btnStyleD" onclick="activeSwitch('deactivate')">Deactivate</button>
+            </div>
+      </div>
+<!--*********************************************************************************************
+                      onclick = "activeSwitch('activate')"----將activate代進function
+-->
+
+      <div style="float:left;width:260px;padding-top:130px;padding-left: 20px;">
+        <summary style="font-weight: bold;">操作說明:</summary>
+            <p>操作時間<span style="color: red;">請勿</span>間格過<span style="color: red;">短</span></p>
+            <p>請使用<span style="color: red;">IE</span>瀏覽器操作</p>  
+            <p style="color: red;">不支援Win10 Edge</p> 
+            <p>由於伺服器與直播源切換讀取需要一定的時間回應,連續點擊會使頁面當掉</p>
+            <p>active與deactive操作時間需間隔30s</p>
+            <p style="color: red;">淺色按紐為不可按,需等待時間結束才能進行下一步</p>
+            <p style="color: red;">若遇到問題請重新刷新頁面</p>
+            <p>Oct 2, 2017</p>
+            <img src="https://i.imgur.com/JnOdD0F.jpg" style="width: 120px;float:right;">
+      </div>
+<script>  
+    // select   所選的直接抓取
+//    var select = document.getElementsByTagName('select');
+//    var Job_id = document.getElementsByTagName('select')[0].value; 會固定Job_id
+    
+    var mSg = document.getElementById('msg');
+   
+    //httpRequest 
+    var APIurl, now;
+var url = "https://api.bcovlive.io/v1/jobs/" + document.getElementsByTagName('select')[0].value + '/';
+    var apikey = "j98xEc9afE69ILoO7wlKh2CjoLEBw38K4Pgow0Ap";
+   
+    function httpRequest(APIurl) {
+        var data = null;
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;  
+        xhr.addEventListener('readystatechange', function(){
+            if(this.readyState === 4) {
+                var resText = JSON.parse(this.responseText);
+                if(resText.id == document.getElementsByTagName('select')[0].value) {
+                    mSg.innerHTML += '\nSuccess';
+                }else if(resText.error) {
+                    mSg.innerHTML += '\n操作時間間格太短,請尚後再嘗試\n或此動作己執行過';
+                }else if(resText.message){
+                    mSg.innerHTML += '\n請重新刷頁面';
+                }else {
+                    mSg.innerHTML += '\n操作失敗,請聯絡相關人員';
+                }
+            }
+        });
+        xhr.open("PUT", APIurl);
+//        xhr.setRequestHeader('Access-Control-Allow-Headers','X-Requested-With');
+//        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+        xhr.setRequestHeader("x-api-key", apikey);
+        xhr.setRequestHeader("context-type", "application/json");
+        xhr.setRequestHeader("cache-control", "no-cache");
+        xhr.send(data);
+    }
+
+    // onclick main active   上頭line 58 function的  activate / deactivate  = stat 代入
+    function activeSwitch(stat) {
+        APIurl = url + stat;     
+        httpRequest(APIurl);
+        setInterval(nowTime, 1000); 
+//        setInterval(function(){ 
+//            nowTime();
+//            mSg.innerHTML = now + ' ' +stat;
+//        }, 1000); 第一次會顯示  不需要 134line
+        mSg.innerHTML = now + ' ' +stat;
+        clearInterval(nowTime);
+        //放不對的地方 IE會當 因為沒有clear　
+        btnDisable(stat);
+    }
+    
+    function nowTime() {
+        var time = new Date();
+        now = time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds(); 
+    }   
+    nowTime();//不會呼叫  第一次不會顯示時間
+ 
+    
+    var s = 4;
+    var switchBtn;
+    var acTive = document.getElementById('active');
+    var deTive = document.getElementById('deactive');
+    
+    
+    //btn被按後  原本btn的消失  另一個btn倒數30s 
+    function btnDisable(stat) {  
+        if( stat == 'activate'){
+            acTive.classList.add('btnAcC');
+            deTive.classList.add('btnDeC');
+            acTive.disabled = true;          
+            deTive.disabled = true;
+            switchBtn = deTive;//指定哪一個btn id
+            sec31('deactive'); // ac: ac/de變色  sec->de    
+        }else {
+            deTive.classList.add('btnDeC');
+            acTive.classList.add('btnAcC');
+            deTive.disabled = true;
+            acTive.disabled = true;
+            switchBtn = acTive
+            sec31('activate'); // de: ac/de變色  sec->ac
+        }
+    }
+    
+    //倒數計時30s  時間到時　btn可以按　
+    // acde : sec31('代入的參數')
+    // ac->de de可以按 
+    function sec31(acde) {
+        if( s == 0 ){
+            if(acde == 'activate'){
+                acTive.disabled = false;
+                acTive.classList.remove('btnAcC');
+                acTive.innerHTML = acde;
+            }else {
+                deTive.disabled = false;
+                deTive.classList.remove('btnDeC');
+                deTive.innerHTML = acde;
+            }
+            s = 4;//設定回原來的sec
+            return //跳出function
+        } else {
+            s = s-1;
+            switchBtn.innerHTML = s; 
+        }
+        setTimeout(function() {sec31(acde);}, 1000);
+    }
+</script>
+    </div>
+    
+</body>
+</html>
