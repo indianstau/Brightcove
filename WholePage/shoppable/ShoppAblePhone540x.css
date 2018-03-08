@@ -1,0 +1,78 @@
+    @media screen and (max-device-width: 540px) {
+        .comLogo {width:300px;height:90px;margin-right:0;}
+        .navText {font-size: 24px;}
+        .nav>li>a { padding: 15px 25px !important;}
+/*        .nav>li>a {padding: 25px 50px !important;}*/
+        .dropdown-menu>li>a {font-family:fantasy;font-size: 24px; }
+        .FB {width:50px;height:50px;}
+        .Email {width:60px;height:60px;right: 90px;}
+        
+        .HbackgroundImg {height:850px; background-position:50% 25%;}
+        .Hsecond {margin-left: 0px;padding-top: 0;}
+        .phoneO {display: block; position: relative; max-width: 100%;}
+        .phoneM {padding-top: 56.25%;}
+        .vvL, .vvR { 
+            width: 100% !important ; 
+            height: 100% !important ;
+            position: absolute;
+            top: 0px; 
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            clear: both;
+        }
+        .Harea {margin-top:10px;}
+        .Htitle, .Mtitle {font-size:40px;}
+        .Htext {font-size:28px;}
+        .tcloseI {height:30px;width:30px;}
+        
+        #btnTop {font-size: 30px;}
+        
+        .Marea {margin-right:0px;height:1320px;}
+        .MtimeArea {left: 750px;width: 144px;height: 120px;}
+        .Mtime {font-size: 30px;width: 100px;height: 50px;left: 22px;top: 12px;}
+        .MshowTime {font-size: 30px;}
+        .Darts {top: 1750px;width: 450px;left: 100px;}
+        .DartsTL {width: 220px;}
+        .DartsTR, .DartsBR {width: 210px;}
+        .DartsBL {width: 225px;}
+        .pointerR {width: 125px;left: 440px;top: 135px;}
+        .Mtslogan {top: 250px;left: 520px;font-size: 30px;}
+        
+        .sArea {height:860px;padding-top:120px;margin-left:0;}
+        .sTitle {font-size: 40px;top:10px;right: 120px;}
+        .LV {width: 130px;height: 183px;right:840px;top:-70px;}
+                
+        .Aarea {margin-right:0;height: 1880px;}
+        .Acontent {position: relative;top: 730px;}
+        .Atitle {font-size: 40px;top:660px;}
+        .Atext1 {right: 50px;font-size: 30px;}
+        .Atext2 {right: 50px;font-size: 30px;margin-top: 50px;}
+        
+        .velArea {left: 90px;top: 240px;width: 450px;}
+        .velText {font-size: 30px;}
+        .velImg {height: 160px;width: 275px;}
+        
+        .linRArea {top: 320px;width: 250px;left: 160px;}
+        .linCir {height: 255px;width: 255px;padding-top: 65px;}
+        .linRImg {width: 255px;height: 140px;}
+        .linRText {font-size: 30px;margin-left: 50px;}
+        
+        .briArea {left: 470px;top: -50px;}
+        .briCir {width: 100px;height: 100px;}
+        .briImg {width: 375px;height: 280px;}
+        .briText {font-size: 30px;margin-left: 125px;margin-top: -25px;position: absolute;}
+        
+        .etiArea {width: 450px;left: 420px;top: 30px;}
+        .etiText {font-size: 30px;margin-left: 10px;}
+        .etiImg {width: 260px;height: 160px;}
+        
+        .pradaPoster {width: 175px;height: 245px;bottom: 15px;}
+        .pradaD {margin-top: 80px;}
+                
+        footer {height:240px;}
+        .comText, .versionWeb, .versionPhone, .copyright {font-size: 24px;}
+        .brightcoveLogo {width:300px;height:75px;}
+        .movebookLogo {width:210px;height:45px;}
+        .copyright {margin-top: 18px;}        
+    }

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ShoppAble Demo for phone</title>
+<link type="image/x-icon" href="https://maxcdn.icons8.com/Share/icon/ios7/Animals//sheep21600.png" rel="icon">
+<link href="ShoppAble.css" rel="stylesheet">
+<link href="ShoppAblePhone540x.css" media="screen and (max-device-width: 540px)" rel="stylesheet">
+<link href="ShoppAble1167.css" media="(min-width: 1167px)" rel="stylesheet">
+<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navB">
+<ul class="nav nav-tabs">
+       <a href="http://ipsystems.lazyweb.net.tw/"><img class="comLogo" src="http://i.imgur.com/JnOdD0F.jpg"></a>
+         <li class="dropdown navli">
+          <a class="dropdown-toggle navText" data-toggle="dropdown" href="#">Demo</a>
+            <ul class="dropdown-menu">
+                <li><a href="../index.html">Shoppable</a></li>
+            </ul>
+        </li>
+         <li class="dropdown navli">
+          <a class="dropdown-toggle navText" data-toggle="dropdown" href="#">Test</a>
+            <ul class="dropdown-menu">
+                <li><a href="http://ipsystems.byethost14.com/?i=1">Advertising</a></li>
+            </ul>
+        </li>
+<a href="https://zh-tw.facebook.com/Ixtechnology/"><img class="FB" data-toggle="tooltip" title="我們也有粉絲團哦！" src="https://img.funtop.tw/2016/05/160514-fb-live-map/fb-live-map_2.png"></a>
+<a href="mailto:indianstau@linfair.com.tw"><img class="Email" data-toggle="tooltip" title="迎歡來信詢問" src="http://i.imgur.com/Hv6gymS.png"></a>
+</ul>
+</nav>
+
+<!--多了video class vv 外頭加兩層Div-->
+<div class="HbackgroundImg">
+    <div class="Hsecond"> 
+       <div class="phoneO">
+       <div class="phoneM">
+        <video data-video-id="5513715842001" 
+        data-account="4005328949001" 
+        data-player="ryxblD9qPW" 
+        data-embed="default" 
+        data-application-id 
+        class="video-js vvL" 
+        controls></video>
+<script src="//players.brightcove.net/4005328949001/ryxblD9qPW_default/index.min.js"></script>
+       </div>
+       </div>
+        <div align=right class="Harea"> 
+            <div align=right class="Htitle">Heineken傳統廣告</div>  
+            <div class="Htext">
+            顯示時間1s, 持續30s, 右上角<br/>
+            2s, 持續58s, 左下角<br/>
+            <img class="tcloseI" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/High-contrast-dialog-close.svg/768px-High-contrast-dialog-close.svg.png">可關閉廣告<br/>
+            點圖片連Heineken官網<br/>點文字連Youtube
+            </div>
+        </div>
+    </div> 
+</div> 
+
+<button id="btnTop" onclick="Top()">Top</button>
+<script>
+    var btnTop = document.getElementById('btnTop');
+    window.onscroll = function() { showTop();};
+    function Top() {
+        if(window.scrollY != 0){
+            setTimeout(function() {window.scrollTo(0,window.scrollY-300);Top();}, 100);
+        }
+    }
+    function showTop() {
+        if(document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+           btnTop.style.display = 'block';
+        }else {
+           btnTop.style.display = 'none';
+        }
+    }
+</script>
+
+<div class="Marea">
+  <div class="phoneO">
+  <div class="phoneM">
+    <video data-video-id="5375566315001" 
+    data-account="4005328949001" 
+    data-player="ByxgZ5uB8W" 
+    data-embed="default" 
+    data-application-id 
+    class="video-js vvR" 
+    controls></video>
+<script src="//players.brightcove.net/4005328949001/ByxgZ5uB8W_default/index.min.js"></script>
+  </div>
+  </div>
+  <div>
+      <h3 align=left class="Mtitle">MovieBook Plugin</h3>
+      <img class="pointerR" src="http://i.imgur.com/6axabHy.png">
+      <div class="MtimeArea">
+       <div class="Mtime">Time</div>
+       <div class="MshowTime">
+           <span id="vTmin">00</span>
+           <span>:</span>
+           <span id="vTsec">00</span>
+       </div>
+       </div> 
+
+<div class="Darts">
+<img class="DartsTL" onclick="sec1();" data-toggle="tooltip" title="1" src="http://i.imgur.com/BER4BTc.png">
+<img class="DartsTR" onclick="sec2();" data-toggle="tooltip" title="2" src="http://i.imgur.com/pWprDFw.png">
+<img class="DartsBL" onclick="sec3();" data-toggle="tooltip" title="3" src="http://i.imgur.com/HoLXMIX.png">
+<img class="DartsBR" onclick="sec4();" data-toggle="tooltip" title="4" src="http://i.imgur.com/LFTbqin.png">   
+</div>
+<span class="Mtslogan">轉一轉,點一點,記得仔細看XD</span>
+    </div>
+<script>  
+    var videoMid= document.getElementsByTagName('video')[1].id;
+    var video = document.getElementById(videoMid);
+    var Darts = document.getElementsByClassName('Darts')[0];
+    var pointerR = document.getElementsByClassName('pointerR')[0];
+    var Mtslogan = document.getElementsByClassName('Mtslogan')[0];
+    var vTmin = document.getElementById('vTmin');
+    var vTsec = document.getElementById('vTsec');
+    function sec1 () {
+        video.currentTime = 140;
+        video.play();
+        vTmin.innerHTML = 2;
+        vTsec.innerHTML = 24;
+        makecolor();
+    }//145 
+    function sec2 () {
+        video.currentTime = 1119;
+        video.play();
+        vTmin.innerHTML = 18;
+        vTsec.innerHTML = 44;
+        makecolor();
+    } //1124
+    function sec3 () {
+        video.currentTime = 1287;
+        video.play();
+        vTmin.innerHTML = 21;
+        vTsec.innerHTML = 32;
+        makecolor();
+    }//1292
+    function sec4 () {
+        video.currentTime = 2220;
+        video.play();
+        vTmin.innerHTML = 37;
+        vTsec.innerHTML = 9;
+        makecolor();
+    }//2229      
+    function makecolor() {
+        vTmin.style.color = '#FFFF77';
+        vTsec.style.color = '#FFFF77';
+    }
+
+    //moviebook video Timer  可以不用？
+//    var t;
+//    function takeVCTime() {
+//        var testT = document.getElementById('test'); 
+//        testT.innerHTML = Math.floor(video.currentTime); 
+//        t = setTimeout(function() { takeVCTime() }, 1000);           
+//    }
+    
+//    takeVCTime();
+    
+    video.addEventListener('timeupdate',function() {
+//        console.log('ok');
+            if( video.currentTime >= 143.18 && video.currentTime < 143.9) {
+//                console.log('XXX' + new Date() +' '+ video.currentTime);
+                Darts.style.transform = 'rotate(90deg)';Darts.style.animation = '15s 1 ease';
+                vTmin.innerHTML = 2;vTsec.innerHTML = 24;makecolor();
+            }else if( video.currentTime >= 1122.2 && video.currentTime < 1122.9 ) {
+                Darts.style.transform = 'rotate(0deg)';
+                vTmin.innerHTML = 18;vTsec.innerHTML = 44;makecolor();
+            }else if( video.currentTime >= 1290.2 && video.currentTime < 1290.9 ) {
+                Darts.style.transform = 'rotate(-180deg)';
+                vTmin.innerHTML = 21;vTsec.innerHTML = 32;makecolor();
+            }
+            else if( video.currentTime >= 2227.2 && video.currentTime < 2227.9 ) {
+                Darts.style.transform = 'rotate(-90deg)';
+                vTmin.innerHTML = 37;vTsec.innerHTML = 9;makecolor();
+            }         
+     }, false);
+    window.onscroll = function() { showTop(); animationUp(); };
+    function animationUp() {
+        if( document.body.scrollTop > 600 || document.documentElement.scrollTop > 600 ) {
+            pointerR.classList.add('AniP');
+            Darts.classList.add('AniD');
+            Mtslogan.classList.add('AniS');
+        }else {
+            pointerR.classList.remove('AniP');
+            Darts.classList.remove('AniD');
+            Mtslogan.classList.remove('AniS');
+        }
+    }
+</script>
+</div>
+
+
+<div class="shopBackgroundImg">
+<div class="sArea">
+   <div class="phoneO"><div class="phoneM">
+        <video data-video-id="5518566940001" 
+        data-account="4005328949001" 
+        data-player="BJ84x4Owb" 
+        data-embed="default" 
+        data-application-id 
+        class="video-js vvL" 
+        controls></video>
+<script src="//players.brightcove.net/4005328949001/BJ84x4Owb_default/index.min.js"></script>
+   </div></div>
+   <h3 align=right class="sTitle">LV Shoppable Video</h3>
+   <a href="http://us.louisvuitton.com/eng-us/homepage" data-toggle="tooltip" title="Louis Vuitton官網"><img align=right class="LV" src="https://lmintrz.files.wordpress.com/2014/11/daryl-feril-lv-e1344023376592.jpg"></a>
+</div>
+<script>
+    var LV = document.getElementsByClassName('LV')[0];
+    window.onscroll = function() { showTop(); animationUp(); picLvUp(); };
+    function picLvUp() {
+        if(document.body.scrollTop > 1200 || document.documentElement.scrollTop > 1200 ) {
+            LV.classList.add('AniLV');
+        }else {
+            LV.classList.remove('AniLV');
+        }
+    }
+</script>    
+</div>
+
+
+<div class="Aarea">
+   <div style="font-weight: bold;" class="Acontent">
+      <div class="Atext1">功能:掛問卷,社群連結,影片,官網,音樂,產品列表切點</div>
+      <div class="Atext2">產品:可連結,可展示,可跳影片時間點</div>  
+   </div> 
+ <h3 align=left class="Atitle">Prada Adways Plugin</h3> 
+   <div class="phoneO"><div class="phoneM">
+    <video 
+    id="adways-interactive"
+    data-video-id="5528550830001" 
+    data-account="4005328949001" 
+    data-player="S1xPSzcB" 
+    data-embed="default" 
+    data-application-id 
+    class="video-js vvR"
+    controls></video>
+<script src="//players.brightcove.net/4005328949001/S1xPSzcB_default/index.min.js"></script>
+   </div></div>
+   <div>
+       <div class="velArea" onclick="onVel();">
+            <h3 class="velText">Velvet Bag</h3>
+            <img class="velImg" src="http://i.imgur.com/Ut3HQY5.png">
+       </div>
+       <div class="linRArea" onclick="onLineaR();">
+            <div class="linCir">
+            <img class="linRImg" src="http://i.imgur.com/y8FipG9.png"></div>
+            <h3 class="linRText">Linea Rossa</h3>
+       </div>
+       <div class="briArea" onclick="onBri();">
+        <img class="briCir" src="http://i.imgur.com/7qnvRc4.png">
+        <img class="briImg" src="http://i.imgur.com/yq03OMG.png">
+        <h3 class="briText">Briefcase</h3>
+       </div>
+       <div class="etiArea" onclick="onEti();">
+            <h3 class="etiText">Etiquette</h3>
+            <img class="etiImg" src="http://i.imgur.com/acvl4Fi.png">
+       </div>
+   </div>
+<img src="http://68.media.tumblr.com/871fbf3df34155305189d98aaba5a298/tumblr_nijmecM01t1ro96rao1_1280.jpg" class="pradaPoster">
+<img src="https://st.hzcdn.com/simgs/a261eb110577f17e_4-0262/contemporary-prints-and-posters.jpg" class="pradaD">
+<script>
+var video3 = document.getElementsByTagName('video')[3];
+    function onVel() {
+        video3.currentTime = 30;
+        video3.play();
+    }
+    function onLineaR() {
+        video3.currentTime = 10;
+        video3.play();
+    }
+    function onBri() {
+        video3.currentTime = 35;
+        video3.play();
+    }
+    function onEti() {
+        video3.currentTime = 29;
+        video3.play();
+    }
+</script>
+</div>
+
+
+<footer align=center>
+    <h5 class="comText">Copyright © IP SYSTEMS All rights reserved.</h5>
+    <img class="brightcoveLogo" src="http://img.brightcove.com/brightcove-logo.png">
+    <img class="movebookLogo" src="http://i.imgur.com/d4WNmcV.png">
+    
+    <div>
+    <h5 class="versionWeb" style="cursor:default;display: inline;">
+        目前特定效果只適用於網頁版
+<!--        <a href="ShoppAble.html" class="versionWeb">僅適用於網頁版&nbsp;</a>-->
+<!--        <a href="ShoppAblePhone.html" class="versionPhone">手機版待</a>-->
+    </h5>&nbsp;&nbsp;&nbsp;&nbsp;
+瀏覽人數:
+<script type="text/javascript" src="http://services.webestools.com/cpt_pages_views/57464-14-4.js"></script>
+<a href="http://www.webestools.com/" style="display:block;text-align:center;" title="Tools services webmasters counters generators scripts tutorials free"></a>
+    </div>
+    
+    <h4 class="copyright">以上品牌影片與圖片僅供網頁Demo使用,不具任何商業用途</h4>
+</footer>
+
+</body>
+</html>

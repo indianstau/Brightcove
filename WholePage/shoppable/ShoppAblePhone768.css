@@ -1,0 +1,28 @@
+@media (min-width: 541px) and (max-width: 768px) {
+    .phoneO {display: block; position: relative; max-width: 100%;}
+    .phoneM {padding-top: 56.25%;}
+    .vvL, .vvR { 
+        width: 100% !important ; 
+        height: 100% !important ;
+        position: absolute;
+        top: 0px; 
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        clear: both;
+    }
+
+    .HbackgroundImg,.Aarea { height:auto !important; }
+    .Harea { margin-top: 0 !important; }
+    .Hsecond,.sArea {margin-left: 0 !important; }       
+    .Marea,.Aarea {margin-right: 0 !important; }
+    .Marea { height:1020px !important;}
+    .Darts  { top: 1430px !important; }
+    .LV {top: -60px !important;right: 670px !important; }
+    .Atitle { top: 480px !important;}
+    .Atext1 {margin-top: 560px !important; right: 0 !important;}
+    .Atext2 { left: 400px !important; right: 0 !important; margin-top: 600px !important;}
+    .velArea { margin-top: 140px;}
+    .pradaPoster {bottom: 0 !important; }
+    .pradaD { margin-top: 0 !important; }
+}

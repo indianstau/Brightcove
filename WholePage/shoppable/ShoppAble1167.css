@@ -1,0 +1,14 @@
+@media (min-width: 1167px) {
+    .HbackgroundImg { height:700px !important; }
+    .Marea, .Aarea {margin-right: 20px !important;}
+    .Mtitle { margin-left: 40px !important;}
+    .MtimeArea {left: 240px !important;top: 0 !important;}
+    .Darts { left: 20px !important;top: 1060px !important; }
+    .pointerR { left: 190px !important;top: 125px !important; }
+    .sTitle {  right: 10px !important; }
+    .Atext1 {right: 140px !important;}
+    .linRArea {left: 50px !important; width: 170px !important;}
+    .etiArea {left: 180px !important;top: -60px !important;}
+    .briArea {left: 220px !important;}
+    footer { height: 200px !important;}
+}
