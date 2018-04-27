@@ -3,14 +3,14 @@
     right: 0;
 }
 .video-js .vjs-overlay-top-right{
-    width: 31%;
+    width: 28%; /* 31 */
     background:#020617;
     border-radius: 0;
     padding: 0;
 }
 /*  左邊btn    */
 .video-js .vjs-overlay-top-left{
-    width: 14%;
+    width: 18%; /* 14 */
     background: green;
     cursor: pointer;
     padding: 0 0 0 5px;
@@ -19,7 +19,7 @@ p{margin: 0;}
 
 .aLink{visibility: hidden;}
 .playlistBlock{
-    height: 300px;
+    height: 320px; /* 300 */
     width:168px;
     background:#1e3246;
     padding: 10px;
