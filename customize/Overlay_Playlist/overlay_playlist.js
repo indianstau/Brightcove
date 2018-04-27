@@ -173,6 +173,9 @@ videojs.plugin('cPlayList',function(){
 
         scroll_Index = playlistBlock.scrollTop;
         playlistBlock.scrollTop = scroll_Index - 20;
+        
+        // 歸零  不動
+        document.documentElement.scrollTop = 0;
     }
 
 
