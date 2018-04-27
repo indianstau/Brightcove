@@ -1,0 +1,54 @@
+.video-js .vjs-overlay-top-right{
+    top:0;
+    right: 0;
+}
+.video-js .vjs-overlay-top-right{
+    width: 31%;
+    background:#020617;
+    border-radius: 0;
+    padding: 0;
+}
+/*  左邊btn    */
+.video-js .vjs-overlay-top-left{
+    width: 14%;
+    background: green;
+    cursor: pointer;
+    padding: 0 0 0 5px;
+}
+p{margin: 0;}
+
+.aLink{visibility: hidden;}
+.playlistBlock{
+    height: 300px;
+    width:168px;
+    background:#1e3246;
+    padding: 10px;
+    overflow-y: scroll;
+    color:#f0f0f0;
+    cursor: default;
+    font-size: 14px;
+}
+.info{border-bottom: 1px solid #2c3c4c;padding-bottom: 10px;text-align: center;}
+.info p:first-child, .info p:nth-child(2){display: inline;}
+.number{margin-right: 3px; }
+.totText{ margin-left: 5px;}
+.total{display: inline;margin: 0 3px;}
+.unit{
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 1px solid #2c3c4c;
+    text-align: left;
+}
+.unit:hover{
+    background-color: #1a242d;
+    cursor: pointer;
+}
+.focusOption{
+    background-color: #1a242d;
+    cursor: default;
+    outline: none;
+}
+
+.title{line-height: 22px;text-align: justify;display: inline;}
+.time{margin-top: 5px;text-align: right;}
