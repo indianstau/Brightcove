@@ -70,7 +70,7 @@
         .playlistBlock{height: 297px;width:174px;}
     }
     @media screen and (max-width: 480px){
-        .playlistBlock{height: 180px;width:143px;}
+        .playlistBlock{height: 180px;width:243px;}
     }
     @media screen and (max-width: 360px){
         .playlistBlock{height: 180px;width:145px;}
