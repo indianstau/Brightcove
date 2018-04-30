@@ -69,6 +69,9 @@
     @media screen and (max-width: 576px){
         .playlistBlock{height: 297px;width:174px;}
     }
+    @media screen and (max-width: 480px){
+        .playlistBlock{height: 180px;width:143px;}
+    }
     @media screen and (max-width: 360px){
         .playlistBlock{height: 180px;width:145px;}
         .video-js .vjs-overlay-top-right{width: 45%;}
