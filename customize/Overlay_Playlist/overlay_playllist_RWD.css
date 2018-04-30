@@ -54,18 +54,18 @@
     .time{margin-top: 5px;text-align: right;}
    
 
-    @media screen and (max-width: 576px){
-        .playlistBlock{height: 297px;width:174px;}
-    }
-    @media screen and (max-width: 768px){
-        .playlistBlock{height: 252px;width:148px;}
-    } 
-    @media screen and (max-width: 992px){
-        .playlistBlock{height: 378px;width:222px;}
+    @media screen and (max-width:1200px){
+        .playlistBlock{height: 315px;width:185px;}
     }
     @media screen and (max-width: 1167px){
         .playlistBlock{height: 297px;width:174px;}
     } 
-    @media screen and (max-width:1200px){
-        .playlistBlock{height: 315px;width:185px;}
+    @media screen and (max-width: 992px){
+        .playlistBlock{height: 378px;width:222px;}
+    }
+    @media screen and (max-width: 768px){
+        .playlistBlock{height: 252px;width:148px;}
+    } 
+    @media screen and (max-width: 576px){
+        .playlistBlock{height: 297px;width:174px;}
     }
