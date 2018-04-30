@@ -81,9 +81,9 @@
         .playlistBlock{height: 297px;width:174px;}
     }
     @media screen and (max-width: 480px){
-        .playlistBlock{height: 180px;width:243px;}
+        .playlistBlock{height: 243px;width:180px;}
     }
     @media screen and (max-width: 360px){
-        .playlistBlock{height: 180px;width:145px;}
+        .playlistBlock{height: 189px;width:152px;}
         .video-js .vjs-overlay-top-right{width: 45%;}
     }
