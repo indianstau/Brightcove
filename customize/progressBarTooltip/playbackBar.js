@@ -1,4 +1,9 @@
-var V_tag = document.getElementById("vjs_video_3_html5_api");    
+//自動抓 video tag id
+videoTag = document.getElementsByTagName("video");
+var V_tag = videojs(videoTag[0].id);
+
+//performPlayer_html5_api vjs_video_3_html5_api
+//var V_tag = document.getElementById("vjs_video_3_html5_api");    
     
 videojs.plugin('CodeMarksOnProgress', function() {
 var player = this;
