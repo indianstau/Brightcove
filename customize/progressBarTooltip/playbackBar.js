@@ -2,7 +2,7 @@ videojs.plugin('CodeMarksOnProgress',function(){
     
     //自動抓 video tag id
     var videoTag = document.getElementsByTagName("video");
-    var V_tag = videojs(videoTag[0].id);
+    var V_tag = document.getElementById(videoTag[0].id);
 
    //performPlayer_html5_api vjs_video_3_html5_api
    //var V_tag = document.getElementById("vjs_video_3_html5_api");       
@@ -27,7 +27,7 @@ videojs.plugin('CodeMarksOnProgress',function(){
     });
     
     
-    // 派斷array 每項 ture false  
+    // 判斷array 每項 ture false  
     function isCodeCuePoint(cuePoint) {
         return cuePoint.type == 'CODE';
     }
