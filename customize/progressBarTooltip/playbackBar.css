@@ -1,0 +1,24 @@
+.vjs-marker {
+    position: absolute;
+    opacity: 1;
+    height: 100%;
+    background-color: yellow;
+    width: 5px;
+}
+.video-js {
+    height: 344px;
+    width: 610px;
+}
+.title{
+    background-color: rgba(18, 29, 53,.9);
+    box-shadow: 1px 1px 3px #0f182d;
+    border-radius: 4px;
+    padding: 10px;
+    position: relative;
+    bottom: 110px;
+    line-height: 18px;
+    width: 150px;
+    display: inline-block;
+    font-size: 13px;
+    display: none;
+}
