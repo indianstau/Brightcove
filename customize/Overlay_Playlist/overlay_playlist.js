@@ -62,7 +62,7 @@ videojs.plugin('cPlayList',function(){
              
              //自動高度 寛度
              playlistBlock.style.height = V_tag.offsetHeight + "px";
-             playlistBlock.style.width = (V_tag.offsetWidth * 0.37) - 20 + "px";
+             playlistBlock.style.width = V_tag.offsetWidth * 0.37 + "px";
          });
 
 
