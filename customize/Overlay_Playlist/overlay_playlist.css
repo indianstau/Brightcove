@@ -3,7 +3,7 @@
     right: 0;
 }
 .video-js .vjs-overlay-top-right{
-    width: 33%; /* 31 28*/
+    width: 37%; /* 31 28*/
     background:#020617;
     border-radius: 0;
     padding: 0;
@@ -20,7 +20,7 @@ p{margin: 0;}
 .aLink{visibility: hidden;}
 .playlistBlock{
     /*height: 288px;  300 320*/
-    width:168px;
+/*    width:168px;*/
     background:#1e3246;
     padding: 10px;
     overflow-y: scroll;

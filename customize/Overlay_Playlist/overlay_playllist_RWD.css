@@ -3,7 +3,7 @@
         right: 0;
     }
     .video-js .vjs-overlay-top-right{
-        width: 33%;
+        width: 37%;
         background:#020617;
         border-radius: 0;
         padding: 0;
@@ -20,7 +20,7 @@
     .aLink{visibility: hidden;}
     .playlistBlock{
 /*        height: 369px;*/
-        width:216px;
+/*        width:216px;*/
         background:#1e3246;
         padding: 10px;
         overflow-y: scroll;
@@ -54,63 +54,18 @@
     .time{margin-top: 5px;text-align: right;}
    
 
-/*    @media screen and (max-width:1366px){*/ 
-/*        .playlistBlock{height: 369px;width:216px;}*/
-/*        .video-js .vjs-overlay-top-right{width: 33%;}*/
-/*    }*/
-    @media screen and (max-width:1200px){
-        .playlistBlock{
-/*            height: 315px;*/
-            width:185px;
-        }
-    }
-    @media screen and (max-width: 1167px){
-        .playlistBlock{
-/*            height: 297px;*/
-            width:174px;
-        }
-    } 
-    @media screen and (max-width: 1080px){
-        .playlistBlock{
-/*            height: 252px;*/
-            width:148px;
-        }
-    }
-    @media screen and (max-width: 992px){
-        .playlistBlock{
-/*            height: 378px;*/
-            width:222px;
-        }
-    }
-    @media screen and (max-width: 768px){
-        .playlistBlock{
-/*            height: 261px;*/
-            width:155px;
-        }
-    } 
-    @media screen and (max-width: 720px){
-        .playlistBlock{
-/*            height: 234px;*/
-            width:166px;
-        }
-        .video-js .vjs-overlay-top-right{width: 40%;}
-    } 
-    @media screen and (max-width: 576px){
-        .playlistBlock{
-/*            height: 306px;*/
-            width:218px;
-        }
-    }
-    @media screen and (max-width: 480px){
-        .playlistBlock{
-/*            height: 252px;*/
-            width:180px;
-        }
-    }
-    @media screen and (max-width: 360px){
-        .playlistBlock{
-/*            height: 189px;*/
-            width:152px;
-        }
-        .video-js .vjs-overlay-top-right{width: 45%;}
-    }
+/*
+    @media screen and (max-width:1366px){ .playlistBlock{height: 369px;width:216px;}
+        .video-js .vjs-overlay-top-right{width: 33%;}}
+    @media screen and (max-width:1200px){.playlistBlock{height: 315px;width:185px;}}
+    @media screen and (max-width: 1167px){.playlistBlock{height: 297px;width:174px;}} 
+    @media screen and (max-width: 1080px){.playlistBlock{height: 252px;width:148px;}}
+    @media screen and (max-width: 992px){.playlistBlock{height: 378px;width:222px;}}
+    @media screen and (max-width: 768px){.playlistBlock{height: 261px;width:155px;}} 
+    @media screen and (max-width: 720px){.playlistBlock{height: 234px;width:166px;}
+        .video-js .vjs-overlay-top-right{width: 40%;}} 
+    @media screen and (max-width: 576px){.playlistBlock{height: 306px;width:218px;}}
+    @media screen and (max-width: 480px){.playlistBlock{height: 252px;width:180px;}}
+    @media screen and (max-width: 360px){.playlistBlock{height: 189px;width:152px;}
+        .video-js .vjs-overlay-top-right{width: 45%;}}
+*/
