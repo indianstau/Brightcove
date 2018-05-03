@@ -19,7 +19,7 @@ p{margin: 0;}
 
 .aLink{visibility: hidden;}
 .playlistBlock{
-    height: 288px; /* 300 320*/
+    /*height: 288px;  300 320*/
     width:168px;
     background:#1e3246;
     padding: 10px;

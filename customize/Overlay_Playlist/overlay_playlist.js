@@ -7,6 +7,7 @@ videojs.plugin('cPlayList',function(){
     
     //自動抓 video tag id
     var videoTag = document.getElementsByTagName("video");
+    var V_tag = document.getElementById(videoTag[0].id);
     var player = videojs(videoTag[0].id);
 
     var cuePointAra, cueLength;   
@@ -58,6 +59,9 @@ videojs.plugin('cPlayList',function(){
 
              playlistBlock = document.getElementsByClassName("playlistBlock")[0];
              createBlock();
+             
+             //自動高度
+             playlistBlock.style.height = V_tag.offsetHeight + "px";
          });
 
 
