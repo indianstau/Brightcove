@@ -93,7 +93,7 @@ videojs.plugin('CodeMarksOnProgress',function(){
             string = parseFloat("0." + tip.style.left.substr(0,2));
             nowWidth = Math.round(V_tag.offsetWidth * string)
             if(nowWidth >= limitWidth ){
-               document.getElementById("T" + i).style.right = "60px";
+               document.getElementById("T" + i).style.right = "150px";
             }
         }
     }        
