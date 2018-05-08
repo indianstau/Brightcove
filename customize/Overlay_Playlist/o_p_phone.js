@@ -34,12 +34,14 @@ videojs.plugin('cPlayList',function(){
                     content:block,
                     start:'play',
                     end:'end'
-                },{
-                    align:'top-left',
-                    content:'<button style="cursor:pointer;">付費購買<img src="https://www.it.mk/wp-content/uploads/job-manager-uploads/company_logo/2017/11/inplayer-icon-4.png" style="width:35px;height:35px;vertical-align: middle;"></button>',
-                    start:'play',
-                    end:'end'
-                }]
+                }
+//                          ,{
+//                    align:'top-left',
+//                    content:'<button style="cursor:pointer;">付費購買<img src="https://www.it.mk/wp-content/uploads/job-manager-uploads/company_logo/2017/11/inplayer-icon-4.png" style="width:35px;height:35px;vertical-align: middle;"></button>',
+//                    start:'play',
+//                    end:'end'
+//                }
+                ]
             }); 
             console.log("In:" + document.body.clientWidth);
         }else{
@@ -95,7 +97,7 @@ videojs.plugin('cPlayList',function(){
          // 大的  才需要抓寛度跟高度
          if(document.body.clientWidth >= 650){
              playlistBlock.style.height = V_tag.offsetHeight + "px";
-             playlistBlock.style.width = (V_tag.offsetWidth * 0.37) - 20 + "px";
+             playlistBlock.style.width = V_tag.offsetWidth * 0.37 + "px";
          }else{
             return false;
          }        
