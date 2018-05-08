@@ -8,6 +8,9 @@
     border-radius: 0;
     padding: 0;
 }
+.video-js .vjs-overlay-top-left{
+    display: none;
+}
 
 p{margin: 0;}
 
