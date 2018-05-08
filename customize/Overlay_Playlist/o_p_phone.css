@@ -69,3 +69,35 @@
     @media screen and (max-width: 360px){.playlistBlock{height: 189px;width:152px;}
         .video-js .vjs-overlay-top-right{width: 45%;}}
 */
+
+/* For < 650 */
+    .outModel{
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 10px;
+        color: #fff;
+    }
+    .secBlock{
+        display: none;
+    }
+    .closeWin{
+        color: #fff;
+        float: right;
+        position: relative;
+        display: inline;
+        font-family: monospace;
+        font-size: 12px;
+        border: 1px solid;
+        cursor: pointer;
+        padding: 4px 8px;
+        top: -5px;
+        border-radius: 100%;
+    }
+
+    @media screen and (max-width:650px){
+        .playlistBlock{overflow-y:hidden;}
+        .unit{margin: 0;padding: 15px 10px;}
+        .time{float: right;display: inline-block;margin-top: 3px;}
+        .unit:hover{background-color: transparent;}
+    }
