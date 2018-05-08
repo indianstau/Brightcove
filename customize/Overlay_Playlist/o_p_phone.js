@@ -1,6 +1,10 @@
-// 確定 版型 是否會影響
+// 確定 版型 是否會影響  沒有全試
+// #performPlayer_html5_api  or .vjs-tech
+//  ## 點首頁的沒有 home-carousel-info ###################### 會錯
+
 // 如果不是 設定自動播放 會不會 load 不到資料 ?
-// 會閃窗 要找
+// 會閃窗 要找  
+// vjs-overlay vjs-overlay-top-left vjs-overlay-background 會浮出 沒有的 overlay
     
 videojs.plugin('cPlayList',function(){    
     
@@ -36,11 +40,7 @@ videojs.plugin('cPlayList',function(){
                     end:'end'
                 }]
             }); 
-            console.log("In:" + document.body.clientWidth);
         }else{
-            console.log("  ");
-            console.log("Out:" + document.body.clientWidth);
-
             // 長出單元一覽 btn
             var div = document.createElement("div");
             var divText = document.createTextNode("單元一覽 >>");

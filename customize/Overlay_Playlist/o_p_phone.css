@@ -8,6 +8,7 @@
     border-radius: 0;
     padding: 0;
 }
+/* 會浮出  沒有的 overlay*/
 .video-js .vjs-overlay-top-left{
     display: none;
 }
