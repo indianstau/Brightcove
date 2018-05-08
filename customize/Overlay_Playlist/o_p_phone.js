@@ -34,14 +34,7 @@ videojs.plugin('cPlayList',function(){
                     content:block,
                     start:'play',
                     end:'end'
-                }
-//                          ,{
-//                    align:'top-left',
-//                    content:'<button style="cursor:pointer;">付費購買<img src="https://www.it.mk/wp-content/uploads/job-manager-uploads/company_logo/2017/11/inplayer-icon-4.png" style="width:35px;height:35px;vertical-align: middle;"></button>',
-//                    start:'play',
-//                    end:'end'
-//                }
-                ]
+                }]
             }); 
             console.log("In:" + document.body.clientWidth);
         }else{

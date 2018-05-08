@@ -8,13 +8,7 @@
     border-radius: 0;
     padding: 0;
 }
-/*  左邊btn    */
-.video-js .vjs-overlay-top-left{
-    width: 22%;
-    background: green;
-    cursor: pointer;
-    padding: 0 0 0 5px;
-}
+
 p{margin: 0;}
 
 .aLink{visibility: hidden;}
@@ -74,6 +68,7 @@ p{margin: 0;}
         cursor: pointer;
         padding: 10px;
         color: #fff;
+        font-size: 16px;
     }
     .secBlock{
         display: none;
