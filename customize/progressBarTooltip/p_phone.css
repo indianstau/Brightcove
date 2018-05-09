@@ -1,0 +1,80 @@
+  .vjs-marker {
+        position: absolute;
+        opacity: 1;
+        height: 100%;
+        background-color: yellow;
+        width: 5px;
+    }
+    .video-js {
+        height: 344px;
+        width: 610px;
+    }
+    .title{
+        background-color: rgba(18, 29, 53,.9);
+        box-shadow: 1px 1px 3px #0f182d;
+        border-radius: 4px;
+        padding: 10px;
+        position: relative;
+        bottom: 110px;
+        line-height: 18px;
+        width: 150px;
+        display: inline-block;
+        font-size: 13px;
+        display: none;
+    }
+   
+    
+/* 待改  *****/
+    p{margin: 0;}
+
+    .aLink{visibility: hidden;}
+    .playlistBlock{
+        background:#1e3246;
+        padding: 10px;
+        color:#f0f0f0;
+        cursor: default;
+        font-size: 14px;
+    }
+    .info{border-bottom: 1px solid #2c3c4c;padding-bottom: 10px;text-align: center;}
+    .info p:first-child, .info p:nth-child(2){display: inline;}
+    .number{margin-right: 3px; }
+    .totText{ margin-left: 5px;}
+    .total{display: inline;margin: 0 3px;}
+    .unit{
+        cursor: pointer;
+        border-radius: 4px;
+        border-bottom: 1px solid #2c3c4c;
+        text-align: left;
+    }
+    .titleName{line-height: 22px;text-align: justify;display: inline;}
+    
+/* For < 650 */
+    .outModel{
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 10px;
+        color: #fff;
+        font-size: 16px;
+    }
+    .secBlock{
+        display: none;
+    }
+    .closeWin{
+        color: #fff;
+        float: right;
+        position: relative;
+        display: inline;
+        font-family: monospace;
+        font-size: 12px;
+        border: 1px solid;
+        cursor: pointer;
+        padding: 4px 9px;
+        top: -5px;
+        border-radius: 100%;
+    }
+
+    @media screen and (max-width:650px){
+        .unit{margin: 0;padding: 15px 10px;}
+        .time{float: right;display: inline-block;margin-top: 3px;}
+    }
