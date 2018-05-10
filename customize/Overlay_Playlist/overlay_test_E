@@ -1,0 +1,97 @@
+.video-js .vjs-overlay-top-right{
+    top:0;
+    right: 0;
+}
+.video-js .vjs-overlay-top-right{
+    width: 37%;
+    background:#020617;
+    border-radius: 0;
+    padding: 0;
+}
+/* 會浮出  沒有的 overlay*/
+/*.video-js .vjs-overlay-top-left{display: none;}*/
+
+p{margin: 0;}
+
+.aLink{visibility: hidden;}
+.playlistBlock{
+    background:#1e3246;
+    padding: 10px;
+    overflow-y: scroll;
+    color:#f0f0f0;
+    cursor: default;
+    font-size: 14px;
+}
+.info{border-bottom: 1px solid #2c3c4c;padding-bottom: 10px;text-align: center;}
+.info p:first-child, .info p:nth-child(2){display: inline;}
+.number{margin-right: 3px; }
+.totText{ margin-left: 5px;}
+.total{display: inline;margin: 0 3px;}
+.unit{
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 1px solid #2c3c4c;
+    text-align: left;
+}
+.unit:hover{
+    background-color: #1a242d;
+    cursor: pointer;
+}
+.focusOption{
+    background-color: #1a242d;
+    cursor: default;
+    outline: none;
+}
+
+.title{line-height: 22px;text-align: justify;display: inline;}
+.time{margin-top: 5px;text-align: right;}
+   
+/*
+    @media screen and (max-width:1366px){ .playlistBlock{height: 369px;width:216px;}
+        .video-js .vjs-overlay-top-right{width: 33%;}}
+    @media screen and (max-width:1200px){.playlistBlock{height: 315px;width:185px;}}
+    @media screen and (max-width: 1167px){.playlistBlock{height: 297px;width:174px;}} 
+    @media screen and (max-width: 1080px){.playlistBlock{height: 252px;width:148px;}}
+    @media screen and (max-width: 992px){.playlistBlock{height: 378px;width:222px;}}
+    @media screen and (max-width: 768px){.playlistBlock{height: 261px;width:155px;}} 
+    @media screen and (max-width: 720px){.playlistBlock{height: 234px;width:166px;}
+        .video-js .vjs-overlay-top-right{width: 40%;}} 
+    @media screen and (max-width: 576px){.playlistBlock{height: 306px;width:218px;}}
+    @media screen and (max-width: 480px){.playlistBlock{height: 252px;width:180px;}}
+    @media screen and (max-width: 360px){.playlistBlock{height: 189px;width:152px;}
+        .video-js .vjs-overlay-top-right{width: 45%;}}
+*/
+
+/* For < 650 */
+    .outModel{
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 10px;
+        color: #fff;
+        font-size: 16px;
+    }
+    .secBlock{
+        display: none;
+    }
+    .closeWin{
+        color: #fff;
+        float: right;
+        position: relative;
+        display: inline;
+        font-family: monospace;
+        font-size: 12px;
+        border: 1px solid;
+        cursor: pointer;
+        padding: 4px 9px;
+        top: -5px;
+        border-radius: 100%;
+    }
+
+    @media screen and (max-width:650px){
+        .playlistBlock{overflow-y:hidden;}
+        .unit{margin: 0;padding: 15px 10px;}
+        .time{float: right;display: inline-block;margin-top: 3px;}
+        .unit:hover{background-color: transparent;}
+    }
