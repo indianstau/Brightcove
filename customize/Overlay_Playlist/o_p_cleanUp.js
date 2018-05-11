@@ -1,10 +1,10 @@
-// 確定 版型 是否會影響  沒有全試
+// make sure Gallery web site type will change or not, I didn't try all.
 // #performPlayer_html5_api  or .vjs-tech
 
-// 如果不是 設定自動播放 會不會 load 不到資料 ?
+// if not setting autoplay will load not date or not play not date ?
 // 會閃窗 要找  
 // vjs-overlay vjs-overlay-top-left vjs-overlay-background 會浮出 沒有的 overlay
-//  overlay 拿不掉
+//  overlay can't remove left-top
     
 videojs.plugin('cPlayList',function(){    
 
