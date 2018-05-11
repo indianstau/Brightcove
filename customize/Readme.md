@@ -1,6 +1,6 @@
 ## IP SYSTEMS ###  
 
-### Customization  ###  
+### CUSTOMIZE PLUGIN  ###  
 #### SERVER ####  
 proxy is php for API server token request to solve CORS problem  
   
