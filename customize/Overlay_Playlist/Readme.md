@@ -2,7 +2,10 @@
 
 use overlay plugin  
 and customer plugin  
-also Gallery
+also Gallery  
+  
+#### URL ####  
+Doc : [overlay plugin](https://support.brightcove.com/display-overlay-plugin)  
 
 #### Javascript ###  
 overlay_playlist for not rwd and phone  
