@@ -1,5 +1,6 @@
-// 是版型
+// 試版型
 // 確定首頁  error msg
+// rwd 650 -700 會是雷
 
 videojs.registerPlugin('CodeMarksOnProgressP',function(){  
 
@@ -10,36 +11,43 @@ videojs.registerPlugin('CodeMarksOnProgressP',function(){
     var player = this;
 
         player.on('loadstart', function(){
+            
             var cuePointsAra = [],
                 CodeCuePointsAra = [],
-                videoDuration, playlistBlock;
+                videoDuration, playlistBlock, homePage;
 
             cuePointsAra = player.mediainfo.cuePoints;
-
-            // 將為ad cuepoint array 過濾出來 (代 function 進去)
-            CodeCuePointsAra = cuePointsAra.filter(isCodeCuePoint);
-
-            // 總長度
-            videoDuration = player.mediainfo.duration;
-            addCodeMarkers(CodeCuePointsAra, videoDuration);
-
-            if(document.body.clientWidth >= 650){
-                addTitle(CodeCuePointsAra);
-                finPositionChange(CodeCuePointsAra)
-
-                console.log("In:" + document.body.clientWidth);
-
-            }else{
-
-                console.log("Out:" + document.body.clientWidth);
-
-                createUnitDiv();
-                createSecDiv();
-                createCloseP();
-                getInfoIn(CodeCuePointsAra, videoDuration, player);
-
+            
+            // 如果是首頁  不執行
+            homePage = document.getElementsByClassName("home-carousel-video");
+            if(homePage[0]){
+                console.log("Here is HomePage");   
                 return false;
-            }
+            }else{
+                // 播放頁面執行
+                // 將為ad cuepoint array 過濾出來 (代 function 進去)
+                CodeCuePointsAra = cuePointsAra.filter(isCodeCuePoint);
+
+                // 總長度
+                videoDuration = player.mediainfo.duration;
+                addCodeMarkers(CodeCuePointsAra, videoDuration);
+
+                if(document.body.clientWidth >= 650){
+                    addTitle(CodeCuePointsAra);
+                    finPositionChange(CodeCuePointsAra)
+                    console.log("In:" + document.body.clientWidth);
+
+                }else{
+                    console.log("Out:" + document.body.clientWidth);
+                    createUnitDiv();
+                    createSecDiv();
+                    createCloseP();
+                    getInfoIn(CodeCuePointsAra, videoDuration, player);
+
+                    return false;
+                }
+            } // homePage exist
+            console.log("Here is out of if homepage");
         }) //loadstart
 
 
