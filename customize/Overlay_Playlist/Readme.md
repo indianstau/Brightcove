@@ -1,6 +1,8 @@
 ### Playlist ###  
 
 use overlay plugin  
+and customer plugin  
+also Gallery
 
 #### Javascript ###  
 overlay_playlist for not rwd and phone  
