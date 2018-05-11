@@ -1,10 +1,10 @@
-// 試版型
-// 確定首頁  error msg
-// rwd 650 -700 會是雷
+// try Gallery web site type will change or not
+// check homePage  error msg
+// rwd 650 -700 is miss
 
 videojs.registerPlugin('CodeMarksOnProgressP',function(){  
 
-    //自動抓 video tag id
+    // auto get video tag id
     var videoTag = document.getElementsByTagName("video");
     var V_tag = document.getElementById(videoTag[0].id);
 
@@ -18,17 +18,17 @@ videojs.registerPlugin('CodeMarksOnProgressP',function(){
 
             cuePointsAra = player.mediainfo.cuePoints;
             
-            // 如果是首頁  不執行
+            // If homePage not doing
             homePage = document.getElementsByClassName("home-carousel-video");
             if(homePage[0]){
                 console.log("Here is HomePage");   
                 return false;
             }else{
-                // 播放頁面執行
-                // 將為ad cuepoint array 過濾出來 (代 function 進去)
-                CodeCuePointsAra = cuePointsAra.filter(isCodeCuePoint);
+                // Play page in
+                // filter ad cuepoint array out (get function in)
+                CodeCuePointsAra = cuePointsAra.filter(isCodeCuePoint); 
 
-                // 總長度
+                // Total length about video 
                 videoDuration = player.mediainfo.duration;
                 addCodeMarkers(CodeCuePointsAra, videoDuration);
 
@@ -53,7 +53,7 @@ videojs.registerPlugin('CodeMarksOnProgressP',function(){
 
 /******   For comment    ************************************************************/    
 
-    // 派斷array 每項 ture false  
+    // 派斷 conditional operator array evey cue point ture false  
     function isCodeCuePoint(cuePoint) { return cuePoint.type == 'CODE'; }
 
 
@@ -69,17 +69,17 @@ videojs.registerPlugin('CodeMarksOnProgressP',function(){
             el.style.left = (CodeCuePointsAra[i].time / videoDuration) * 100 + '%';
             playheadWell.appendChild(el);
 
-            // 掛每個的位置
+            // Hang on every cue point site
             el.setAttribute("aria-position",i);  
 
-            // 抓到位置後 顯示該位置 在 tooltip 上
+            // get position show index on tooltip
             el.onmouseenter = function(){
                 if(document.body.clientWidth >= 650){
                     removeAll(CodeCuePointsAra);
                     index = event.target.getAttribute("aria-position");
                     title[index].style.display = "block";
 
-                    // 7 sec 後自動消失
+                    // after 7 sec auto disappear
                     TimeOut = setTimeout(function(){title[index].style.display = "none";},7000);
                 }else{
                     return false;
@@ -91,7 +91,7 @@ videojs.registerPlugin('CodeMarksOnProgressP',function(){
 
 /******   For > 650 screen    ************************************************************/    
     
-    //  掛第二個標上去  
+    //  hung on second (span)
     function addTitle(CodeCuePointsAra){
         for(i = 0; i < CodeCuePointsAra.length; i++){
             var codeSite = document.getElementById("code" + i);
@@ -104,7 +104,7 @@ videojs.registerPlugin('CodeMarksOnProgressP',function(){
     }   
 
 
-    //  清除所有的tooltip
+    //  clean all tooltip
     var title;
     function removeAll(CodeCuePointsAra){
         // 把剛剛抓到的 setTimeOut 消失移除 
@@ -116,18 +116,18 @@ videojs.registerPlugin('CodeMarksOnProgressP',function(){
     }
 
 
-    // 將player寛度抓出來  減掉 span width 
-    // 抓出 cue point 位置 計算是否少於
+    //  get player width  - span width 
+    // get cue point index count if less than 
     var tip, bit, string, nowWidth;
     function finPositionChange(CodeCuePointsAra){
         var limitWidth = V_tag.offsetWidth - 150;
         
         for(i = 0; i < CodeCuePointsAra.length; i++){
             tip = document.getElementById("code" + i);
-            // % string 要經過處理 變數字 不一定是兩位 length 無法判斷
+            // % string need to hanele change to number, sometime it's not digits in ten, length can't determine
             bit = parseFloat(tip.style.left.substr(0,2));
             
-            // 小於10要處理
+            // less than 10 need to handle
             if(bit >= 10){ string = "0." + bit;
             }else{ string = "0.0" + bit; }
             
@@ -141,7 +141,7 @@ videojs.registerPlugin('CodeMarksOnProgressP',function(){
 
 /******   For phone    ************************************************************/  
 
-    // 長出單元一覽 btn
+    // grow out unit div, can click it show list
     var vidoeInfoC;
     function createUnitDiv(){
         var div = document.createElement("div");
@@ -157,7 +157,7 @@ videojs.registerPlugin('CodeMarksOnProgressP',function(){
         }
     }
 
-    // 長出下頭要伸出來的 playlistBlock 區塊
+    // grow out playlistBlock div area
     var div2;
     function createSecDiv(){
         var block = '<div class="playlistBlock">' + 
@@ -181,14 +181,14 @@ videojs.registerPlugin('CodeMarksOnProgressP',function(){
         var info = document.getElementsByClassName("info")[0];
         info.children[3].insertAdjacentHTML("afterend" , p);
         
-        // 因為 function 掛上去  抓不到
+        // cause hung on function still undefined
         var close = document.getElementsByClassName("closeWin")[0];
         close.onclick = function(){ closeX(); };
     }
 
     /******************************************************************************/
 
-    // 代回?段  共?分鐘 create block
+    // bring back how many fragment, total min, create block
     function getInfoIn(CodeCuePointsAra, videoDuration, player){
         var number = document.getElementsByClassName("number")[0];
         number.textContent = CodeCuePointsAra.length;
@@ -199,33 +199,33 @@ videojs.registerPlugin('CodeMarksOnProgressP',function(){
         createBlock(CodeCuePointsAra, player);
     }    
 
-    //  create ? 個 div, 將titleName 代入, 將每段的時間代入 轉跳片段
+    //  create how many div, bring titleName in, bring back time hung on every one then jump that currentTime
     var fgm;
     function createBlock(CodeCuePointsAra, player){     
         for(var i = 0 ; i < CodeCuePointsAra.length; i++){       
             var startT = CodeCuePointsAra[i].startTime;
 
-            //一開始將位置 與每段開始的時間標上去      拔掉 function
+            // at first get index and startTime hang on every fragment    (romove function, undefined)
             var elm ='<div class="unit" aria-position="'+ i +
                     '" aria-time="' + startT + '">'+ '<a name="anchor'+ i +'"></a>' +
                         '<p class="titleName"></p><p class="time"></p></div>';
 
-            // 從第一個小孩以後開始
+            // after first child start
             playlistBlock.children[i].insertAdjacentHTML("afterend", elm);
 
-            //代回標題
+            // bring back title 
             var titleName = document.getElementsByClassName("titleName");
             titleName[i].textContent = CodeCuePointsAra[i].name;
 
-            //代回 每段需多少時間
+            // bring back how long on every fragment
             var time = document.getElementsByClassName("time");  
             fgm = CodeCuePointsAra[i].endTime - startT;
 
-            //處理時間格式
+            // change time format
             transHrMinSec();     
             time[i].textContent = timeString;
 
-            //因為 抓不到 轉跳片段
+            // cause can't get function to do video currentTime so write out
             var unit = document.getElementsByClassName("unit");  
             unit[i].onclick = function(){ getPosition(player); }
         }
@@ -234,12 +234,12 @@ videojs.registerPlugin('CodeMarksOnProgressP',function(){
     // get target indexP and startTime then change playing time
     function getPosition(player){
 
-        // 抓點擊的位置 與開始時 個別掛上去
+        // catch click node and startTime hang on every one
         var eTarget = event.target;
         var indexP = eTarget.getAttribute("aria-position");
         var getStartT = eTarget.getAttribute("aria-time");
 
-        // if抓到不是unit 抓爸爸 重新抓位置跟開始時間
+        // if get not unit catch father and reset index and startTime
         var posClassName = eTarget.className 
         if(posClassName != "unit"){
             posClassName = eTarget.parentNode;
@@ -253,14 +253,14 @@ videojs.registerPlugin('CodeMarksOnProgressP',function(){
         closeX();
     }    
 
-    // 處理時間格式　
+    // change time format
     var timeString;
     function transHrMinSec(){
         var hr = Math.floor(fgm/3600);
         var min = Math.floor((fgm-hr*3600)/60);
         var sec = Math.floor(fgm-hr*3600-min*60); 
 
-        //　hr min sec 個位數
+        //　hr min sec digits in ones
         if(hr.toString().length < 2){hr = "0" + hr;}
         if(min.toString().length < 2){min = "0" + min;}  
         if(sec.toString().length < 2){sec = "0" + sec;}
@@ -272,7 +272,7 @@ videojs.registerPlugin('CodeMarksOnProgressP',function(){
         }
     }
 
-    // 關閉 單元一覽
+    // close list
     function closeX(){ div2.style.display = "none"; }
     
 }); // plugin
