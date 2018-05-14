@@ -17,3 +17,5 @@ p_phone     is     support RWD and phone ---> fin
 #### Structure ####  
   
   
+PS. code also have home page(first video) plugin not show.   
+    
