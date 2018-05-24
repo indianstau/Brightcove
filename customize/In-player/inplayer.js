@@ -2,7 +2,7 @@ videojs.plugin('InplayerStyle',function(){
     var player = this;
     
     player.on("loadeddata",function(){ 
-        var inplayer = document.getElementById("inplayer-bc-plugin-preview");
+//         var inplayer = document.getElementById("inplayer-bc-plugin-preview");
 //         if (inplayer){    
         
             var left_c = document.getElementsByClassName("left_container")[0];
