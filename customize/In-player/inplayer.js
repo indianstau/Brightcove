@@ -5,7 +5,8 @@ videojs.plugin('InplayerStyle',function(){
 //     var inplayer = document.getElementById("inplayer-bc-plugin-preview");
     
 //     if (inplayer){ 
-    //player.on("loadeddata",function(){});  loadstart 
+    
+    player.on("loadeddata",function(){  
         
     left_c = document.getElementsByClassName("left_container")[0];
     right_c = document.getElementsByClassName("right_container")[0];
@@ -17,8 +18,12 @@ videojs.plugin('InplayerStyle',function(){
     right_c.childNodes[1].children[0].style.padding = "20px";
     right_c.childNodes[1].children[0].style.fontFamily = "-webkit-pictograph";
     
-    //[2] div
+    //[2] div  loadstart  loadeddata
     right_c.childNodes[1].children[2].style.fontSize = "16px";
     right_c.childNodes[1].children[2].style.fontFamily = "-webkit-pictograph";
+        
 //     }     
+        
+    });
+    
 })
