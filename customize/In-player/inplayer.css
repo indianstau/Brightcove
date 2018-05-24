@@ -1,14 +1,14 @@
 
 #inplayer-bc-plugin-preview .right_content p{
-	padding: 20px;
-	font-family :28px;
-    font-family: -webkit-pictograph;
+	padding: 20px  !important;
+	font-family :28px !important;
+    font-family: -webkit-pictograph !important;
 }
 
 #inplayer-bc-plugin-preview .right_content a {
-    font-family: -webkit-pictograph;
-    font-size: 16px;
+    font-family: -webkit-pictograph !important;
+    font-size: 16px !important;
 }
 #inplayer-bc-plugin-preview .left_container{
-	background-color: darkseagreen;
+	background-color: darkseagreen !important;
 }
