@@ -2,11 +2,11 @@ videojs.plugin('InplayerStyle',function(){
     
     var left_c, right_c;
     
-//     var inplayer = document.getElementById("inplayer-bc-plugin-preview");
+    var inplayer = document.getElementById("inplayer-bc-plugin-preview");
     
-//     if (inplayer){ 
+    if (inplayer){ 
     
-    player.on("loadeddata",function(){  
+//     player.on("loadeddata",function(){  
         
     left_c = document.getElementsByClassName("left_container")[0];
     right_c = document.getElementsByClassName("right_container")[0];
@@ -22,8 +22,8 @@ videojs.plugin('InplayerStyle',function(){
     right_c.childNodes[1].children[2].style.fontSize = "16px";
     right_c.childNodes[1].children[2].style.fontFamily = "-webkit-pictograph";
         
-//     }     
+    }     
         
-    });
+//     });
     
 })
