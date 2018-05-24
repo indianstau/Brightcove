@@ -1,8 +1,14 @@
 videojs.plugin('InplayerStyle',function(){
     
-    player.on("loadstart",function(){ 
-    var left_c = document.getElementsByClassName("left_container")[0];
-    var right_c = document.getElementsByClassName("right_container");
+    var left_c, right_c;
+    
+//     var inplayer = document.getElementById("inplayer-bc-plugin-preview");
+    
+//     if (inplayer){ 
+    //player.on("loadeddata",function(){});  loadstart 
+        
+    left_c = document.getElementsByClassName("left_container")[0];
+    right_c = document.getElementsByClassName("right_container")[0];
     
     left_c.style.backgroundColor = "#8fbc8f";
     
@@ -14,6 +20,5 @@ videojs.plugin('InplayerStyle',function(){
     //[2] div
     right_c.childNodes[1].children[2].style.fontSize = "16px";
     right_c.childNodes[1].children[2].style.fontFamily = "-webkit-pictograph";
-        
-    });
+//     }     
 })
