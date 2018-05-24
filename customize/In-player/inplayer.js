@@ -1,4 +1,6 @@
 videojs.plugin('InplayerStyle',function(){
+    
+    player.on("loadstart",function(){ 
     var left_c = document.getElementsByClassName("left_container")[0];
     var right_c = document.getElementsByClassName("right_container");
     
@@ -12,4 +14,6 @@ videojs.plugin('InplayerStyle',function(){
     //[2] div
     right_c.childNodes[1].children[2].style.fontSize = "16px";
     right_c.childNodes[1].children[2].style.fontFamily = "-webkit-pictograph";
+        
+    });
 })
