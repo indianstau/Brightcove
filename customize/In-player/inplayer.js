@@ -14,8 +14,8 @@ videojs.plugin('InplayerStyle',function(){
             right_c.childNodes[1].children[0].style.fontFamily = "-webkit-pictograph";
 
             //[2] div  loadstart  loadeddata
-            right_c.childNodes[1].children[2].style.fontSize = "16px";
-            right_c.childNodes[1].children[2].style.fontFamily = "-webkit-pictograph";
+            right_c.childNodes[1].children[2].children[0].style.fontSize = "16px";
+            right_c.childNodes[1].children[2].children[0].style.fontFamily = "-webkit-pictograph";
         }     
     });
 })
