@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload API - video</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.0/xlsx.core.min.js"></script>
+    <!--處理xlsx相關的外掛-->
+</head>
+<body>
+<!-- 
+IX : multi-platform-standard-static-with-mp4
+Tproxy_CTV.php  account_id  client & secret 要換
+ingest-profile : multi-standard-with-mp4-titv　
+從下方的上傳開始
+up : xlsx
+down : json　
+-->   
+    
+<input type="file" id="excFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+<a id="download">Download</a><br/><br/>
+<input type="file" id="local" accept="application/json">
+
+<script>
+ 
+// xlsx 處理資料的部份    
+function main(){
+    //選取清單　觸發點
+    var excFile = document.getElementById('excFile');
+    excFile.addEventListener('change', function(e){
+        var excFiles = e.target.files[0];
+        readWorkbookFromLocalFile(excFiles, function(workbook) {
+            readWorkbook(workbook);
+            //第一次起點
+            sequence();
+        });
+    });
+    //開Local清單
+    var local = document.getElementById("local");
+    local.addEventListener('change', function(e){
+        var LocalFiles = e.target.files[0];
+        Q_url = window.URL.createObjectURL(LocalFiles);
+    });
+}
+
+//讀取xlsx檔案　轉換   
+function readWorkbookFromLocalFile(excFile, callback) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        var data = e.target.result;
+        var workbook = XLSX.read(data, {type: 'binary'});
+        if(callback) callback(workbook);
+    };
+    reader.readAsBinaryString(excFile);
+}
+
+//格式轉換成Json    
+var worksheet, Json;
+function readWorkbook(workbook) {
+    var sheetNames = workbook.SheetNames; 
+    worksheet = workbook.Sheets[sheetNames[0]]; 
+    Json = XLSX.utils.sheet_to_json(worksheet);
+}  
+
+//跳序號　抓title 位置
+var n = 0;
+var title, stream_path;
+function sequence(){
+    console.log("\n" + time);
+    console.log("seq ************** 第　" + n + "　次");
+    title = Json[n].title.trim();
+    console.log("seq title: " + title);
+    stream_path = Json[n].stream_path;
+    console.log("seq 檔名: " + stream_path);
+    string(title);
+}    
+
+//抓取清單影片檔名　截掉後面　找取_前的字元
+var fileName, Q_Json;    
+function string(title){
+    fileName = stream_path.split("_")[0];
+    console.log("Str 去尾: " + fileName);
+    
+    //呼叫影片本地端的Json 檔
+    QNAPapi(function(Q_data){
+        Q_Json = JSON.parse(Q_data);
+        //15s/v  240/h  2000/h會爆 5s/v 720/h
+        setTimeout("Q_filenameCom(title)", 10000);
+    }); 
+}
+    
+/**兩支API 傳參數進去   **/
+//如果 Q_url 對應不到  不會有紀錄
+var video_id, parsedData, createVideoRequestBody;  
+var C_log = [], C_number = 0;
+function createObject(title){
+    var createVideoURL = "https://cms.api.brightcove.com/v1/accounts/" + account_id + "/videos";
+        createVideoRequestBody = '{"name":"'+ title +'","reference_id":"'+ title +'"}'; 
+    
+    makeRequest(createVideoURL, createVideoRequestBody, function(Data){
+        parsedData = JSON.parse(Data);
+        console.log(parsedData);
+        C_log[C_number] = parsedData;
+        
+        //如果沒有回傳值
+        if(!parsedData.id){
+            //遇到錯誤時會進入　跳下一筆　　重跑createObj
+            C_log[C_number][0]['title']= title;
+            //清單位置從2開始　　只有Error 才有title & num
+            C_log[C_number][0]['num'] = C_number + 2;
+            n++;
+            //當資料是最後一筆時停止 進入時　己經是第兩次C
+            if( n < Json.length){
+                sequence();              
+            }else{
+                saveData(C_log, "Create.json"); 
+                saveData(U_log, "Upload.json");
+                saveData(Q_log, "Qfile.json"); 
+                console.log("save finish!!!");
+            }
+        }else{
+            video_id = parsedData.id;
+            uploadVideo(video_id, Q_fileURL);
+        }
+        C_number++;
+    }); 
+}
+
+var uploadVideoURL, uploadVideoRequestBody, U_log = [], U_number = 0;
+function uploadVideo(video_id, Q_fileURL){
+    uploadVideoURL = "https://ingest.api.brightcove.com/v1/accounts/" +account_id + "/videos/" + video_id + "/ingest-requests";
+    uploadVideoRequestBody = '{"master": {"url":"'+ Q_fileURL +'"},"profile": "multi-platform-standard-static-with-mp4","callbacks": [,"http://iHandle.php","http://handle.php"]}'
+    
+    makeRequest(uploadVideoURL, uploadVideoRequestBody, function(Data){
+        parsedData = JSON.parse(Data);
+        console.log(parsedData);
+        n++;
+        
+        //上傳成功才會有log  *********************
+        U_log[U_number] = parsedData;
+        U_log[U_number]['title'] = title; 
+        U_log[U_number]['video_id'] = video_id;
+        U_log[U_number]['num'] = U_number + 1;
+        U_log[U_number]['filename'] = fileName;
+        U_log[U_number]['fileURL'] = Q_fileURL;
+        U_number++;
+
+        //當資料是最後一筆時停止
+        if( n < Json.length){
+            sequence();
+            console.log("U_Next: < " + n);
+        }else{
+            saveData(C_log, "Create.json"); 
+            saveData(U_log, "Upload.json");
+            saveData(Q_log, "Qfile.json"); 
+            console.log("save finish!!!");
+        }
+    });
+}
+
+// Call API 主體    
+var response, api_n = 0;    
+var httpRequest = new XMLHttpRequest();
+function makeRequest(URL, requestBody, callback){
+    var proxyURL = 'http://proxy.php',
+
+    requestData = "url=" + encodeURIComponent(URL) + "&requestBody=" + encodeURIComponent(requestBody) + "&requestType=POST";
+    
+    httpRequest.onreadystatechange = function(){
+        try {
+            if(httpRequest.readyState === 4){
+                if(httpRequest.status >= 200 && httpRequest.status < 300){
+                    response = httpRequest.responseText;
+                    if(response === '{null}'){
+                        response = null;
+                    }
+                    callback(response);
+                }else {
+                    //alert("There was a problem with the request. Request returned " + httpRequest.status);
+                    console.log(now);
+                    console.log("There was a problem with the request. Request returned" 
+                               + httpRequest.status);
+                    // there was a problem with the request. Tequest returned 0
+                    // POST http://proxy_CTV.php net::ERR_NAME_NOT_RESOLVED
+                    // POST http://Tproxy_CTV.php net::ERR_CONNECTION_REFUSED
+                    // 504
+                    setTimeout("createObject(title)", 5000);
+                }
+            }
+        }catch (e){
+            console.log(now);
+            console.log('Caught Exception' + e);
+            //alert('Caught Exception' + e);
+            //Caught ExceptionSyntaxError: Unexpected token < in JSON at position 0
+            setTimeout("createObject(title)", 5000);
+        }
+    };
+    httpRequest.open("POST", proxyURL);
+    httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpRequest.send(requestData);
+}
+
+//顯示當前時間
+var now;    
+function nowTime(){
+    time = new Date();
+    now = time.getHours() + ':' + time.getMinutes()+ ':' + time.getSeconds();
+    setTimeout("nowTime()", 1000);
+}
+nowTime();
+    
+//存檔
+function saveData(file_log, file_name){
+    var aDownload = document.getElementById("download");
+    var blob = new Blob([JSON.stringify(file_log, null, "\t")], {type:'application/json'});
+    aDownload.href = URL.createObjectURL(blob);
+    aDownload.download = file_name;
+}
+ 
+//QNAP 開本地端的Json檔
+var Q_url;
+function QNAPapi(callback){
+    
+    httpRequest.onreadystatechange = function(){
+        if (httpRequest.readyState === 4 && httpRequest.status == "200") {
+            callback(httpRequest.responseText);
+        }
+    }
+    httpRequest.open("GET", Q_url, true);
+    httpRequest.send(null);
+} 
+
+//檔名與位置對照 抓到位置 傳檔案URL位置上去  with Nas
+//url 加上&open=normal 開檔    
+var Q_fileURL, a, Q_log = [], Q_number = 0 ;  
+function Q_filenameCom(title){
+    //歸零
+    Q_fileURL = "";
+    a = 0;
+    //比對迴圈
+    for(a = 0; a < Q_Json.length; a++){
+        if(Q_Json[a].filename.split("_")[0] == fileName){
+            console.log(Q_Json[a].filename.split("_")[0] == fileName);
+            console.log("Q___  " + Q_Json[a].filename.split("_")[0]);
+            Q_fileURL = Q_Json[a].url + "&open=normal";
+            console.log("Q_url  "+ Q_fileURL);
+            createObject(title);
+            break;
+        }else{
+            //跑最後一迴圈時
+            if(a == Q_Json.length - 1){
+                //找不到  才會存log
+                console.log("Q_ a == " + a + " " + n);
+                Q_log[Q_number] = {};
+                Q_log[Q_number]['num'] = n + 1;
+                Q_log[Q_number]['title'] = title;
+                Q_log[Q_number]['fileName'] = fileName;
+                Q_log[Q_number]['url'] = Q_Json[a].url;
+                n++;
+                Q_number++;
+                //當Json資料不是最後一筆時進入　繼續跑
+                if( n < Json.length){
+                    console.log("Q_ < " + n);
+                    sequence();
+                }else{
+                    saveData(C_log, "Create.json"); 
+                    saveData(U_log, "Upload.json");
+                    saveData(Q_log, "Qfile.json");
+                    console.log("save finish!!!");
+                }
+            }
+        }
+    }
+}    
+
+main();
+    
+</script> 
+</body>
+</html>
