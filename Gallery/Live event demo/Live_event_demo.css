@@ -1,0 +1,67 @@
+/* Style the tab */
+    .tab {
+      overflow: hidden;
+      background-color: #f1f1f1;
+    }
+/* Style the buttons inside the tab */
+    .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+
+/* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #ddd;
+    }
+
+/* Create an active/current tablink class */
+    .tab button.active {
+      background-color: #ccc;
+    }
+
+/* Style the tab content */
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+/*Footer*/
+    .footer{
+        background-color: #FF6;
+        padding:4% 6% 2% 4%;
+        height: 300px;
+    }
+    .footer .company{
+        line-height: 26px;
+        float: left;
+        height: 125px;
+        width: 110px;
+    }
+    .footer div b{
+        font-size: 22px;
+    }
+    .footer div a{
+        text-decoration: none;
+    }
+    .footer .contact{
+        line-height: 26px;
+        float:left;
+        height:125px;
+        width:280px;
+        margin-left: 6%;
+    }
+    .footer .contact b{
+        position: relative;
+        bottom: 1px;
+        color:black;
+    }
+    .footer .copyright{
+        text-align: center;
+    }
