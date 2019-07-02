@@ -1,0 +1,16 @@
+    .video-js .vjs-big-play-button{
+        display: none !important;    
+    }
+    .vjs-icon-placeholder{
+        display: none !important;    
+    }
+    .vjs-dock-title{
+        display: none !important;
+    }
+    .video-js .vjs-control-bar {
+        display: none !important;
+    }
+    .vjs-poster{
+        cursor: default;
+        background-color: aquamarine;
+    }
