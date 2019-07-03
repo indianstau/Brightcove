@@ -10,7 +10,6 @@
     .video-js .vjs-control-bar {
         display: none !important;
     }
-    .video-js .vjs-poster{
+    .vjs-poster{
         cursor: default;
-        background-color: aquamarine;
     }
