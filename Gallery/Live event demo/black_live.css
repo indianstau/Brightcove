@@ -4,7 +4,7 @@
     .vjs-icon-placeholder{
         display: none !important;    
     }
-    .vjs-dock-title{
+    .video-js .vjs-dock-title{
         display: none !important;
     }
     .video-js .vjs-control-bar {
