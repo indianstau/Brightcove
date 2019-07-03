@@ -1,8 +1,8 @@
 .link-editable .live-cta .append-pencil{
-  color: yellow;
+  color: yellow !important;
 }
 
 }
 section.hero-wrap a.live-cta {
-  color: yellow;
+  color: yellow !important;
 }
