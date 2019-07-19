@@ -1,0 +1,13 @@
+    .video-js .vjs-custom-endscreen-overlay {
+        overflow-y: hidden !important;
+    }
+    .video-js .vjs-overlay-background {
+        background: #079bb3 !important;
+    }
+    .video-js .vjs-overlay-top{
+        z-index:100 !important; 
+        top:20% !important;
+    }
+    .text.hid{
+        display: none;
+    }
