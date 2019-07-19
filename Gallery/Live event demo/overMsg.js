@@ -1,6 +1,6 @@
 var player, box, text;
 videojs.registerPlugin('overMsg',function(){
-    videojs.getPlayer('performPlayer_html5_api').ready(function(){
+//     videojs.getPlayer('performPlayer_html5_api').ready(function(){
         player = this;
         console.log('Here is plugin inside');
         box = document.getElementsByClassName('vjs-overlay vjs-overlay-top vjs-overlay-background')[0]
