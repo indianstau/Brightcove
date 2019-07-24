@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mp4 source download</title>
+<!--    <script src="../get_sid_qnap.js" type="application/javascript"></script>-->
+</head>
+<body>
+    <input type="file" id="JsonFile" accept="application/json">  
+    <a id="dow"></a>
+    
+   
+<script>
+    
+// 要改　抓一個　　過濾　下載一個　上傳一個
+    
+// URL 要重抓
+// 寫log 要注意 blob 跟很多相似的地方　　
+// 不能存　跳過的　Video_id 存下來
+// min + 三位  15s 抓長度  放時間格進去
+// 要處理抓不到的
+    
+var file, J_url, data;
+var JsonFile = document.getElementById("JsonFile");
+JsonFile.addEventListener('change', function(e){
+    file = e.target.files[0];
+    J_url = window.URL.createObjectURL(file);
+    xhrHttp(J_url, function(response){
+        data = JSON.parse(response);
+        console.log(data);
+        get_url();
+    })
+});
+    
+// open Json file url different    
+function xhrHttp(url, callback){
+    xhr.open('GET',url);
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4 && xhr.status == '200'){
+            if(xhr.responseType == ""){
+                // 第一次的 xhr 開Json檔 responseType 是 "" 有responseText
+                // 第二次的 xhr 是開影片  responseType 是 arraybuffer Uint8Array
+                // 格式不同  會跳error
+                callback(xhr.responseText);
+            }
+        }
+    }
+    xhr.send(null);
+}    
+
+    
+var n=0, link, video_id, duration;    
+function get_url(){
+    console.log("\nn= " + n);
+    link = data[n].src;
+    video_id = data[n].id;
+    console.log(">>> video_id: "+ video_id);
+    duration = data[n].duration;
+//    console.log(">>> duration: " + duration);
+    loadBlobOpen(link);
+}
+    
+    
+var arrayBufferView, m_blob, log = [], percentComplete;
+var xhr = new XMLHttpRequest();
+//var a_url = "";
+  
+//　監控 xhrHttpRequest 流程
+//　下載進度條換算
+xhr.addEventListener('progress', function(oEvent){
+    if (oEvent.lengthComputable) {
+        // percentComplete == 1
+        percentComplete = oEvent.loaded / oEvent.total;
+    }
+}); 
+    
+//　load 有error時　怎麼處理?
+xhr.addEventListener('error', function(e){
+    //console.log('error');
+    //console.log(e);
+});
+
+//　開始下載　且快結束了
+xhr.addEventListener('loadend', function(e){
+    //download com e.type == loadend ;
+    console.log('>>> loadend');
+});    
+    
+// 開影片連結
+function loadBlobOpen(link){
+    //xhr.addEventListener('load', function(e){
+        //transfer com start
+        //console.log('>>> load transfer start');
+    //});
+
+    xhr.onload = getBlob;
+    xhr.open("GET", link, true);
+    xhr.responseType = "arraybuffer";
+    xhr.send();
+    
+//    log[n] = data[n];
+    //存四項？
+    // video_id
+    // 長度
+    // 當下時間
+    // 怎麼知道有沒有存下來？
+    
+    n++;
+    if(n<data.length){
+        setTimeout("get_url()", 5000);
+    }
+}
+    
+// 獲得影片 Blob 暫存位置  
+function getBlob(){
+    arrayBufferView = new Uint8Array(this.response);
+    //console.log(this);
+    m_blob = new Blob([arrayBufferView], {type:"video/mp4"});
+    try{
+        if(xhr.readyState == 4 && xhr.status == 200){
+            saveData(m_blob, video_id + '.mp4');
+        }else{
+            console.log("Here have something wrong! : " + xhr.status);
+            //setTimeout("loadBlobOpen(link)",10000);
+        }
+    }catch(e){
+        console.log('Caught Exception' + e);
+        //setTimeout("loadBlobOpen(link)",10000)
+    }
+}
+
+var aDownload;
+function saveData(blob, file_name){
+    aDownload = document.getElementById("dow");
+    aDownload.href = URL.createObjectURL(blob);
+    aDownload.download = file_name;
+    aDownload.click();
+//    window.URL.revokeObjectURL(URL.createObjectURL(blob));
+}     
+    
+
+    
+//    xhr.onload = function(e){
+//        arrayBufferView = new Uint8Array(this.response);
+//        console.log(arrayBufferView);
+//        blob = new Blob([arrayBufferView], {type:"video/mp4"});
+//        console.log(blob);
+//        saveData(blob,  video_id + '.mp4');
+//    }    
+    
+//var pw = ezEncode('');
+//console.log(pw);
+
+</script>
+
+<!-- 
+Reference link : https://blog.pureday.life/archives/1295   
+-->
+    
+</body>
+</html>
