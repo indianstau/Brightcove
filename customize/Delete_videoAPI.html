@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete video</title>
+</head>
+<body>
+
+<input type="file" id="JsonFile" accept="application/json">  
+<a id="download">Download</a><br/>   
+    
+    
+<script>
+    
+// 1. 會出現哪種錯誤？？？ 要紀錄什麼? 
+// 2. id
+ 
+var file, J_url, data;
+var JsonFile = document.getElementById("JsonFile");
+JsonFile.addEventListener('change', function(e){
+    file = e.target.files[0];
+    J_url = window.URL.createObjectURL(file);
+    xhrHttp(J_url, function(response){
+        data = JSON.parse(response);
+        console.log(data);
+        getVideo_id();
+    })
+}); 
+    
+var xhr = new XMLHttpRequest();    
+function xhrHttp(url, callback){
+    xhr.open('GET', J_url);
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4 && xhr.status == '200'){
+            console.log("+++ "+ now + " Start");
+            callback(xhr.responseText);
+        }
+    }
+    xhr.send(null);
+}    
+ 
+var n = 0;
+function getVideo_id(){
+    video_id = data[n].id;
+    console.log("\n"); 
+    console.log("n: "+ n + ", Video_id: " + video_id);
+    GetVideo_detail(video_id);
+}      
+    
+var video_id, parsedData;
+var getVideoURL;
+function GetVideo_detail(video_id){
+    
+    getVideoURL = "https://cms.api.brightcove.com/v1/accounts/'account_id'/videos/" + video_id;
+    
+    makeRequest(getVideoURL, function(Data){
+        console.log(">>> delete ok!!");
+
+        n++;
+        if(n>=data.length){
+            console.log(n);
+            console.log(">>> Here is finish");
+        }else{
+            setTimeout("getVideo_id()", 5000);
+        }
+    });
+}      
+    
+var response;   
+function makeRequest(URL, callback){
+    
+    var proxyURL = 'php file',
+
+    requestData = "url=" + encodeURIComponent(URL) + "&requestType=DELETE";
+    xhr.onreadystatechange = function(){
+        try {
+            if(xhr.readyState === 4){
+                if(xhr.status >= 200 && xhr.status < 300){
+                    response = xhr.responseText;
+//                    console.log(response);
+                    if(response === '{null}'){
+                        response = null;
+                    }
+                    callback(response);
+                }else {
+                    console.log(now + " There was a problem with the request. Request returned" 
+                               + xhr.status);
+                    setTimeout("GetVideo_detail(video_id)", 5000);
+                }
+            }
+        }catch (e){
+            console.log(now + ' Caught Exception' + e);
+            setTimeout("GetVideo_detail(video_id)", 5000);
+        }
+    };
+    xhr.open("POST", proxyURL);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(requestData);
+}    
+    
+var now;    
+function nowTime(){
+    time = new Date();
+    now = time.getHours() + ':' + time.getMinutes()+ ':' + time.getSeconds();
+    setTimeout("nowTime()", 1000);
+}
+nowTime();    
+    
+var aDownload, blob;
+function saveData(file_log, file_name){
+    aDownload = document.getElementById("download");
+    console.log(">>> save data for e_log");
+    blob = new Blob([JSON.stringify(file_log, null, "\t")], {type:'application/json'});
+    aDownload.href = URL.createObjectURL(blob);
+    aDownload.download = file_name;
+    aDownload.click();
+    window.URL.revokeObjectURL(aDownload.href);
+}    
+    
+</script>    
+    
+</body>
+</html>
