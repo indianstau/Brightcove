@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>IP systems</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style>
+    body {margin:0;background-color: #F0F0F0;}
+    #mySidenav {
+        height: 100%;
+        width: 220px;
+        position: fixed;
+        background-color: #272727;
+        color:#ACD6FF;
+    }
+    .comLogo {
+        width:200px;
+        height:60px;
+    }
+
+    .ui-accordion .ui-accordion-header{background-color: #272727;color:#ACD6FF;width: 160px;outline: none;padding: 0 0 0 .7em; font-size: 14px;}
+    .ui-accordion .ui-accordion-content {background-color: #272727;overflow: hidden !important;width: max-content;padding: 0 2.5em; /*ani lag*/height: min-content !important;}
+    .ui-widget-content{border: 1px solid #272727;}
+    .ui-widget-content a { color:#BFB !important;}
+    .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover{
+        border: 1px solid #272727 !important;
+    }
+    .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+        border: 1px solid #272727;
+    }
+
+    #accordion h3{font-size:14px;outline:none;}
+    #accordion li{margin-bottom:5px;list-style:none;}
+    #accordion a{text-decoration: none;font-size:14px;cursor:pointer;}
+    #accordion a:hover, #accordion h3:hover{background-color:#9D9D9D;}
+
+    .number{font-size:12px;position:absolute;bottom:5px;left:35px;color:burlywood;cursor:default;}
+    .phone{cursor:pointer;color:#BBFFBB;}
+    .ifrBlock{margin-left:270px;}
+    #ifr{border:none;}
+</style>
+</head>
+<body>
+<div id="mySidenav">
+    <a href="http://www.ipsystems.com.tw/"><img class="comLogo" src="http://i.imgur.com/JnOdD0F.jpg"></a>
+      
+    <div id="accordion">
+        <h3 class="aText">Advertising</h3>
+        <ul>
+            <li><a href="">介紹</a></li>
+            <li><a onclick="pageSilde('Advertising/ima3_sdk.html')">IMA3 sdk test</a></li>
+            <li><a onclick="pageSilde('Advertising/VAST.html')">VAST CuePoint</a></li>
+            <li><a onclick="pageSilde('Advertising/VMAP.html')">VMAP 前中標準</a></li>
+            <li><a onclick="pageSilde('Advertising/VMAP_playlist.html')">VMAP playlist 前4後</a></li>
+        </ul>
+        
+        <h3>Customize</h3>
+        <ul>
+            <li><a href="">介紹</a></li>
+            <li><a href="http://ipsystems.000webhostapp.com/PHP/AnalyticsAPI.html">AnalyticsAPI</a></li>
+            <li><a href="http://ipsystems.byethost14.com/LiveEntryPointAcDe.html">LiveEntryPoint</a></li>
+        </ul>
+        
+<!--
+        <h3>BC test</h3>
+        <ul>
+            <li><a onclick="pageSilde('BC/iPhoneOverlay.html')">iPhone_playsinlin</a></li>
+        </ul> 
+-->
+        
+        <h3>Product Demo</h3>
+        <ul>
+            <li><a href="">介紹</a></li>
+            <li><a onclick="pageSilde('PDemo/overlayLogo.html')">Overlay 4 Logo</a></li>
+            <li><a onclick="pageSilde('PDemo/Thumbs.html')">Thumbnails</a></li>
+            <li><a href="PDemo/pageAd/pageAd.html">PageAd</a></li>
+            <li><a onclick="pageSilde('PDemo/ErrorMsgBtn.html')">ErrorMsgBtn</a></li>
+            <li><a onclick="pageSilde('PDemo/quality.html')">Quality</a></li>
+            <li><a onclick="pageSilde('PDemo/ControlBar.html')">Control Icon</a></li>
+            <li><a onclick="pageSilde('PDemo/FastForward.html')">Fast Forward</a></li>
+            <li><a onclick="pageSilde('PDemo/360.html')">360 Player</a></li>
+            <li><a onclick="pageSilde('PDemo/playlist.html')">Playlist</a></li>
+            <li><a onclick="pageSilde('PDemo/progressMarker.html')">ProgressMarker</a></li>
+        </ul>
+        
+        <h3>Shoppable video</h3>
+        <ul>
+            <li><a href="">介紹</a></li>
+            <li><a onclick="pageSilde('ShopVideo/Heineken.html')">Tradition</a></li>
+            <li><a onclick="pageSilde('ShopVideo/ShoppingVideo.html')">ShoppingVideo</a></li>
+            <li><a onclick="pageSilde('ShopVideo/MovieBook.html')"></a></li>
+            <li><a onclick="pageSilde('ShopVideo/adways.html')"></a></li>
+            <li><a href="ShopVideo/ShoppAble.html">Full page</a></li>
+            <li><a href="ShopVideo/Gallery.html">Gallery In-Page</a></li>
+        </ul>
+        
+        <h3>Gallery</h3>
+        <ul>
+            <li><a href="">介紹</a></li>
+        </ul>
+   </div>
+    
+    <div class="number">
+    <script type="text/javascript" src="http://services.webestools.com/cpt_pages_views/57568-19-4.js"></script><br/>
+    僅適用於網頁版<br/><a class="phone">手機版待</a></div>
+</div>
+
+<div class="ifrBlock">
+    <iframe id="ifr" src="" width="800px" height="1500px"></iframe>
+</div>
+
+<script>
+function pageSilde(address){
+    var iFrame = document.getElementById('ifr');
+    iFrame.src = address;
+}
+
+$(function(){
+    $('#accordion').accordion({
+        collapsible: false
+    });
+});
+</script>
+
+</body>
+</html>
