@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>Detail</title>
+<style>
+body{margin: 0;font-family:-webkit-pictograph, sans-serif, Microsoft JhengHei;cursor: default;}
+.bg{background-image: url(tes1.png);background-size: cover;height: 547px;}
+.home{position: absolute;width: 2%;top: 2%;left: 1%;opacity: .7;}
+.home:hover{opacity: .9;}
+.titleC{font-size: 28px;position: absolute;color: #ffebcd;margin-left: 3%;margin-top: 5%;}
+.titleE{font-size: 20px;position: absolute;color: #ffebcd;margin-left: 3%;margin-top: 9%;}
+.wecomleW{font-size: 18px;position: absolute;color: #ffebcd;margin-left: 3%;margin-top: 12%;}
+.bg button{
+   margin-top: 18%;
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: transparent;
+    border:2px solid #ffebcd;
+    color: #ffebcd;
+    animation: btnA 4s ease .5s forwards;
+    opacity: 0; 
+}
+.goLiveActive{margin-left: 8%;}
+.signUp{margin-left: 2%; }
+.goLiveActive:hover, .signUp:hover{
+    background-color: #6f0b07;
+    border: 2px solid #6f0b07;
+    cursor: pointer;
+}
+@keyframes btnA{100%{opacity: 1;}}
+.previous{
+    text-align: center;
+    font-size:20px;
+    line-height:25px;
+    border: 2px solid #ffb98d;
+    margin: 80px 4%;
+    padding: 1%;
+    box-shadow: 4px 4px 4px #ffebcd;
+}
+    
+    
+    .secondArea{margin: 130px 4% 150px 4%;position: relative;height: 450px;}
+    .secondArea img{position: absolute;opacity: 0;}
+    .label{width: 20%;top: 12%;left: 5%;}
+    .all{width: 18%;left: 67%;}
+    .q{width: 20%;left: 38%;top: 17%;}
+    .browser{width: 22%;bottom: 3%;left: 13%;}
+    .total{width: 20%;bottom: -4%;left: 58%;}
+    
+    .label.l1{animation: labA 3s ease forwards;}
+    .all.al1{animation: allA 3s ease forwards;}
+    .q.q1{animation: qA 3s ease forwards;}
+    .browser.b1{animation: browserA 3s ease forwards;}
+    .total.t1{animation: totalA 3s ease forwards;}
+    
+    @keyframes labA{100%{opacity: 1;width: 30%;}}
+    @keyframes allA{100%{opacity: 1;width: 23%;}}
+    @keyframes qA{100%{opacity: 1;width: 25%;}}
+    @keyframes browserA{100%{opacity: 1;width: 27%;}}
+    @keyframes totalA{100%{opacity: 1;width: 25%;}}
+    
+   
+.adiArea{margin: 150px 4% 150px 4%;text-align: center;position: relative;height: 570px;}
+.adiArea img{width: 30%;position: absolute;top: 100%;opacity: 0;}
+.adi1{left: 19%;}
+.adi2{left: 13%;}
+.adi3{left: 19%;}
+.adi4{left: 16%;}
+.adi5{right: 13%;}
+.adi6{right: 19%;}
+.adi7{right: 15%;}
+.adi8{right: 20%;}    
+
+@keyframes adi_1{100%{opacity: 1;top:18%;}}
+@keyframes adi_2{100%{opacity: 1;top:31%;}}
+@keyframes adi_3{100%{opacity: 1;top:56%;}}
+@keyframes adi_4{100%{opacity: 1;top:79%;}}
+@keyframes adi_5{100%{opacity: 1;top:18%;}}
+@keyframes adi_6{100%{opacity: 1;top:36%;}}
+@keyframes adi_7{100%{opacity: 1;top:47%;}}
+@keyframes adi_8{100%{opacity: 1;top:67%;}}
+.adi1.a1{animation: adi_1 2s ease-in forwards;}
+.adi2.a2{animation: adi_2 2s ease-in .1s forwards;}
+.adi3.a3{animation: adi_3 2s ease-in .2s forwards;}
+.adi4.a4{animation: adi_4 2s ease-in .3s forwards;}
+.adi5.a5{animation: adi_5 2s ease-in forwards;}
+.adi6.a6{animation: adi_6 2s ease-in .1s forwards;}
+.adi7.a7{animation: adi_7 2s ease-in .2s forwards;}
+.adi8.a8{animation: adi_8 2s ease-in .3s forwards;}
+    
+    
+    .pluginArea{
+        margin: 100px 4% 150px 4%;position: relative;
+    }
+    .pluginPic{
+        position: absolute;
+        top: -5%;
+        left: 5%;
+        z-index: -1;
+        width: 20%;
+        animation: plugP 5s ease-in-out .5s infinite;
+        transform: rotate(160deg);
+    }
+    @keyframes plugP{
+        0%{transform: scale(1) rotate(160deg);}
+        25%{transform: scale(1.1) rotate(160deg);}
+        50%{transform: scale(1) rotate(160deg);}
+        75%{transform: scale(1.1) rotate(160deg);}
+    }
+    .pictureIn{
+        width: 5%;
+        margin-top: 4%;
+        opacity: 0;
+        background-color: rgba(0,0,71, .4);
+        border-radius: 4px;
+    }
+    .pictureIn.fin {animation: picP 5s ease  forwards;}
+    @keyframes picP{100%{opacity: 1;width: 55%;}}
+    
+    
+footer{padding: 40px 4% 40px 4%;text-align: center;background-color: #6f0b07;color: #ffebcd;}
+.clear{clear: both;}
+.copy{margin-bottom:2%;font-size: 16px;}
+.he1{
+    width: 12%;
+    padding: 8px 4px;
+    border-radius: 8px; 
+    opacity: .8;
+    display: inline-block;
+    margin: 0px auto;
+    margin-right: 2%;
+}
+.he2{
+    width: 12%;
+    padding: 8px 4px;
+    border-radius: 8px; 
+    opacity: .8;
+    display: inline-block;
+    margin: 0px auto;
+    margin-right: 2%;
+}
+.he3{
+    width: 12%;
+    padding: 8px 4px;
+    border-radius: 8px;    
+    opacity: .8;
+    display: inline-block;
+    margin: 0px auto;
+}
+</style>
+</head>
+<body>
+   
+    
+<div class="bg">
+    <a href="http://live.ipsystems.com.tw/pre" title="要回上一頁嗎?"><img src="home.png" class="home"></a>
+    <div class="titleC">你對影音廣告策略的想像</div>
+    <div class="titleE">JUMPSTART YOUR VIDEO ADVERTISING STRATEGY</div>
+    <div class="wecomleW">誠摯邀請您來參與</div>
+    <a href="http://live.ipsystems.com.tw/liveactive"><button class="goLiveActive">前往直播</button></a>
+    <a href="http://get.brightcove.com/media-video-ad-strategy-webinar/"><button class="signUp">前往報名</button></a>
+</div>
+
+
+<div class="previous">前情提要:<br/>According to eMarketer, US digital video ad spending will grow by double digits annually through at least 2021, reaching $22.18 billion.<br/>Along with device ownership, global OTT revenue growing, expected to more than double from 2016 to 2022.
+</div>
+
+<div class="secondArea">
+    <h2 style="text-align: center;">一開始怎麼辦?</h2>
+    <img src="label.png" class="label">
+    <img src="all.png" class="all">
+    <img src="q.png" class="q">
+    <img src="browser.png" class="browser">
+    <img src="total.png" class="total">
+</div>
+
+<div class="adiArea">
+    <h2>廣告主容易遇到的問題</h2>
+    <img src="L1.png" class="adi1">
+    <img src="L2.png" class="adi2">
+    <img src="L3.png" class="adi3">
+    <img src="L4.png" class="adi4">
+    <img src="R1.png" class="adi5">
+    <img src="R2.png" class="adi6">
+    <img src="R3.png" class="adi7">
+    <img src="R4.png" class="adi8">
+</div>
+
+<article class="pluginArea">
+    <h2 style="text-align: center;">Brightcove plugin 介紹</h2>
+    <div style="float: left;">
+        <p style="font-size: 22px;">SCROLL INTO VIEW</p>
+        <p style="font-size: 20px;"> - 瀏覽網頁時,影片離開視野區時,影片自動停止</p>
+        <p style="margin-top: 40px;font-size: 22px;">PICTURE IN PICTURE PLUGIN</p>
+        <p style="font-size: 22px;"> - 瀏覽網頁時,影片離開視野區時,</p>
+        <p style="font-size: 20px;">在下方會有一個小的player跟著卷軸一起移動(如右圖)</p>
+        <img src="tt.png" class="pluginPic">
+    </div>
+    <img align="right" src="pictureIn_2.png" class="pictureIn" title="我只是圖片哦!">
+    <div class="clear"></div>
+</article>
+
+<footer>
+    <h3>我們擁有專業技術，客戶為台灣各大知名電視台，廣播媒體公司，可以提供協助</h3>
+    <p class="he1">問題解決方案</p>
+    <p class="he2">常見的困難</p>
+    <p class="he3">配合技術</p>
+    <div class="clear"></div>
+    <p class="copy">only for web now.</p>
+    <p class="copy">Copyright © IP SYSTEMS All rights reserved.</p>
+    <a href="http://ipsystems.lazyweb.net.tw/"><img src="logoTr.png" style="width: 13%;"></a>
+</footer>
+   
+<script>
+var picIn = document.getElementsByClassName('pictureIn')[0];
+var adi1 = document.getElementsByClassName('adi1')[0];
+var adi2 = document.getElementsByClassName('adi2')[0];
+var adi3 = document.getElementsByClassName('adi3')[0];
+var adi4 = document.getElementsByClassName('adi4')[0];
+var adi5 = document.getElementsByClassName('adi5')[0];
+var adi6 = document.getElementsByClassName('adi6')[0];
+var adi7 = document.getElementsByClassName('adi7')[0];
+var adi8 = document.getElementsByClassName('adi8')[0];
+    
+var label = document.getElementsByClassName('label')[0];
+var all = document.getElementsByClassName('all')[0];
+var q = document.getElementsByClassName('q')[0];
+var browser = document.getElementsByClassName('browser')[0];
+var total = document.getElementsByClassName('total')[0];
+    
+window.onscroll = function(){ami();};
+function ami(){
+    if(document.documentElement.scrollTop > 1400){
+        picIn.classList.add('fin'); 
+    }else if(document.documentElement.scrollTop > 650){
+        adi1.classList.add('a1');
+        adi2.classList.add('a2');
+        adi3.classList.add('a3');
+        adi4.classList.add('a4');
+        adi5.classList.add('a5');
+        adi6.classList.add('a6');
+        adi7.classList.add('a7');
+        adi8.classList.add('a8');
+    }else if(document.documentElement.scrollTop > 330){
+        label.classList.add('l1');
+        all.classList.add('al1');
+        q.classList.add('q1');
+        browser.classList.add('b1');
+        total.classList.add('t1');
+    } 
+}
+
+// document.documentElement.scrollTop;   當前scroll value
+    
+// class pictureIn
+// adi1 ~ 8
+// 掛兩個 class name
+// http://ipsystems.byethost14.com/ShopVideo/ShoppAble.css
+// https://github.com/indianstau/Brightcove_HTML5/blob/master/WholePage/shoppable/ShoppAble.html
+    
+</script>
+    
+<!--
+690 1190
+1290 1790
+1900 2290
+滾到卷軸  ? 方塊   player
+卷軸到 掛class上去?
+
+先段故事 tomato #e2513a coral #e26841
+   #007bfb #00eaff #ffebcd #6f0b07
+    #e73535 #f77b6a #ffb98d #e70
+autoplay
+
+SCROLL INTO VIEW
+PICTURE IN PICTURE PLUGIN   
+    
+-->
+</body>
+</html>
