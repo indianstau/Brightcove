@@ -1,0 +1,199 @@
+/******* Common
+**   
+*********************/   
+html, body{font-family:微軟正黑體;position: relative;height: 100%;font-weight: 300;} /*英文字型要改*/
+.bg-lg{background: #EAF2F0}
+p{margin: 0;}
+
+    
+/*dropdown show/hidden*/  
+.ul-dropdown-content{
+    box-shadow: 1px 1px 1px #333;
+    border-radius: 4px;
+    position: absolute; 
+    padding: 16px 0; /**/
+    visibility: hidden;
+    margin: 0; /**/
+}  
+.dropdown-item{
+    padding: 4px 16px;
+    text-align: right;
+    list-style: none;
+}
+
+.tabs-m{margin: 5px 0;}
+
+.btn {
+    border: none;
+    padding: 12px 16px;/**/
+    background: none;
+    cursor: pointer;
+    font-family: Sans-serif,Microsoft JhengHei;/**/
+    font-weight: 300;/**/
+    outline: none;
+} 
+
+/**/
+.btn-red{
+    color: #fff;
+    border-color: #fff;
+    cursor: pointer;
+    background-color: #E63462;
+    border-radius: 4px;
+    width: max-content;
+}
+.btn-red:hover{
+    border: .8px solid #E63462; 
+    background-color: #EAF2F0;
+    color: #E63462 ;
+    border-radius: 4px;
+}
+    
+
+
+.tabContent{display: none;}
+.show{display: block;}
+
+
+
+.selectOnG{
+    border-bottom-color: #099274d9;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+ 
+/*clear float*/
+.u-cf:after{
+    visibility: hidden;
+	display: block;
+	clear: both;
+    content: "";
+	height: 0;
+}   
+
+
+/******* Nav
+**
+*********************/   
+.Nav{
+    background-color: #313432;
+    box-sizing: border-box;
+    height: 35px;
+}
+.Nav-logo{
+    padding:7px 0 0 4px;
+    float:left;
+    width: 116px;
+}
+.Nav-menu{
+    box-sizing: border-box;
+    margin-left: 10px; /**/
+    padding-top: 7px; /**/
+    cursor: pointer;
+    float: right;
+    height: 100%;
+    width: 44px;
+}
+.Nav-menuIcon{
+    background-size: cover;
+    margin: 0 12px; /**/
+    width: 20px;
+    height: 80%;
+}
+.Nav-menu:hover{
+    background: #099274d9;
+}
+.Nav-menu:hover .ul-dropdown-content{
+    visibility: visible;
+}
+.dropdown-style{
+    background-color:rgba(49, 52, 50, 1);
+    right: 3px;
+    top:6%;
+}
+#menu-dropdown .dropdown-item:hover{
+    background-color: #099274d9;
+}
+.item-a{
+    text-decoration: none;
+    font-size: 16px;
+    color:#fff;
+}
+.user-name{
+    padding-top: 7px;
+    cursor: default; 
+    font-size: 18px; 
+    float: right;
+    color: #fff;
+}
+
+
+/******* Question
+** 
+*********************/     
+ 
+
+/*  
+
+    font-family a inh
+    css selectOn v after 
+———————————————————————————————————————————————*/
+
+
+/* .table1 特定某1的表格style **/ 
+table.table1{
+    border-collapse: collapse;
+    color: #565b56;
+    text-align: center;
+    cursor: default;
+}
+.table1 th{
+    background-color:#099274d9;
+    color: #fff;
+    font-weight: 300;/**/
+    padding: 4px 8px;/**/
+}
+.table1 tr{
+    background-color: #fcfcfc;
+    border-top: 1px solid #EAF2F0; 
+}
+.table1 td:first-child{
+    width:10%;
+}
+
+.table1 td:nth-child(2){
+    width: 805px; /**/
+    display: block;
+    word-break: break-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    padding: 4px 8px; /**/
+}
+
+#unProcess >.table1 td:nth-child(2){
+    width: 857px;
+}
+.table1 th:first-child p, td:first-child p{
+    font-size: 14px;/**/
+    padding: 4px 8px;/**/
+}
+
+
+.caseName{
+    color: #565b56;
+    vertical-align: -webkit-baseline-middle;
+}
+.caseName:hover{
+    color: #565b56;
+}
+.msgIcon{width: 40%;}
+
+
+
+
+
+
+  

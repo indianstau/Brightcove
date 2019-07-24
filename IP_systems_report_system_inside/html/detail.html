@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/style_San.css">  
+</head>
+<body class="bg-lg">
+<div class="Nav">
+    <a href=""><img class="Nav-logo" src="../static/images/logoTr.png"></a>
+        <div class="Nav-menu" id="menu">
+            <img src="../static/images/menu.png" class="Nav-menuIcon">
+            <ul id="menu-dropdown" class="ul-dropdown-content dropdown-style">
+                <li class="dropdown-item"><a class="item-a" href="#">基本資料</a></li>
+                <li class="dropdown-item"><a class="item-a" href="#">問題單</a></li>
+                <li class="dropdown-item"><a class="item-a" href="#">知識庫</a></li>
+                <li class="dropdown-item"><a class="item-a" href="#">統計數據</a></li>
+                <li class="dropdown-item"><a class="item-a" href="#">高級權限與管理</a></li>
+                <li class="dropdown-item"><a class="item-a" href="#">Logout</a></li>
+            </ul>
+        </div>
+    <span class="user-name">San</span>
+</div> 
+<div class="u-cf"></div>
+
+
+<div class="BtnBar">
+    <a href="#" class="link-G">回列表</a> 
+<!--    <button onclick="showStat();">GetValue</button>-->
+    <div class="statArea">狀態:
+        <div class="statTitle hidden" id="statText">3</div> 
+        <select id="stat" class="statTitle selectStyle" disabled>
+            <option value="0"></option>
+            <option value="1">新案件</option>
+            <option value="2">已分派</option>
+            <option value="3">已確認</option>
+            <option value="4">處理中</option>
+            <option value="5">已回覆</option>
+            <option value="6">已解決</option>
+            <option value="7">已結案</option>
+            <option value="8">擱置</option>
+        </select>
+        <a href="#" class="Btn btn-p8 btn-red">修改</a>
+    </div>
+</div>
+
+
+<div align="center">   
+    <table class="table4">
+        <tr>
+            <td class="title">問題單編號</td>
+            <td class="content1">C001</td>
+            <td class="title">創建日期</td>
+            <td class="content1 width216">2018-03-14</td>
+            <td class="title">更新日期</td>
+            <td class="content1 width216">2018-03-16</td>
+        </tr>
+<!--
+        <tr>
+            <td class="title">裝置</td>
+            <td>phone</td>
+            <td class="title">手機廠牌</td>
+            <td>Sony</td>
+            <td class="title">手機版本</td>
+            <td>Android 6.0</td>
+            <td class="title">SDK版本</td>
+            <td>exoplayer 6.0.2</td>
+        </tr>
+-->
+        <tr>
+            <td class="title">裝置</td>
+            <td class="content1">com</td>
+            <td class="title">作業系統</td>
+            <td class="content1 width216">win7</td>
+            <td class="title">瀏覽器版本</td>
+            <td class="content1 width216">IE</td>
+        </tr>
+        <tr>
+            <td class="title">優先權</td>
+            <td class="content1">低</td>
+            <td class="title">嚴重性</td>
+            <td class="content1 width216">高</td>
+            <td class="title">出現頻率</td>
+            <td class="content1 width216">無法重現</td>
+        </tr>
+        <tr>
+            <td class="title">問題名稱</td>
+            <td colspan="3" class="content2">Android SDK 無法正常顯示它當了Android SDK 無法正常顯示它當了Android SDK 無法正常顯示它當了Android SDK 無法正常顯示它當了Android SDK 無法正常顯示它當了Android SDK 無法正常顯示它當了Android SDK 無法正常顯示它當了Android SDK 無法正常顯示它當了Android SDK 無法正常顯示它當了Android SDK 無法正常顯示它當了</td>
+            <td class="title">問題類別</td>
+            <td class="content1">Live</td>
+        </tr>
+        
+<!--
+        <tr>
+            <td class="title">故障網址</td>
+            <td colspan="3" class="content2">https://news.tvbs.com.tw/live/news4live/18?utm_source=TVBSportalutm_medium=portalbannerutm_campaign=55newslive</td>
+        </tr>
+-->
+        
+        <tr>
+           <td class="title">問題敘述</td>
+           <td colspan="5" class="content2">法國POLO衫品牌LACOSTE近日與動物保護組織“Save Our Species”（保護我們的物種）推出合作款限量POLO衫——UNISEX系列。該系列的特點是， LACOSTE將品牌經典的「綠色鱷魚」形象，改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。法國POLO衫品牌LACOSTE近日與動物保護組織“Save Our Species”（保護我們的物種）推出合作款限量POLO衫——UNISEX系列。該系列的特點是， LACOSTE將品牌經典的「綠色鱷魚」形象，改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。</td> 
+        </tr>
+        
+        <tr>
+            <td class="title">操作程序</td>
+            <td colspan="5" class="content2">改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。</td>
+        </tr>
+        
+        <tr>
+            <td class="title">備註</td>
+            <td colspan="5" class="content2">改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。</td>
+        </tr>
+        
+        <tr>
+            <td class="title">上傳檔案</td>
+            <td colspan="5" class="content2">
+                    <p id=URLpath>../今天的目標是.jpg</p>
+<!--                <p id="URLpath">{{detail.question_upload_url}}</p>-->
+                <a id="pRULsite"></a>
+                <img id="screenShot1">
+            </td>
+        </tr>
+    </table>
+         
+                
+<!--
+    <div id="saveDataBtnArea"><br/>  
+        <button id="saveDataBtn" class="Btn btn-p6 btn-red">存檔</button>
+        <button class="Btn btn-p6 btn-red">取消</button>
+        <div id="msg"></div>
+    </div>
+-->
+
+</div>
+
+<!-- 管理者　　回覆  -->
+<div class="table-m" align="center">
+    <table class="table4">
+        <tr>
+            <td class="title msgBackdg">回覆時間</td>
+            <td class="content1">2018-03-31</td>
+            <td class="title msgBackdg">回覆人員</td>
+            <td class="content1 width216">San</td>
+<!--
+            <td class="title msgBackdg">操作</td>
+            <td class="content1 width216">
+                <div class="" style="color: #099274d9;text-decoration: underline;cursor: pointer;">回覆</div>
+            </td>
+-->
+        </tr>
+        <tr>
+            <td class="title msgBackdg">回覆說明</td>
+            <td colspan="5" class="content2">改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。改成了十種瀕危動物的形象，比如蘇門答臘虎、東部黑冠長臂猿、爪哇犀牛等等。</td>
+        </tr>
+        <tr>
+            <td class="title msgBackdg">附檔</td>
+            <td colspan="5">
+           </td>
+        </tr> 
+    </table>
+</div>
+ 
+ 
+<!--客戶 回覆    -->
+<div class="table-m" align="center">
+    <table class="table4">
+        <tr>
+<!--
+            <td class="title">回報時間</td>
+            <td class="content1">2018-04-11</td>
+            <td class="title">回報人員</td>
+            <td class="content1 width216"><input type="text" class="inputTextStyle bg-c-W"></td>
+-->
+            <td class="title">操作</td>
+            <td colspan="5" class="content1" align="right"><button class="Btn btn-p6 btn-red">發送</button></td>
+        </tr>
+        
+        <tr>
+            <td class="title">內容</td>
+            <td colspan="5" class="content2"><textarea cols="106" rows="10" class="textArea"></textarea></td> 
+        </tr>
+        
+        <tr>
+            <td class="title">附件</td>
+            <td colspan="5" class="content2">
+                <label for="file" class="Btn btn-p6 btn-Lblue">選擇檔案</label>
+                <input type="file" multiple="multiple" id="file" class="hidden visib">
+                <p id="pickFileName" class="inlineP"></p>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+
+    
+</script>
+ 
+  
+<script src="../static/js/function_San.js" type="application/javascript"></script>        
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!--{% load staticfiles %}-->
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+<meta charset="UTF-8">
+<title>Cus table</title>
+<!--
+   	<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+-->
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/style_San.css">
+    
+<!-- DataTimePick -->    
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+</head>
+<style>
+
+</style>
+<body class="bg-lg">
+
+<div class="Nav">
+    <img class="Nav-logo" src="../static/images/logoTr.png">
+        <div class="Nav-menu" id="menu">
+            <img src="../static/images/menu.png" class="Nav-menuIcon">
+            <ul id="menu-dropdown" class="ul-dropdown-content dropdown-style">
+                <li class="dropdown-item"><a class="item-a" href="/info/company/">公司資料</a></li>
+                <li class="dropdown-item"><a class="item-a" href="/info/user/">個人資料</a></li>
+                <li class="dropdown-item"><a class="item-a" href="/question/">問題單</a></li>
+                <li class="dropdown-item"><a class="item-a" href="#">知識庫</a></li>
+                <li class="dropdown-item"><a class="item-a" href="#">統計數據</a></li>
+                <li class="dropdown-item"><a class="item-a" href="#">高級權限與管理</a></li>
+                <li class="dropdown-item"><a class="item-a" href="/logout/">Logout</a></li>
+            </ul>
+        </div>
+    <span class="user-name">San</span>
+</div> 
+<div class="u-cf"></div>
+
+
+
+
+<div>
+<div class="tabs-m">
+   
+    <button id="pillsUnproces" class="fsr Btn btn-p12 selectOnG" onclick="tabsOpen('unProcess');">未處理</button>
+    <button id="pillsUnCheck" class="fsr Btn btn-p12" onclick="tabsOpen('unCheck');">待確認</button>
+    <button id="pillsProcess" class="fsr Btn btn-p12" onclick="tabsOpen('process');">進行中</button>
+    <button id="pillsSolve"  class="fsr Btn btn-p12" onclick="tabsOpen('solve');">已結案</button>
+    <button id="pillsShelve"  class="fsr Btn btn-p12" onclick="tabsOpen('shelve');">擱置</button>
+    
+    <div class="funcRight">
+        <a class="filter" id="filter" onclick="openWindown('filterArea');">搜尋條件</a>
+            <div class="filterArea"> 
+               <span class="cross" onclick="closeWindownCross(0);">X</span>
+                <div class="filterAreaDiv">日期
+                    <input type="text" id="datepicker" class="inputTextStyle curP" readonly>
+                </div>
+                <div class="filterAreaDiv">至
+                    <input type="text" id="datepicker1" class="inputTextStyle dt1" readonly>
+                </div>
+                <div class="filterAreaDiv">狀態
+                    <select class="selectStyle">
+                        <option value="0"></option>
+                        <option value="">未解決</option>
+                    </select>
+                </div>
+                <div align="right" class="filterAreafin">
+<!--                    <butto class="Btn btn-p6 btn-Lblue" onclick="filterClean();">清除</butto>-->
+                    <button onclick="closeWindown('filterArea');" class="Btn btn-p6 btn-red">搜尋</button>
+                </div>           
+            </div>
+        
+
+       
+            <input id="searchInput" type="search" class="inputSearch" onkeyup="inputCleanBtnShow();">
+            <input type="image" id="searchClear" value="" class="inputSearchBtnClear hidden" src="../../cusSys/pic/cross100.png" readonly onclick="filterClean();">
+            <input type="image" value="" class="inputSearchBtn" src="../../cusSys/pic/search100.png" readonly>
+
+        <a class="Btn btn-p8 btn-red">創建</a>
+    </div>
+</div>
+
+
+    <div id="unProcess" class="tabContent show">
+        <table align="center" class="table1">
+            <tr>
+                <th>
+                    <p>日期</p>
+                    <p>編號</p></th>
+                <th>問題名稱</th>
+                <th>狀態</th>
+            </tr>
+            <tr>
+                <td>
+                    <p>2018-01-31</p>
+                    <p>C001</p></td>
+                <td><a href="" class="caseName">Android 無法播放</a></td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td><p>2017-02-10</p>
+                    <p>C002</p></td>
+                <td><a href="" class="caseName">Live break can't connect to anakim is problem...Live break can't connect to anakim is problem</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><p>2017-05-20</p>
+                    <p>C003</p></td>
+                 <td><a href="" class="caseName">brightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcove</a></td>
+                 <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <p>2017-04-08</p>
+                    <p>C004</p></td>
+                <td><a href="" class="caseName">How using mid-roll ad with ima3 and cue point ?</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <p>2018-01-31</p>
+                    <p>C001</p></td>
+                <td><a href="" class="caseName">Android 無法播放</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <p>2017-04-08</p>
+                    <p>C004</p></td>
+                <td><a href="" class="caseName">How using mid-roll ad with ima3 and cue point ?</a></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div id="unCheck" class="tabContent">
+        <table align="center" class="table1">
+            <tr>
+                <th>
+                    <p>日期</p>
+                    <p>編號</p></th>
+                <th>問題名稱</th>
+                <th>狀態</th>
+            </tr>
+            <tr>
+                <td>
+                    <p>2018-01-31</p>
+                    <p>C001</p></td>
+                <td><a href="" class="caseName">Android 無法播放</a></td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td><p>2017-02-10</p>
+                    <p>C002</p></td>
+                <td><a href="" class="caseName">Live break can't connect to anakim is problem...Live break can't connect to anakim is problem</a></td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td><p>2017-05-20</p>
+                    <p>C003</p></td>
+                 <td><a href="" class="caseName">brightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcove</a></td>
+                 <td>2</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>2017-04-08</p>
+                    <p>C004</p></td>
+                <td><a href="" class="caseName">How using mid-roll ad with ima3 and cue point ?</a></td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>2018-01-31</p>
+                    <p>C001</p></td>
+                <td><a href="" class="caseName">Android 無法播放</a></td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>2017-04-08</p>
+                    <p>C004</p></td>
+                <td><a href="" class="caseName">How using mid-roll ad with ima3 and cue point ?</a></td>
+                <td>2</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="process" class="tabContent">
+        <table align="center" class="table1">
+            <tr>
+                <th>
+                    <p>日期</p>
+                    <p class="caseNumber">編號</p></th>
+                <th>問題名稱</th>
+                <th>狀態</th>
+            </tr>
+            <tr>
+                <td>
+                    <p>2018-01-31</p>
+                    <p class="caseNumber">C001</p></td>
+                <td><a href="" class="caseName">Android 無法播放</a></td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td><p>2017-02-10</p>
+                    <p class="caseNumber">C002</p></td>
+                <td><a href="" class="caseName">Live break can't connect to anakim is problem...Live break can't connect to anakim is problem</a></td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td><p>2017-05-20</p>
+                    <p class="caseNumber">C003</p></td>
+                 <td><a href="" class="caseName">brightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcove</a></td>
+                 <td>5</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>2017-04-08</p>
+                    <p class="caseNumber">C004</p></td>
+                <td><a href="" class="caseName">How using mid-roll ad with ima3 and cue point ?</a></td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>2018-01-31</p>
+                    <p class="caseNumber">C001</p></td>
+                <td><a href="" class="caseName">Android 無法播放</a></td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>2017-04-08</p>
+                    <p class="caseNumber">C004</p></td>
+                <td><a href="" class="caseName">How using mid-roll ad with ima3 and cue point ?</a></td>
+                <td>4</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="solve" class="tabContent">
+        <table align="center" class="table1">
+            <tr>
+                <th>
+                    <p>日期</p>
+                    <p class="caseNumber">編號</p></th>
+                <th align="center">問題名稱</th>
+                <th>狀態</th>
+            </tr>
+            <tr>
+                <td>
+                    <p>2018-01-31</p>
+                    <p class="caseNumber">C001</p></td>
+                <td><a href="" class="caseName">Android 無法播放</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><p>2017-02-10</p>
+                    <p class="caseNumber">C002</p></td>
+                <td><a href="" class="caseName">Live break can't connect to anakim is problem...Live break can't connect to anakim is problem</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><p>2017-05-20</p>
+                    <p class="caseNumber">C003</p></td>
+                 <td><a href="" class="caseName">brightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcove</a></td>
+                 <td>7</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>2017-04-08</p>
+                    <p class="caseNumber">C004</p></td>
+                <td><a href="" class="caseName">How using mid-roll ad with ima3 and cue point ?</a></td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>2018-01-31</p>
+                    <p class="caseNumber">C001</p></td>
+                <td><a href="" class="caseName">Android 無法播放</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <p>2017-04-08</p>
+                    <p class="caseNumber">C004</p></td>
+                <td><a href="" class="caseName">How using mid-roll ad with ima3 and cue point ?</a></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div id="shelve" class="tabContent">
+        <table align="center" class="table1">
+            <tr>
+                <th>
+                    <p>日期</p>
+                    <p>編號</p></th>
+                <th>問題名稱</th>
+                <th>狀態</th>
+            </tr>
+            <tr>
+                <td>
+                    <p>2018-01-31</p>
+                    <p>C001</p></td>
+                <td><a href="" class="caseName">Android 無法播放</a></td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td><p>2017-02-10</p>
+                    <p>C002</p></td>
+                <td><a href="" class="caseName">Live break can't connect to anakim is problem...Live break can't connect to anakim is problem</a></td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td><p>2017-05-20</p>
+                    <p>C003</p></td>
+                 <td><a href="" class="caseName">brightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcovebrightcove</a></td>
+                 <td>8</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>2017-04-08</p>
+                    <p>C004</p></td>
+                <td><a href="" class="caseName">How using mid-roll ad with ima3 and cue point ?</a></td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>2018-01-31</p>
+                    <p>C001</p></td>
+                <td><a href="" class="caseName">Android 無法播放</a></td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>
+                    <p>2017-04-08</p>
+                    <p>C004</p></td>
+                <td><a href="" class="caseName">How using mid-roll ad with ima3 and cue point ?</a></td>
+                <td>8</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+  
+
+<script>
+
+    
+//function openFilter(id){
+//    catchId = document.getElementById(id);
+//    catchId.onclick = function(){
+//        //下一個兄弟的 id
+//        sibling_id = catchId.nextElementSibling.id;
+//        filterArea = document.getElementById(sibling_id);
+//        filterArea.style.display = "block";
+//        
+//        // filter 關閉視窗X 
+//        cross = document.getElementById(filterArea.firstElementChild.id);
+//        cross.onclick = function(){
+//            filterArea.style.display = "none"; 
+//        }    
+//    }
+//} 
+//openFilter('filter');
+
+
+</script>
+ 
+
+<script src="../static/js/function_San.js" type="application/javascript"></script>   
+    
+</body>
+</html>
