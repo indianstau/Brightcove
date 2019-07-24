@@ -1,0 +1,115 @@
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>  
+    
+<a id="download">Download</a><br/><br/>
+<button onclick="getAn();">抓抓樂</button>
+
+<script>
+ 
+// (new Date("2017/04/01 00:00:00")).getTime()    12/01 12/31 01/01
+ 
+//var getAnURL = "https://analytics.api.brightcove.com/v1/data?accounts="+ id + "&dimensions=video&fields=video_view,video_impression&sort=video_view&limit=100&from=2017-04-01&to=2017-12-31&offset="+ offset;    
+    
+var parsedData, count, num = 0, log = [], offset;
+var getAnURL, getAnRequestBody;
+function getAn(){
+    console.log("\n\n");
+    console.log("***************** 進入 getAn function !!! *********");
+    
+    if(num == 0){
+        offset = 0 ;
+        console.log("Here is unm = 0" );
+    }else{
+        offset = offset + 100;
+        console.log("Here is offest = "+ offset);
+    }
+    
+    getAnURL = "https://analytics.api.brightcove.com/v1/data?accounts="+ account_id + "&dimensions=video&fields=video_view,video_impression,video_name&sort=video_view&limit=100&from=2017-04-01&to=2018-12-11&offset=" + offset;
+    console.log(getAnURL);
+    
+    makeRequest(getAnURL, function(Data){
+        parsedData = JSON.parse(Data);
+        console.log(parsedData);
+        if(num == 0){
+            count = parsedData.item_count;
+        }
+        count = count - 100;
+        log[num] = parsedData.items;
+        console.log("Count 數剩多少 進入下一個: "+ count);
+        num++;
+        
+        if(count >= 0){
+            console.log("第 "+ num + " 次");
+            console.log("剩下多少筆: "+ count);
+            getAn();
+        }else{
+            log[num] = parsedData.summary;
+            saveData(log, "analytics.json");
+            console.log("己存檔完畢");
+        }
+    });
+}
+
+// Call API 主體    
+var response;    
+var httpRequest = new XMLHttpRequest();
+function makeRequest(URL, callback){
+    var proxyURL = 'php file';
+    
+    var requestData = "url=" + encodeURIComponent(URL) + "&requestType=GET";
+    
+    httpRequest.onreadystatechange = function(){
+        try {
+            if(httpRequest.readyState === 4){
+                if(httpRequest.status >= 200 && httpRequest.status < 300){
+                    response = httpRequest.responseText;
+                    if(response === '{null}'){
+                        response = null;
+                    }
+                    callback(response);
+                }else {
+//                    alert("There was a problem with the request. Request returned " + httpRequest.status);
+                    console.log("\n" + now);
+                    console.log("There was a problem with the request. Request returned" 
+                               + httpRequest.status);
+                }
+            }
+        }catch (e){
+            console.log("\n" + now);
+            console.log('Caught Exception' + e);
+//            alert('Caught Exception' + e);
+        }
+    };
+    httpRequest.open("POST", proxyURL);
+    httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpRequest.send(requestData);
+}
+
+//顯示當前時間
+var now;    
+function nowTime(){
+    time = new Date();
+    now = time.getHours() + ':' + time.getMinutes()+ ':' + time.getSeconds();
+    setTimeout("nowTime()", 1000);
+}
+nowTime();
+    
+//存檔
+var aDownload, blob;
+function saveData(file_log, file_name){
+    aDownload = document.getElementById("download");
+    blob = new Blob([JSON.stringify(file_log, null, "\t")], {type:'application/json'});
+    aDownload.href = URL.createObjectURL(blob);
+    aDownload.download = file_name;
+    aDownload.click();
+    window.URL.revokeObjectURL(URL.createObjectURL(blob));
+}
+  
+    
+</script> 
+</body>
+</html>
