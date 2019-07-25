@@ -13,6 +13,7 @@ ErrorMsg   (ErrorMsg & ErrorOverlay)
 Adways  
 MovieBook  
 ShoppAble   
+WholePage/shoppable  
    
 ##### customize #####
 
