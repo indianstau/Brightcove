@@ -1,3 +1,4 @@
+    /*For black video, live not stand by, change the control bar style*/
     .video-js .vjs-big-play-button{
         display: none !important;    
     }
