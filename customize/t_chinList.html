@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>Trim chinese list</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.0/xlsx.core.min.js"></script>
+</head>
+<body>
+
+    <input type="file" id="excFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+    <a id="download">Download</a><br/><br/>
+    
+<script>
+// 1.處理重複　　重複的名單　　過濾掉   47714  650    V    
+//                                                  ==>>> trim 去前後空的 在過一次  
+//                                                  ==>>> 有一個重複的
+// 2.處理中文　　中文的名單　　過濾掉   45618  2096   V
+// 3.處理中間空白　　中間空白的名單　　過濾掉   45600 17  V
+
+// 4. X重X中X空  下去調ref_id  就知道有沒有重複  
+// 5. X重   下去對video_id 就知道  有沒有少
+// 6.  ?
+
+var i;    
+var excFile = document.getElementById('excFile');
+excFile.addEventListener('change', function(e){
+    var excFiles = e.target.files[0];
+    readWorkbookFromLocalFile(excFiles, function(workbook) {
+        readWorkbook(workbook);
+    });
+});
+    
+function readWorkbookFromLocalFile(excFile, callback) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        var data = e.target.result;
+        var workbook = XLSX.read(data, {type: 'binary'});
+        if(callback) callback(workbook);
+    };
+    reader.readAsBinaryString(excFile);
+}
+
+var worksheet, Json, d_arr = [] ;
+function readWorkbook(workbook) {
+    var sheetNames = workbook.SheetNames; 
+    worksheet = workbook.Sheets[sheetNames[0]]; 
+    Json = XLSX.utils.sheet_to_json(worksheet);
+    console.log(Json);
+    //filter(newA, reg_c, chinese);
+    //filter(newS, reg_nL, spaceList);
+    
+//要先處理成array
+//    for(var i = 0; i < Json.length; i++){
+//        d_arr.push(Json[i].title.trim());
+//    }
+    //console.log(d_arr);
+//    newArray();
+//    req();
+} 
+       
+//數字大小寫英文 空白 +多個    新名單new_s  與過濾出來的空白名單spaceList
+var reg_nL = /[0-9a-zA-Z]+ [0-9a-zA-Z]+/;
+var newS, spaceList = [];
+//function no_s(){
+//    new_s = Json;
+//    for(i = 0; i < Json.length; i++){
+//        if(reg_nL.test(Json[i].title)){
+//            spaceList.push(Json[i].title);
+//            new_s.splice(i, 1);
+//            i--;
+//        }
+//    }
+//}
+    
+//過濾中文    
+//中文的表達式   新名單new_a  與過濾出來的中文名單chinese
+var reg_c = /[\u4e00-\u9fa5]/;
+var chinese = [], newA;
+//function no_c(){
+//    new_a = Json;
+//    for(i = 0; i < Json.length; i++){
+//        if(reg_c.test(Json[i].title)){
+            //一樣的推進去chinese  存中文名單
+//            chinese.push(Json[i].title);
+            //修剪有中文的去掉  但位置會少一個  會變動
+//            new_a.splice(i, 1);
+//            i--;
+            //為什麼 new_a 刪了  Json 也會刪除 ?  **************
+//        }
+//    }
+    //console.log(chinese);
+    //console.log(new_a);
+//}
+    
+//相同的整理成一個  代參數    
+function filter(newList, reg, filterEl){
+    newList = Json;
+    for(i = 0; i < Json.length; i++){
+        console.log("\ni = " + i);
+        console.log("Json[" + i + "].title: " + Json[i].title);
+        if(reg.test(Json[i].title)){
+            console.log(reg.test(Json[i].title));
+            filterEl.push(Json[i].title);
+            newList.splice(i, 1);
+            i--;
+        }
+    }
+}      
+    
+//不重複名單    
+var rlt;
+function newArray(){    
+    rlt = d_arr.filter(function(el, index, arr){
+        return arr.indexOf(el) === index;
+    });
+    console.log(rlt);
+}
+
+//重複名單    
+var rat;
+function req(){
+    rat = d_arr.filter(function(el, index, arr){
+        return arr.indexOf(el) !== index; 
+    });
+    console.log(rat);
+}    
+
+    
+function saveData(file_log, file_name){
+    var aDownload = document.getElementById("download");
+    var blob = new Blob([JSON.stringify(file_log, null, "\t")], {type:'application/json'});
+    aDownload.href = URL.createObjectURL(blob);
+    aDownload.download = file_name;
+}
+    
+/***  ref: 
+https://guahsu.io/2017/06/JavaScript-Duplicates-Array/
+
+
+***/   
+</script>
+</body>
+</html>
