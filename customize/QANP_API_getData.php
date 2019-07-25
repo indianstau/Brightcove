@@ -7,7 +7,7 @@ $curl = curl_init();
 //$data = array();
 curl_setopt_array($curl, array(
     CURLOPT_PORT => "8080",
-    CURLOPT_URL => "http://61.220.204.182:8080/share.cgi?ssid=0Ima1tf&func=get_list&sort=filename&dir=ASC",
+    CURLOPT_URL => "",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_CUSTOMREQUEST => "GET",
     CURLOPT_SSL_VERIFYPEER => FALSE,
